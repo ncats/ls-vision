@@ -23,4 +23,4 @@ RUN NODE_OPTIONS=--max_old_space_size=4096 lsc build site --buildVersion=$BUILD_
     
 FROM labshare/docker-base-web
 
-COPY --from=build /var/www/app/dist/catalog-ui /var/www/app
+COPY --from=build /var/www/app/dist/ls-vision /var/www/app
