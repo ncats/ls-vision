@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14"
+    "@angular/core": "^8.2.14",
+    "vega": "^5.13.0",
+    "vega-embed": "^6.10.0",
+    "vega-lite": "^4.13.1"
   }
 }

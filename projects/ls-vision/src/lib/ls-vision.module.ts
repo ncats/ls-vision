@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { LsVisionComponent } from './ls-vision.component';
-
-
+import { VChartDirective } from './directives/v-chart/v-chart.directive';
 
 @NgModule({
-  declarations: [LsVisionComponent],
-  imports: [
-  ],
-  exports: [LsVisionComponent]
+    declarations: [VChartDirective],
+    imports: [],
+    exports: [VChartDirective],
 })
-export class LsVisionModule { }
+export class LsVisionModule {}
