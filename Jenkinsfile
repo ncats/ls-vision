@@ -13,9 +13,9 @@ pipeline {
         pollSCM('H/5 * * * *')
     }
     environment {
-        PROJECT_NAME = "catalog-ui"
+        PROJECT_NAME = "ls-vision"
         TYPE = "web"
-        DOCKER_REPO_NAME = "684150170045.dkr.ecr.us-east-1.amazonaws.com/catalog-ui"
+        DOCKER_REPO_NAME = "684150170045.dkr.ecr.us-east-1.amazonaws.com/ls-vision"
     }
     stages {
         stage('Clean') {
@@ -45,7 +45,7 @@ pipeline {
                     sshagent (credentials: ['917d2cc8-84fe-4faf-89e5-25ea6649be83']) {
                         nodejs(configId: 'kw-npmrc', nodeJSInstallationName: 'Default Node.js') {
                             withEnv([
-                                "IMAGE_NAME=catalog-ui",
+                                "IMAGE_NAME=ls-vision",
                                 "BUILD_VERSION=" + (params.BUILD_VERSION ?: env.VERSION)
                             ]) {
                                 cleanWs()
@@ -72,11 +72,6 @@ pipeline {
                 label 'catalog-ui'
             }
             steps {
-                configFileProvider([
-                    configFile(fileId: 'catalog-ui-docker-compose-ci.yml', targetLocation: 'docker-compose.yml'),
-                    configFile(fileId: 'catalog-ui-ci-docker-config', targetLocation: 'app.conf'),
-                    configFile(fileId: 'catalog-ui-ci-docker-config', targetLocation: 'app.conf1')
-                ]) {
                     withAWS(credentials:'aws-jenkins-build') {
                         sh '''
                         export DOCKER_LOGIN="`aws ecr get-login --no-include-email --region us-east-1`"
@@ -85,7 +80,7 @@ pipeline {
                         '''
                         ecrLogin()
                         withEnv([
-                            "IMAGE_NAME=catalog-ui",
+                            "IMAGE_NAME=ls-vision",
                             "BUILD_VERSION=" + (params.BUILD_VERSION ?: env.VERSION)
                         ]) {
                             script {
@@ -94,7 +89,6 @@ pipeline {
                             }
                         }
                     }
-                }
             }
         }
     }
