@@ -1,0 +1,10 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "mark": {"type": "arc"},
+    "encoding": {
+      "theta": {"type": "quantitative"},
+      "color": {"type": "nominal"}
+    },
+    "view": {"stroke": null}
+  }
+  

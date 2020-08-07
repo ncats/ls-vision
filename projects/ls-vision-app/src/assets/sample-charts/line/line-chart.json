@@ -1,0 +1,6 @@
+{
+    "description": "Google's stock price over time.",
+      "x": {"field": "date"},
+      "y": {"field": "price"}
+  }
+  

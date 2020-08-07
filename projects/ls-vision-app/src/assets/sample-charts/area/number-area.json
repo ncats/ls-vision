@@ -1,0 +1,9 @@
+{
+    "x": {
+      "field": "count", "type": "quantitative", "title": "test for numbers"
+    },
+    "y": {
+      "field": "count",
+      "title": "total count"
+    }
+}

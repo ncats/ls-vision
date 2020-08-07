@@ -1,0 +1,17 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "mark": { "type": "bar"},
+    "encoding": {
+      "x": {
+        "timeUnit": "month",
+        "type": "temporal"
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative"
+      },
+      "color": {
+        "type": "nominal"
+      }
+    }
+}
