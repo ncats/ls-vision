@@ -1,6 +1,5 @@
 pipeline {
     options {
-        skipDefaultCheckout()
         timestamps()
     }
     parameters {
@@ -68,25 +67,15 @@ pipeline {
             }
         }
         stage('Deploy - CI') {
-            agent {
-                label 'catalog-ui'
-            }
             steps {
-                    withAWS(credentials:'aws-jenkins-build') {
-                        sh '''
-                        export DOCKER_LOGIN="`aws ecr get-login --no-include-email --region us-east-1`"
-                        $DOCKER_LOGIN
-                        '''
-                        ecrLogin()
-                        script {
-				docker-compose -p $PROJECT_NAME down -v --rmi all | xargs echo
-        			docker pull $DOCKER_REPO_NAME:$BUILD_VERSION
-        			docker rmi $DOCKER_REPO_NAME:current | xargs echo
-       				docker tag $DOCKER_REPO_NAME:$BUILD_VERSION $DOCKER_REPO_NAME:current
-        			docker-compose -p $PROJECT_NAME up -d
-        			docker start nginx-gen | xargs echo
-        			docker rmi \$(docker images -aq) | xargs echo
-                          }
+        withAWS(credentials:'aws-jenkins-eks') {
+           sh "sed -i 's/BUILD_VERSION/${BUILD_VERSION}/g' k8s-deploy.yaml" 
+           sh '''
+           aws --region us-east-1 eks update-kubeconfig --name kube-eks-ci
+           kubectl apply -f k8s-deploy.yaml
+           kubectl apply -f k8s-service.yaml
+           kubectl apply -f k8s-ingress.yaml
+           '''
                     }
             }
         }
