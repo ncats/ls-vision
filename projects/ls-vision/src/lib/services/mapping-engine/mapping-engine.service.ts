@@ -3,12 +3,26 @@ import * as _ from 'lodash';
 import * as Charts from '../../constants/chart-config/lookups';
 import { Coordinate, Def, XClass, Type, TimeUnit } from '../../models/vega-lite';
 import { VConfig, VAxis } from '../../models/ls-vision';
+import * as FontSizes from '../../constants/chart-defaults';
 @Injectable({
     providedIn: 'root',
 })
 export class MappingEngineService {
     public vegaOverwritesLS = false;
-    constructor() {}
+    public titleSize: number;
+    public axisTitleSize: number;
+    public tickTitleSize: number;
+    public legendTitleSize: number;
+    public lengendItemTitleSize: number;
+    public circularLabelSize: number;
+    constructor() {
+      this.titleSize = FontSizes.titleSize;
+      this.axisTitleSize = FontSizes.axisTitleSize;
+      this.tickTitleSize = FontSizes.tickTitleSize;
+      this.legendTitleSize = FontSizes.legendTitleSize;
+      this.lengendItemTitleSize = FontSizes.lengendItemTitleSize;
+      this.circularLabelSize = FontSizes.circularLabelSize;
+    }
 
     public getVisionConfig(config: Coordinate): VConfig {
         const visionConfig: VConfig = {
@@ -85,7 +99,8 @@ export class MappingEngineService {
                 };
             }
             let field = vconfig.color.field;
-            let legend = vconfig.color.legend ? { title: vconfig.color.legend } : undefined;
+            let legend = vconfig.color.legend === null ? null :
+            vconfig.color.legend ? { title: vconfig.color.legend } : undefined;
             if (scale || field || legend) {
                 const tempConfig = {
                     encoding: {
@@ -116,8 +131,8 @@ export class MappingEngineService {
                 mappingAxis.bin = { maxbins: lsAxis.bins };
             }
         }
-        if (lsAxis.titleFormat) {
-            mappingAxis.axis = { format: lsAxis.titleFormat };
+        if (lsAxis.titleFormat || lsAxis.grid !== undefined) {
+            mappingAxis.axis = { format: lsAxis.titleFormat, grid: lsAxis.grid /*, titleFontSize: 20 */ };
         }
         mappingAxis.title = lsAxis.title;
         _.merge(vAxis, mappingAxis);

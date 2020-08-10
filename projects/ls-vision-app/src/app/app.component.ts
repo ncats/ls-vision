@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
     heatmap = SampleCharts.heatmap;
     stream = SampleCharts.stream;
     stacked = SampleCharts.stacked;
+    box = SampleCharts.box;
+    bubble = SampleCharts.bubble;
 
     barData;
     stackedData;
@@ -37,7 +39,6 @@ export class AppComponent implements OnInit {
     multiseriesData;
     scatterData;
     histogramData;
-    visionLineData;
 
     constructor(private http: HttpClient) {}
 

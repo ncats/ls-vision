@@ -1,5 +1,4 @@
 <h1>Vision Charts</h1>
-<div visionChart></div>
 
 <div visionChart [lsConfig]="stacked" [data]="stackedData" [chartType]="'stackedBar'"></div>
 <div visionChart [lsConfig]="bar" [data]="barData" [chartType]="'simpleBar'"></div>
@@ -18,4 +17,7 @@
 <div visionChart [lsConfig]="histogram" [data]="histogramData" [chartType]="'histogram'"></div>
 <div visionChart [lsConfig]="heatmap" [data]="histogramData" [chartType]="'heatmap'"></div>
 <div visionChart [lsConfig]="stream" [data]="areaData" [chartType]="'stream'"></div>
+<div visionChart [lsConfig]="box" [data]="groupedData" [chartType]="'box'"></div>
+<div visionChart [lsConfig]="bubble" [data]="scatterData" [chartType]="'bubble'"></div>
+
 
