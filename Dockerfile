@@ -15,7 +15,7 @@ RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh && \
     npm config set unsafe-perm true && \
     echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && \
-    npm i -g @labshare/lsc && \
+    npm install -g @angular/cli && \
     npm i --quiet --cache=./npm-cache
 
 RUN ng build && \
