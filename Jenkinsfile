@@ -75,19 +75,18 @@ pipeline {
                     withAWS(credentials:'aws-jenkins-build') {
                         sh '''
                         export DOCKER_LOGIN="`aws ecr get-login --no-include-email --region us-east-1`"
-                        export NODE_ENV='STAGING'
                         $DOCKER_LOGIN
                         '''
                         ecrLogin()
-                        withEnv([
-                            "IMAGE_NAME=ls-vision",
-                            "BUILD_VERSION=" + (params.BUILD_VERSION ?: env.VERSION)
-                        ]) {
-                            script {
-                                def docker = new org.labshare.Docker()
-                                docker.deployDockerUI()
-                            }
-                        }
+                        script {
+				docker-compose -p $PROJECT_NAME down -v --rmi all | xargs echo
+        			docker pull $DOCKER_REPO_NAME:$BUILD_VERSION
+        			docker rmi $DOCKER_REPO_NAME:current | xargs echo
+       				docker tag $DOCKER_REPO_NAME:$BUILD_VERSION $DOCKER_REPO_NAME:current
+        			docker-compose -p $PROJECT_NAME up -d
+        			docker start nginx-gen | xargs echo
+        			docker rmi \$(docker images -aq) | xargs echo
+                          }
                     }
             }
         }
