@@ -1,6 +1,6 @@
 export const titleSize = 15;
-export const axisTitleSize = 15;
-export const tickTitleSize = 14;
+export const axisTitleSize = 11;
+export const tickTitleSize = 10;
 export const legendTitleSize = 15;
-export const lengendItemTitleSize = 10;
-export const circularLabelSize = 10;
+export const lengendItemTitleSize = 12;
+export const circularLabelSize = 12;

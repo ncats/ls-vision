@@ -13,6 +13,7 @@ export interface VConfig {
     width?: number;
     title?: string;
     description?: string;
+    textSizeMult?: number;
 }
 
 export interface VAxis  {
@@ -32,7 +33,7 @@ export interface VAxis  {
     // Title of the axis
     title?: string;
 
-    // Formats the title (useful for time)
+    // Formats the title (useful for time),`datum.value` or %Y
     titleFormat?: string;
 
     // If you want to change the type
