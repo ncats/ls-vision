@@ -91,15 +91,15 @@ export class MappingEngineService {
     }
     public mapColor(config: Coordinate, vconfig: VConfig) {
         if (vconfig.color) {
-            let scale = undefined;
+            let scale;
             if (vconfig.color.domain || vconfig.color.range) {
                 scale = {
                     domain: vconfig.color.domain,
                     range: vconfig.color.range,
                 };
             }
-            let field = vconfig.color.field;
-            let legend = vconfig.color.legend === null ? null : vconfig.color.legend ? { title: vconfig.color.legend } : undefined;
+            const field = vconfig.color.field;
+            const legend = vconfig.color.legend === null ? null : vconfig.color.legend ? { title: vconfig.color.legend } : undefined;
             if (scale || field || legend) {
                 const tempConfig = {
                     encoding: {

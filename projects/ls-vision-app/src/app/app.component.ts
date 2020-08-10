@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as SampleCharts from '../assets/sample-charts';
+import * as SampleCharts from 'projects/ls-vision/src/lib/constants/sample-charts';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
