@@ -18,9 +18,9 @@ RUN apk update && apk upgrade && \
     npm i -g @labshare/lsc && \
     npm i --quiet --cache=./npm-cache
 
-RUN NODE_OPTIONS=--max_old_space_size=4096 lsc build site --buildVersion=$BUILD_VERSION && \
+RUN ng build && \
     rm -f .npmrc
     
 FROM labshare/docker-base-web
 
-COPY --from=build /var/www/app/dist/ls-vision /var/www/app
+COPY --from=build /var/www/app/dist/ls-vision-app /var/www/app
