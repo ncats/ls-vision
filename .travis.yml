@@ -4,7 +4,7 @@ node_js:
   - node
 sudo: required
 addons:
-  chrome: beta
+  chrome: stable
 before_install:
   - |-
     if [ $TRAVIS_PULL_REQUEST == false ] && [ $TRAVIS_BRANCH == "master" ];
@@ -17,11 +17,10 @@ before_install:
 install:
   - npm i -g lsc codecov
   - npm install
+  - ng build
 script:
-  - npm run build
-  - npm run lint
-  - npm run prettier:check
-  - xvfb-run npm run coverage --random=false
+  - ng lint
+  - xvfb-run npm run coverage
   - codecov
 cache:
   directories:
@@ -31,3 +30,15 @@ notifications:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+jobs:
+  include:
+    - stage: release
+      if: branch = master
+      node_js: lts/*
+      script:
+        - npm run build:prod
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npm run semantic-release

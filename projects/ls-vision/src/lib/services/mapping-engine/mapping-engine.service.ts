@@ -90,7 +90,7 @@ export class MappingEngineService {
         config.description = vconfig.description;
     }
     public mapColor(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.color) {
+        if (vconfig?.color && config) {
             let scale;
             if (vconfig.color.domain || vconfig.color.range) {
                 scale = {
