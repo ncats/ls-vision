@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import * as SampleCharts from '../../constants/sample-charts';
-
 import { MappingEngineService } from './mapping-engine.service';
-import { Coordinate, BinParams } from '../../models/vega-lite';
+import { Coordinate, BinParams, OverlayMarkDef } from '../../models/vega-lite';
 import { VConfig, VAxis } from '../../models/ls-vision';
+import { Def, XClass, Type, TitleParams } from '../../models/vega-lite';
+import * as SampleCharts from '../../constants/sample-charts';
+import * as FontSizes from '../../constants/chart-defaults';
 import * as Charts from '../../constants/chart-config/lookups';
 import * as _ from 'lodash';
-import { Def, XClass, Type, TimeUnit, TitleParams, Axis, Legend } from '../../models/vega-lite';
-import * as FontSizes from '../../constants/chart-defaults';
+
 let stackedBar: VConfig;
 let pie: VConfig;
 let samplePieLabels: VConfig;
@@ -218,19 +218,6 @@ describe('MappingEngineService', () => {
             expect(config.axis.format).toBeUndefined();
         });
 
-        // it('should map properties', () => {
-        //     const mappingAxis: XClass = {};
-        //     const lsAxis: VAxis = { field: 'test', bins: true };
-        //     const config = service.mapAxis(null, {});
-        //     expect(config).toBeUndefined();
-        // });
-
-        // it('should map properties', () => {
-        //     const mappingAxis: XClass = {};
-        //     const lsAxis: VAxis = { field: 'test', bins: 100 };
-        //     const config = service.mapAxis(null, {});
-        //     expect(config).toBeUndefined();
-        // });
     });
 
     describe('setTextSize', () => {
@@ -343,6 +330,73 @@ describe('MappingEngineService', () => {
             const textLayer = vegaConfig.layer.find(x => (x.mark as Def)?.type === 'text');
             expect(textLayer.mark).not.toBeUndefined();
             expect((textLayer.mark as Def).fontSize).toEqual(FontSizes.circularLabelSize);
+        });
+    });
+
+    describe('mapShape', () => {
+        it('should map field', () => {
+            const lsConfig: VConfig = { shape: { field: 'test' } };
+            const vegaConfig: Coordinate = {};
+            service.mapShape(vegaConfig, lsConfig);
+            expect(vegaConfig.encoding.shape.field).toEqual('test');
+        });
+    });
+
+    describe('mapColumn', () => {
+        it('should map field', () => {
+            const lsConfig: VConfig = { column: { field: 'test' } };
+            const vegaConfig: Coordinate = {};
+            service.mapColumn(vegaConfig, lsConfig);
+            expect(vegaConfig.encoding.column.field).toEqual('test');
+        });
+    });
+
+    describe('mapPoint', () => {
+        it('should map field', () => {
+            const lsConfig: VConfig = { point: { fill: 'test', filled: true } };
+            const vegaConfig: Coordinate = {};
+            service.mapPoint(vegaConfig, lsConfig);
+            expect(((vegaConfig.mark as Def).point as OverlayMarkDef).fill).toEqual('test');
+            expect(((vegaConfig.mark as Def).point as OverlayMarkDef).filled).toEqual(true);
+        });
+    });
+
+    describe('mapCircularPlots', () => {
+        it('should map field', () => {
+            const lsConfig: VConfig = { circular: { innerRadius: 2, outerRadius: 3, theta: 'field1' } };
+            const vegaConfig: Coordinate = {};
+            service.mapCircularPlots(vegaConfig, lsConfig);
+            expect((vegaConfig.mark as Def).innerRadius).toEqual(2);
+            expect((vegaConfig.mark as Def).outerRadius).toEqual(3);
+            expect(vegaConfig.encoding.theta.field).toEqual('field1');
+        });
+    });
+
+    describe('mapFill', () => {
+        it('should map field', () => {
+            const lsConfig: VConfig = { fill: 'red' };
+            const vegaConfig: Coordinate = {};
+            service.mapFill(vegaConfig, lsConfig);
+            expect((vegaConfig.mark as Def).fill).toEqual('red');
+        });
+    });
+
+    describe('mapAxes', () => {
+        it('should map field', () => {
+            const lsAxis: VAxis = { field: 'test' };
+            const lsConfig: VConfig = { x: lsAxis, y: lsAxis };
+            const vegaConfig: Coordinate = {};
+            service.mapAxes(vegaConfig, lsConfig);
+            expect(vegaConfig.encoding.x.field).toEqual('test');
+            expect(vegaConfig.encoding.y.field).toEqual('test');
+        });
+    });
+
+    describe('mapLStoVegaConfig', () => {
+        it('should map field', () => {
+            const lsConfig: VConfig = SampleCharts.bar;
+            const vegaConfig = service.mapLStoVegaConfig(lsConfig);
+            expect(vegaConfig).not.toBeUndefined();
         });
     });
 });

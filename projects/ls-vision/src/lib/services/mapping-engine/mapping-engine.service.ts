@@ -78,7 +78,7 @@ export class MappingEngineService {
                 if (vconfig.circular.text) {
                     textLayer.encoding.text.field = vconfig.circular.text;
                 } else if (vconfig.color) {
-                  console.log(vconfig);
+                    console.log(vconfig);
                     textLayer.encoding.text.field = vconfig.color.field;
                 }
             }
@@ -237,18 +237,18 @@ export class MappingEngineService {
 
             if (config.encoding?.color) {
                 if (config.encoding.color.legend !== null) {
-                const legend: Legend = {
-                    titleFontSize: this.legendTitleSize * vconfig.textSizeMult,
-                    labelFontSize: this.lengendItemTitleSize * vconfig.textSizeMult,
-                };
-                config.encoding.color.legend = config.encoding.color.legend ? config.encoding.color.legend: {};
-                _.merge(config.encoding.color.legend, legend);
-              }
+                    const legend: Legend = {
+                        titleFontSize: this.legendTitleSize * vconfig.textSizeMult,
+                        labelFontSize: this.lengendItemTitleSize * vconfig.textSizeMult,
+                    };
+                    config.encoding.color.legend = config.encoding.color.legend ? config.encoding.color.legend : {};
+                    _.merge(config.encoding.color.legend, legend);
+                }
             }
             if (config.layer) {
                 const textLayer = config.layer.find(x => (x.mark as Def)?.type === 'text');
                 if (textLayer?.encoding?.text) {
-                    const mark = { fontSize: this.circularLabelSize * vconfig.textSizeMult}
+                    const mark = { fontSize: this.circularLabelSize * vconfig.textSizeMult };
                     _.merge(textLayer.mark, mark);
                 }
             }
