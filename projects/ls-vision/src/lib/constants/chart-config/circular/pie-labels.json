@@ -2,15 +2,15 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "description": "A simple pie chart with labels.",
     "encoding": {
-      "theta": {"field": "value", "type": "quantitative", "stack": true},
-      "color": {"field": "category", "type": "nominal", "legend": null}
+      "theta": {"type": "quantitative", "stack": true},
+      "color": {"type": "nominal", "legend": null}
     },
     "layer": [{
       "mark": {"type": "arc", "outerRadius": 80}
     }, {
       "mark": {"type": "text", "radius": 90},
       "encoding": {
-        "text": {"field": "category", "type": "nominal"}
+        "text": { "type": "nominal"}
       }
     }],
     "view": {"stroke": null}

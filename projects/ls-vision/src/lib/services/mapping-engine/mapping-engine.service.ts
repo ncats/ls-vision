@@ -77,7 +77,8 @@ export class MappingEngineService {
                 (textLayer.mark as Def).radius = vconfig.circular.textRadius;
                 if (vconfig.circular.text) {
                     textLayer.encoding.text.field = vconfig.circular.text;
-                } else {
+                } else if (vconfig.color) {
+                  console.log(vconfig);
                     textLayer.encoding.text.field = vconfig.color.field;
                 }
             }
@@ -227,7 +228,7 @@ export class MappingEngineService {
                 titleFontSize: this.axisTitleSize * vconfig.textSizeMult,
                 labelFontSize: this.tickTitleSize * vconfig.textSizeMult,
             };
-            if (config.encoding.x && config.encoding.y) {
+            if (config.encoding?.x && config.encoding.y) {
                 config.encoding.x.axis = !config.encoding.x.axis ? {} : config.encoding.x.axis;
                 config.encoding.y.axis = !config.encoding.y.axis ? {} : config.encoding.y.axis;
                 _.merge(config.encoding.x.axis, xAxis);

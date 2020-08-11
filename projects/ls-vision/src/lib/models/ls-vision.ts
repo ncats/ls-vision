@@ -3,16 +3,26 @@ export interface VConfig {
     y?: VAxis;
     color?: VColor;
     fill?: string;
+
+    // For line chart points
     point?: Point;
+
+    // For scatterplot point shapes
     shape?: Field;
+
+    // For grouped columns
     column?: Field;
     size?: Field;
+
+    // For circular plots
     circular?: CircularPlots;
 
     height?: number;
     width?: number;
     title?: string;
     description?: string;
+
+    // Multiplier for text size
     textSizeMult?: number;
 }
 
@@ -22,7 +32,7 @@ export interface VAxis  {
     field: string;
 
     // Number of bins, if not provided, skip binning
-    bins?: number; 
+    bins?: number | boolean; 
 
     // If false hide the grid marks on the chart
     grid?: boolean;
@@ -43,7 +53,11 @@ export interface VAxis  {
 
 export interface VColor {
     field: string;
+
+    // Ordered list of colors to map
     range?: string[];
+
+    // Ordered list of values to map to colors
     domain?: string[];
 
     // Title for the legend, if value is null, don't show legend
