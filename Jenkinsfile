@@ -1,6 +1,5 @@
 pipeline {
     options {
-        skipDefaultCheckout()
         timestamps()
     }
     parameters {
@@ -68,26 +67,15 @@ pipeline {
             }
         }
         stage('Deploy - CI') {
-            agent {
-                label 'catalog-ui'
-            }
             steps {
-                    withAWS(credentials:'aws-jenkins-build') {
-                        sh '''
-                        export DOCKER_LOGIN="`aws ecr get-login --no-include-email --region us-east-1`"
-                        export NODE_ENV='STAGING'
-                        $DOCKER_LOGIN
-                        '''
-                        ecrLogin()
-                        withEnv([
-                            "IMAGE_NAME=ls-vision",
-                            "BUILD_VERSION=" + (params.BUILD_VERSION ?: env.VERSION)
-                        ]) {
-                            script {
-                                def docker = new org.labshare.Docker()
-                                docker.deployDockerUI()
-                            }
-                        }
+        withAWS(credentials:'aws-jenkins-eks') {
+           sh "sed -i 's/BUILD_VERSION/${BUILD_VERSION}/g' k8s-deploy.yaml" 
+           sh '''
+           aws --region us-east-1 eks update-kubeconfig --name kube-eks-ci
+           kubectl apply -f k8s-deploy.yaml
+           kubectl apply -f k8s-service.yaml
+           kubectl apply -f k8s-ingress.yaml
+           '''
                     }
             }
         }
