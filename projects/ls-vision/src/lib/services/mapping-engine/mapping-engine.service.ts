@@ -1,33 +1,47 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import * as Charts from '../../constants/chart-config/lookups';
-import { Coordinate, Def, XClass, Type, TimeUnit } from '../../models/vega-lite';
+import { Coordinate, Def, XClass, Type, TimeUnit, TitleParams, Axis, Legend } from '../../models/vega-lite';
 import { VConfig, VAxis } from '../../models/ls-vision';
+import * as FontSizes from '../../constants/chart-defaults';
 @Injectable({
     providedIn: 'root',
 })
 export class MappingEngineService {
     public vegaOverwritesLS = false;
-    constructor() {}
-
-    public getVisionConfig(config: Coordinate): VConfig {
-        const visionConfig: VConfig = {
-            x: null,
-            y: null,
-            circular: null,
-            color: null,
-            point: null,
-            fill: null,
-            shape: null,
-        };
-        for (const attr in visionConfig) {
-            if (config[attr] !== undefined) {
-                visionConfig[attr] = config[attr];
-                config[attr] = undefined;
-            }
-        }
-        return visionConfig;
+    public titleSize: number;
+    public axisTitleSize: number;
+    public tickTitleSize: number;
+    public legendTitleSize: number;
+    public lengendItemTitleSize: number;
+    public circularLabelSize: number;
+    constructor() {
+        this.titleSize = FontSizes.titleSize;
+        this.axisTitleSize = FontSizes.axisTitleSize;
+        this.tickTitleSize = FontSizes.tickTitleSize;
+        this.legendTitleSize = FontSizes.legendTitleSize;
+        this.lengendItemTitleSize = FontSizes.lengendItemTitleSize;
+        this.circularLabelSize = FontSizes.circularLabelSize;
     }
+
+    // public getVisionConfig(config: Coordinate): VConfig {
+    //     const visionConfig: VConfig = {
+    //         x: null,
+    //         y: null,
+    //         circular: null,
+    //         color: null,
+    //         point: null,
+    //         fill: null,
+    //         shape: null,
+    //     };
+    //     for (const attr in visionConfig) {
+    //         if (config[attr] !== undefined) {
+    //             visionConfig[attr] = config[attr];
+    //             config[attr] = undefined;
+    //         }
+    //     }
+    //     return visionConfig;
+    // }
 
     // If there is no predefined chart type return predefined chart
     public mergeConfigWithPredefined(userDefinedConfig: Coordinate, chartType: string): Coordinate {
@@ -50,11 +64,11 @@ export class MappingEngineService {
         this.mapFill(config, lsConfig);
         this.mapPoint(config, lsConfig);
         this.mapCircularPlots(config, lsConfig);
-
         return config;
     }
-    public mapToArrayObjs(config: Coordinate, vconfig: VConfig) {
-        this.mapPieLabels(config, vconfig);
+    public mapToArrayObjs(config: Coordinate, lsConfig: VConfig) {
+        this.mapPieLabels(config, lsConfig);
+        this.setTextSize(config, lsConfig);
     }
     public mapPieLabels(config: Coordinate, vconfig: VConfig) {
         if (vconfig?.circular?.textRadius && config.layer) {
@@ -76,16 +90,16 @@ export class MappingEngineService {
         config.description = vconfig.description;
     }
     public mapColor(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.color) {
-            let scale = undefined;
+        if (vconfig?.color && config) {
+            let scale;
             if (vconfig.color.domain || vconfig.color.range) {
                 scale = {
                     domain: vconfig.color.domain,
                     range: vconfig.color.range,
                 };
             }
-            let field = vconfig.color.field;
-            let legend = vconfig.color.legend ? { title: vconfig.color.legend } : undefined;
+            const field = vconfig.color.field;
+            const legend = vconfig.color.legend === null ? null : vconfig.color.legend ? { title: vconfig.color.legend } : undefined;
             if (scale || field || legend) {
                 const tempConfig = {
                     encoding: {
@@ -116,8 +130,8 @@ export class MappingEngineService {
                 mappingAxis.bin = { maxbins: lsAxis.bins };
             }
         }
-        if (lsAxis.titleFormat) {
-            mappingAxis.axis = { format: lsAxis.titleFormat };
+        if (lsAxis.titleFormat || lsAxis.grid !== undefined) {
+            mappingAxis.axis = { format: lsAxis.titleFormat, grid: lsAxis.grid /*, titleFontSize: 20 */ };
         }
         mappingAxis.title = lsAxis.title;
         _.merge(vAxis, mappingAxis);
@@ -202,6 +216,41 @@ export class MappingEngineService {
                 },
             };
             _.merge(config, tempConfig);
+        }
+    }
+
+    public setTextSize(config: Coordinate, vconfig: VConfig) {
+        if (vconfig.textSizeMult) {
+            config.title = { text: config.title, fontSize: this.titleSize * vconfig.textSizeMult } as TitleParams;
+
+            const xAxis: Axis = {
+                titleFontSize: this.axisTitleSize * vconfig.textSizeMult,
+                labelFontSize: this.tickTitleSize * vconfig.textSizeMult,
+            };
+            if (config.encoding.x && config.encoding.y) {
+                config.encoding.x.axis = !config.encoding.x.axis ? {} : config.encoding.x.axis;
+                config.encoding.y.axis = !config.encoding.y.axis ? {} : config.encoding.y.axis;
+                _.merge(config.encoding.x.axis, xAxis);
+                _.merge(config.encoding.y.axis, xAxis);
+            }
+
+            if (config.encoding?.color) {
+                if (config.encoding.color.legend !== null) {
+                const legend: Legend = {
+                    titleFontSize: this.legendTitleSize * vconfig.textSizeMult,
+                    labelFontSize: this.lengendItemTitleSize * vconfig.textSizeMult,
+                };
+                config.encoding.color.legend = config.encoding.color.legend ? config.encoding.color.legend: {};
+                _.merge(config.encoding.color.legend, legend);
+              }
+            }
+            if (config.layer) {
+                const textLayer = config.layer.find(x => (x.mark as Def)?.type === 'text');
+                if (textLayer?.encoding?.text) {
+                    const mark = { fontSize: this.circularLabelSize * vconfig.textSizeMult}
+                    _.merge(textLayer.mark, mark);
+                }
+            }
         }
     }
 }

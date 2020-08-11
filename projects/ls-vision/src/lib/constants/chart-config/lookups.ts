@@ -23,3 +23,6 @@ export const multiseriesLine: Coordinate = require('./line/multiseries.json');
 
 export const scatterplotColored: Coordinate = require('./scatter/colored.json');
 export const scatterplot: Coordinate = require('./scatter/scatterplot.json');
+
+export const box: Coordinate = require('./bar/box.json');
+export const bubble: Coordinate = require('./scatter/bubble.json');

@@ -1,0 +1,6 @@
+{
+    "description": "A simple donut chart with embedded data.",
+    "circular": {"innerRadius": 50, "theta": "value"},
+      "color": {"field": "category"}
+  }
+  

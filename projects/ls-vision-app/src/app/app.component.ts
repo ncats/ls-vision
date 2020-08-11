@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as SampleCharts from '../assets/sample-charts';
+import * as SampleCharts from 'projects/ls-vision/src/lib/constants/sample-charts';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
     heatmap = SampleCharts.heatmap;
     stream = SampleCharts.stream;
     stacked = SampleCharts.stacked;
+    box = SampleCharts.box;
+    bubble = SampleCharts.bubble;
 
     barData;
     stackedData;
@@ -37,7 +39,6 @@ export class AppComponent implements OnInit {
     multiseriesData;
     scatterData;
     histogramData;
-    visionLineData;
 
     constructor(private http: HttpClient) {}
 
