@@ -8,7 +8,7 @@ declare let vegaEmbed: any;
 @Injectable({
     providedIn: 'root',
 })
-export class MappingEngineService {
+export class LsChartService {
     public vegaOverwritesLS = false;
     public titleSize: number;
     public axisTitleSize: number;

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { MappingEngineService } from './mapping-engine.service';
+import { LsChartService } from './ls-chart.service';
 import { Coordinate, BinParams, OverlayMarkDef } from '../../models/vega-lite';
 import { LsConfig, LsAxis, LsChart } from '../../models/ls-vision';
 import { Def, XClass, Type, TitleParams } from '../../models/vega-lite';
@@ -21,11 +21,11 @@ export class MockElementRef extends ElementRef {
 }
 
 describe('MappingEngineService', () => {
-    let service: MappingEngineService;
+    let service: LsChartService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(MappingEngineService);
+        service = TestBed.inject(LsChartService);
         stackedBar = _.cloneDeep(SampleCharts.stacked);
         pie = _.cloneDeep(SampleCharts.pie);
         samplePieLabels = _.cloneDeep(SampleCharts.pieLabels);

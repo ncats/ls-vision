@@ -1,11 +1,7 @@
 import { VChartDirective } from './v-chart.directive';
-import { MappingEngineService } from '../../services/mapping-engine/mapping-engine.service';
-import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
-import { CommonModule } from '@angular/common';
-import { RouterTestingModule } from '@angular/router/testing';
-import { LsVisionModule } from '../../ls-vision.module';
-import { Component, ElementRef } from '@angular/core';
-let service: MappingEngineService;
+import { LsChartService } from '../../services/ls-chart/ls-chart.service';
+import { ElementRef } from '@angular/core';
+let service: LsChartService;
 export class MockElementRef extends ElementRef {
     constructor() {
         super(null);
@@ -14,13 +10,13 @@ export class MockElementRef extends ElementRef {
 
 describe('VChartDirective', () => {
     it('should create an instance', () => {
-        service = new MappingEngineService();
+        service = new LsChartService();
         const eleRef = new MockElementRef();
         const directive = new VChartDirective(eleRef, service);
         expect(directive).toBeTruthy();
     });
     it('should draw chart', () => {
-        service = new MappingEngineService();
+        service = new LsChartService();
         const eleRef = new MockElementRef();
         const directive = new VChartDirective(eleRef, service);
         spyOn(service, 'drawChart');
@@ -28,7 +24,7 @@ describe('VChartDirective', () => {
         expect(service.drawChart).toHaveBeenCalled();
     });
     it('should update changes', () => {
-        service = new MappingEngineService();
+        service = new LsChartService();
         const eleRef = new MockElementRef();
         const directive = new VChartDirective(eleRef, service);
         spyOn(service, 'drawChart');
@@ -36,7 +32,7 @@ describe('VChartDirective', () => {
         expect(service.drawChart).toHaveBeenCalled();
     });
     it('should init', () => {
-        service = new MappingEngineService();
+        service = new LsChartService();
         const eleRef = new MockElementRef();
         const directive = new VChartDirective(eleRef, service);
         spyOn(service, 'drawChart');
