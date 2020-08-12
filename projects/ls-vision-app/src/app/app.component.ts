@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
         });
 
         this.http.get('../assets/chart-data/stocks.json').subscribe(data => {
-            this.lineData = { values: (data as []).filter(x => x.symbol === 'GOOG') };
+            this.lineData = { values: (data as []).filter(x => (x as any).symbol === 'GOOG') };
             this.multiseriesData = { values: data };
         });
         this.http.get('../assets/chart-data/cars.json').subscribe(data => {
