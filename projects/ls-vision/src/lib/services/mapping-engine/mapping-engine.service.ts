@@ -1,6 +1,6 @@
 import { Injectable, ElementRef } from '@angular/core';
 import { Coordinate, Def, XClass, Type, TimeUnit, TitleParams, Axis, Legend } from '../../models/vega-lite';
-import { VConfig, VAxis, LsChart } from '../../models/ls-vision';
+import { LsConfig, LsAxis, LsChart } from '../../models/ls-vision';
 import * as _ from 'lodash';
 import * as Charts from '../../constants/chart-config/lookups';
 import * as FontSizes from '../../constants/chart-defaults';
@@ -25,32 +25,13 @@ export class MappingEngineService {
         this.circularLabelSize = FontSizes.circularLabelSize;
     }
 
-    // public getVisionConfig(config: Coordinate): VConfig {
-    //     const visionConfig: VConfig = {
-    //         x: null,
-    //         y: null,
-    //         circular: null,
-    //         color: null,
-    //         point: null,
-    //         fill: null,
-    //         shape: null,
-    //     };
-    //     for (const attr in visionConfig) {
-    //         if (config[attr] !== undefined) {
-    //             visionConfig[attr] = config[attr];
-    //             config[attr] = undefined;
-    //         }
-    //     }
-    //     return visionConfig;
-    // }
-
     public drawChart(chartParams: LsChart) {
         let finalConfig: Coordinate = null;
 
         if (chartParams.lsConfig) {
-          finalConfig = this.mapLStoVegaConfig(chartParams.lsConfig);
+            finalConfig = this.mapLStoVegaConfig(chartParams.lsConfig);
         } else if (chartParams.config) {
-          finalConfig = chartParams.config;
+            finalConfig = chartParams.config;
         }
         finalConfig = this.mergeConfigWithPredefined(finalConfig, chartParams.chartType);
         if (!finalConfig) {
@@ -60,14 +41,14 @@ export class MappingEngineService {
             this.mapToArrayObjs(finalConfig, chartParams.lsConfig);
         }
         if (chartParams.data) {
-          finalConfig.data = chartParams.data;
+            finalConfig.data = chartParams.data;
         }
 
         this.renderChart(chartParams.elementRef, finalConfig, chartParams.theme);
     }
 
-    public renderChart(elementRef: ElementRef, config: Coordinate, theme: string){
-      vegaEmbed(elementRef.nativeElement, config, { theme });
+    public renderChart(elementRef: ElementRef, config: Coordinate, theme: string) {
+        vegaEmbed(elementRef.nativeElement, config, { theme });
     }
 
     // If there is no predefined chart type return predefined chart
@@ -81,7 +62,7 @@ export class MappingEngineService {
         return finalConfig;
     }
 
-    public mapLStoVegaConfig(lsConfig: VConfig): Coordinate {
+    public mapLStoVegaConfig(lsConfig: LsConfig): Coordinate {
         const config: Coordinate = {};
         this.mapRoot(config, lsConfig);
         this.mapColor(config, lsConfig);
@@ -93,40 +74,40 @@ export class MappingEngineService {
         this.mapCircularPlots(config, lsConfig);
         return config;
     }
-    public mapToArrayObjs(config: Coordinate, lsConfig: VConfig) {
+    public mapToArrayObjs(config: Coordinate, lsConfig: LsConfig) {
         this.mapPieLabels(config, lsConfig);
         this.setTextSize(config, lsConfig);
     }
-    public mapPieLabels(config: Coordinate, vconfig: VConfig) {
-        if (vconfig?.circular?.textRadius && config.layer) {
+    public mapPieLabels(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig?.circular?.textRadius && config.layer) {
             const textLayer = config.layer.find(x => (x.mark as Def)?.type === 'text');
             if (textLayer?.encoding?.text) {
-                (textLayer.mark as Def).radius = vconfig.circular.textRadius;
-                if (vconfig.circular.text) {
-                    textLayer.encoding.text.field = vconfig.circular.text;
-                } else if (vconfig.color) {
-                    textLayer.encoding.text.field = vconfig.color.field;
+                (textLayer.mark as Def).radius = lsConfig.circular.textRadius;
+                if (lsConfig.circular.text) {
+                    textLayer.encoding.text.field = lsConfig.circular.text;
+                } else if (lsConfig.color) {
+                    textLayer.encoding.text.field = lsConfig.color.field;
                 }
             }
         }
     }
-    public mapRoot(config: Coordinate, vconfig: VConfig) {
-        config.width = vconfig.width;
-        config.height = vconfig.height;
-        config.title = vconfig.title;
-        config.description = vconfig.description;
+    public mapRoot(config: Coordinate, lsConfig: LsConfig) {
+        config.width = lsConfig.width;
+        config.height = lsConfig.height;
+        config.title = lsConfig.title;
+        config.description = lsConfig.description;
     }
-    public mapColor(config: Coordinate, vconfig: VConfig) {
-        if (vconfig?.color && config) {
+    public mapColor(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig?.color && config) {
             let scale;
-            if (vconfig.color.domain || vconfig.color.range) {
+            if (lsConfig.color.domain || lsConfig.color.range) {
                 scale = {
-                    domain: vconfig.color.domain,
-                    range: vconfig.color.range,
+                    domain: lsConfig.color.domain,
+                    range: lsConfig.color.range,
                 };
             }
-            const field = vconfig.color.field;
-            const legend = vconfig.color.legend === null ? null : vconfig.color.legend ? { title: vconfig.color.legend } : undefined;
+            const field = lsConfig.color.field;
+            const legend = lsConfig.color.legend === null ? null : lsConfig.color.legend ? { title: lsConfig.color.legend } : undefined;
             if (scale || field || legend) {
                 const tempConfig = {
                     encoding: {
@@ -141,7 +122,7 @@ export class MappingEngineService {
             }
         }
     }
-    public mapAxis(lsAxis: VAxis, vegaAxis: XClass): XClass {
+    public mapAxis(lsAxis: LsAxis, vegaAxis: XClass): XClass {
         if (!lsAxis) {
             return undefined;
         }
@@ -158,15 +139,15 @@ export class MappingEngineService {
             }
         }
         if (lsAxis.titleFormat || lsAxis.grid !== undefined) {
-            mappingAxis.axis = { format: lsAxis.titleFormat, grid: lsAxis.grid /*, titleFontSize: 20 */ };
+            mappingAxis.axis = { format: lsAxis.titleFormat, grid: lsAxis.grid };
         }
         mappingAxis.title = lsAxis.title;
         _.merge(vAxis, mappingAxis);
         return vAxis;
     }
-    public mapAxes(config: Coordinate, vconfig: VConfig) {
-        const x = this.mapAxis(vconfig.x, config.encoding?.x);
-        const y = this.mapAxis(vconfig.y, config.encoding?.y);
+    public mapAxes(config: Coordinate, lsConfig: LsConfig) {
+        const x = this.mapAxis(lsConfig.x, config.encoding?.x);
+        const y = this.mapAxis(lsConfig.y, config.encoding?.y);
         const tempConfig = {
             encoding: {
                 x,
@@ -176,69 +157,66 @@ export class MappingEngineService {
         _.merge(config, tempConfig);
     }
 
-    public mapShape(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.shape) {
+    public mapShape(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig.shape) {
             const tempConfig: Coordinate = {
                 encoding: {
                     shape: {
-                        field: vconfig.shape.field,
+                        field: lsConfig.shape.field,
                     },
                 },
             };
             _.merge(config, tempConfig);
         }
     }
-    public mapColumn(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.column) {
+    public mapColumn(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig.column) {
             const tempConfig: Coordinate = {
                 encoding: {
                     column: {
-                        field: vconfig.column.field,
+                        field: lsConfig.column.field,
                     },
                 },
             };
             _.merge(config, tempConfig);
         }
     }
-    public mapFill(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.fill) {
-            // const computeMType = typeof config.mark === 'string' ? config.mark : config.mark.type;
+    public mapFill(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig.fill) {
             const tempConfig: Coordinate = {
                 mark: {
-                    fill: vconfig.fill,
-                    type: undefined, // computeMType as BoxPlot,
+                    fill: lsConfig.fill,
+                    type: undefined,
                 },
             };
             _.merge(config, tempConfig);
         }
     }
-    public mapPoint(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.point) {
-            // const computeMType = typeof config.mark === 'string' ? config.mark : config.mark.type;
+    public mapPoint(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig.point) {
             const tempConfig: Coordinate = {
                 mark: {
                     point: {
-                        fill: vconfig.point.fill,
-                        filled: vconfig.point.filled,
+                        fill: lsConfig.point.fill,
+                        filled: lsConfig.point.filled,
                     },
-                    type: undefined, // computeMType as BoxPlot,
+                    type: undefined,
                 },
             };
             _.merge(config, tempConfig);
         }
     }
-    public mapCircularPlots(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.circular) {
-            // const computeMType = typeof config.mark === 'string' ? config.mark : config.mark.type;
+    public mapCircularPlots(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig.circular) {
             const tempConfig: Coordinate = {
                 mark: {
-                    innerRadius: vconfig.circular.innerRadius as number,
-                    outerRadius: vconfig.circular.outerRadius as number,
+                    innerRadius: lsConfig.circular.innerRadius as number,
+                    outerRadius: lsConfig.circular.outerRadius as number,
                     type: undefined,
                 },
                 encoding: {
                     theta: {
-                        field: vconfig.circular.theta,
+                        field: lsConfig.circular.theta,
                     },
                 },
             };
@@ -246,13 +224,13 @@ export class MappingEngineService {
         }
     }
 
-    public setTextSize(config: Coordinate, vconfig: VConfig) {
-        if (vconfig.textSizeMult) {
-            config.title = { text: config.title, fontSize: this.titleSize * vconfig.textSizeMult } as TitleParams;
+    public setTextSize(config: Coordinate, lsConfig: LsConfig) {
+        if (lsConfig.textSizeMult) {
+            config.title = { text: config.title, fontSize: this.titleSize * lsConfig.textSizeMult } as TitleParams;
 
             const xAxis: Axis = {
-                titleFontSize: this.axisTitleSize * vconfig.textSizeMult,
-                labelFontSize: this.tickTitleSize * vconfig.textSizeMult,
+                titleFontSize: this.axisTitleSize * lsConfig.textSizeMult,
+                labelFontSize: this.tickTitleSize * lsConfig.textSizeMult,
             };
             if (config.encoding?.x && config.encoding.y) {
                 config.encoding.x.axis = !config.encoding.x.axis ? {} : config.encoding.x.axis;
@@ -264,8 +242,8 @@ export class MappingEngineService {
             if (config.encoding?.color) {
                 if (config.encoding.color.legend !== null) {
                     const legend: Legend = {
-                        titleFontSize: this.legendTitleSize * vconfig.textSizeMult,
-                        labelFontSize: this.lengendItemTitleSize * vconfig.textSizeMult,
+                        titleFontSize: this.legendTitleSize * lsConfig.textSizeMult,
+                        labelFontSize: this.lengendItemTitleSize * lsConfig.textSizeMult,
                     };
                     config.encoding.color.legend = config.encoding.color.legend ? config.encoding.color.legend : {};
                     _.merge(config.encoding.color.legend, legend);
@@ -274,7 +252,7 @@ export class MappingEngineService {
             if (config.layer) {
                 const textLayer = config.layer.find(x => (x.mark as Def)?.type === 'text');
                 if (textLayer?.encoding?.text) {
-                    const mark = { fontSize: this.circularLabelSize * vconfig.textSizeMult };
+                    const mark = { fontSize: this.circularLabelSize * lsConfig.textSizeMult };
                     _.merge(textLayer.mark, mark);
                 }
             }

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { MappingEngineService } from './mapping-engine.service';
 import { Coordinate, BinParams, OverlayMarkDef } from '../../models/vega-lite';
-import { VConfig, VAxis, LsChart } from '../../models/ls-vision';
+import { LsConfig, LsAxis, LsChart } from '../../models/ls-vision';
 import { Def, XClass, Type, TitleParams } from '../../models/vega-lite';
 import * as SampleCharts from '../../constants/sample-charts';
 import * as FontSizes from '../../constants/chart-defaults';
@@ -9,9 +9,9 @@ import * as Charts from '../../constants/chart-config/lookups';
 import * as _ from 'lodash';
 import { ElementRef } from '@angular/core';
 
-let stackedBar: VConfig;
-let pie: VConfig;
-let samplePieLabels: VConfig;
+let stackedBar: LsConfig;
+let pie: LsConfig;
+let samplePieLabels: LsConfig;
 let pieLabels = Charts.pieLabels;
 
 export class MockElementRef extends ElementRef {
@@ -125,7 +125,7 @@ describe('MappingEngineService', () => {
     describe('mapPieLabels', () => {
         it('should map labels', () => {
             const vegaConfig: Coordinate = pieLabels;
-            const lsConfig: VConfig = { circular: { theta: 'test', text: '1234', textRadius: 50 } };
+            const lsConfig: LsConfig = { circular: { theta: 'test', text: '1234', textRadius: 50 } };
             service.mapPieLabels(vegaConfig, lsConfig);
             const textLayer = vegaConfig.layer.find(x => (x.mark as Def)?.type === 'text');
             expect((textLayer.mark as Def).radius).toEqual(50);
@@ -137,7 +137,7 @@ describe('MappingEngineService', () => {
             const vegaConfig: Coordinate = pieLabels;
             vegaConfig.layer = undefined;
             const testConfig = _.cloneDeep(vegaConfig);
-            const lsConfig: VConfig = { circular: { theta: 'test', text: '1234', textRadius: 50 } };
+            const lsConfig: LsConfig = { circular: { theta: 'test', text: '1234', textRadius: 50 } };
             service.mapPieLabels(vegaConfig, lsConfig);
             const areEqual = _.isMatch(vegaConfig, testConfig);
             expect(areEqual).toBeTruthy();
@@ -149,7 +149,7 @@ describe('MappingEngineService', () => {
             const textLayer = vegaConfig.layer.find(x => (x.mark as Def)?.type === 'text');
             textLayer.encoding.text = undefined;
             const testConfig = _.cloneDeep(vegaConfig);
-            const lsConfig: VConfig = { circular: { theta: 'test', text: '1234', textRadius: 50 } };
+            const lsConfig: LsConfig = { circular: { theta: 'test', text: '1234', textRadius: 50 } };
             service.mapPieLabels(vegaConfig, lsConfig);
             const areEqual = _.isMatch(vegaConfig, testConfig);
             expect(areEqual).toBeTruthy();
@@ -157,7 +157,7 @@ describe('MappingEngineService', () => {
 
         it('should map labels using color field for labels', () => {
             const vegaConfig: Coordinate = pieLabels;
-            const lsConfig: VConfig = { color: { field: 'colorgroup' }, circular: { theta: 'test', textRadius: 50 } };
+            const lsConfig: LsConfig = { color: { field: 'colorgroup' }, circular: { theta: 'test', textRadius: 50 } };
             service.mapPieLabels(vegaConfig, lsConfig);
             const textLayer = vegaConfig.layer.find(x => (x.mark as Def)?.type === 'text');
             expect((textLayer.mark as Def).radius).toEqual(50);
@@ -166,7 +166,7 @@ describe('MappingEngineService', () => {
 
         it('should map labels', () => {
             const vegaConfig: Coordinate = pieLabels;
-            const lsConfig: VConfig = { circular: { theta: 'test', textRadius: 50 } };
+            const lsConfig: LsConfig = { circular: { theta: 'test', textRadius: 50 } };
             service.mapPieLabels(vegaConfig, lsConfig);
             const textLayer = vegaConfig.layer.find(x => (x.mark as Def)?.type === 'text');
             expect((textLayer.mark as Def).radius).toEqual(50);
@@ -190,19 +190,19 @@ describe('MappingEngineService', () => {
 
         it('should map field', () => {
             const vegaAxis: XClass = {};
-            const lsAxis: VAxis = { field: 'test' };
+            const lsAxis: LsAxis = { field: 'test' };
             const config = service.mapAxis(lsAxis, vegaAxis);
             expect(config.field).toEqual('test');
         });
         it('should map field bin true', () => {
             const vegaAxis: XClass = {};
-            const lsAxis: VAxis = { field: 'test', bins: true };
+            const lsAxis: LsAxis = { field: 'test', bins: true };
             const config = service.mapAxis(lsAxis, vegaAxis);
             expect(config.bin).toEqual(true);
         });
         it('should map field maxbins', () => {
             const vegaAxis: XClass = {};
-            const lsAxis: VAxis = { field: 'test', bins: 123 };
+            const lsAxis: LsAxis = { field: 'test', bins: 123 };
             const config = service.mapAxis(lsAxis, vegaAxis);
             const maxbins = (config.bin as BinParams).maxbins;
             expect(maxbins).toEqual(123);
@@ -210,7 +210,7 @@ describe('MappingEngineService', () => {
 
         it('should map titleFormat', () => {
             const vegaAxis: XClass = {};
-            const lsAxis: VAxis = { field: 'test', titleFormat: '1234' };
+            const lsAxis: LsAxis = { field: 'test', titleFormat: '1234' };
             const config = service.mapAxis(lsAxis, vegaAxis);
             expect(config.axis).toBeTruthy();
             expect(config.axis.format).toEqual('1234');
@@ -219,7 +219,7 @@ describe('MappingEngineService', () => {
 
         it('should map grid', () => {
             const vegaAxis: XClass = {};
-            const lsAxis: VAxis = { field: 'test', grid: false };
+            const lsAxis: LsAxis = { field: 'test', grid: false };
             const config = service.mapAxis(lsAxis, vegaAxis);
             expect(config.axis).toBeTruthy();
             expect(config.axis.grid).toEqual(false);
@@ -230,21 +230,21 @@ describe('MappingEngineService', () => {
     describe('setTextSize', () => {
         it('should not map title fontSize', () => {
             const vegaConfig: Coordinate = { title: { text: 'test' } };
-            const lsConfig: VConfig = {};
+            const lsConfig: LsConfig = {};
             const config = service.setTextSize(vegaConfig, lsConfig);
             const fontSize = (vegaConfig.title as TitleParams).fontSize;
             expect(fontSize).toBeUndefined();
         });
         it('should map title fontSize', () => {
             const vegaConfig: Coordinate = { title: { text: 'test' } };
-            const lsConfig: VConfig = { textSizeMult: 1 };
+            const lsConfig: LsConfig = { textSizeMult: 1 };
             const config = service.setTextSize(vegaConfig, lsConfig);
             const fontSize = (vegaConfig.title as TitleParams).fontSize;
             expect(fontSize).toEqual(FontSizes.titleSize);
         });
         it('should map axis fontSize (no axis obj)', () => {
             const vegaConfig: Coordinate = { title: { text: 'test' }, encoding: { x: {}, y: {} } };
-            const lsConfig: VConfig = { textSizeMult: 1 };
+            const lsConfig: LsConfig = { textSizeMult: 1 };
             const config = service.setTextSize(vegaConfig, lsConfig);
             const xfontSize = vegaConfig.encoding.x.axis.titleFontSize;
             const yfontSize = vegaConfig.encoding.x.axis.titleFontSize;
@@ -260,7 +260,7 @@ describe('MappingEngineService', () => {
 
         it('should map axis fontSize (with axis obj)', () => {
             const vegaConfig: Coordinate = { title: { text: 'test' }, encoding: { x: { axis: {} }, y: { axis: {} } } };
-            const lsConfig: VConfig = { textSizeMult: 1 };
+            const lsConfig: LsConfig = { textSizeMult: 1 };
             const config = service.setTextSize(vegaConfig, lsConfig);
             const xfontSize = vegaConfig.encoding.x.axis.titleFontSize;
             const yfontSize = vegaConfig.encoding.x.axis.titleFontSize;
@@ -276,7 +276,7 @@ describe('MappingEngineService', () => {
 
         it('should map legend font from no legend', () => {
             const vegaConfig: Coordinate = { encoding: { color: {} } };
-            const lsConfig: VConfig = { textSizeMult: 1 };
+            const lsConfig: LsConfig = { textSizeMult: 1 };
             service.setTextSize(vegaConfig, lsConfig);
             expect(vegaConfig.encoding.color).not.toBeUndefined();
             expect(vegaConfig.encoding.color.legend.titleFontSize).toEqual(FontSizes.legendTitleSize);
@@ -284,7 +284,7 @@ describe('MappingEngineService', () => {
 
         it('should map color with legend', () => {
             const vegaConfig: Coordinate = { encoding: { color: { legend: {} } } };
-            const lsConfig: VConfig = { textSizeMult: 1 };
+            const lsConfig: LsConfig = { textSizeMult: 1 };
             service.setTextSize(vegaConfig, lsConfig);
             expect(vegaConfig.encoding.color).not.toBeUndefined();
             expect(vegaConfig.encoding.color.legend.titleFontSize).toEqual(FontSizes.legendTitleSize);
@@ -300,7 +300,7 @@ describe('MappingEngineService', () => {
                     },
                 ],
             };
-            const lsConfig: VConfig = { textSizeMult: 1 };
+            const lsConfig: LsConfig = { textSizeMult: 1 };
             service.setTextSize(vegaConfig, lsConfig);
             const textLayer = vegaConfig.layer.find(x => (x.mark as Def)?.type === 'text');
             expect(textLayer.mark).not.toBeUndefined();
@@ -311,7 +311,7 @@ describe('MappingEngineService', () => {
     describe('mapRoot', () => {
         it('should map properties', () => {
             const vegaConfig: Coordinate = {};
-            const lsConfig: VConfig = { height: 11, width: 22, title: 'ttl', description: 'desc' };
+            const lsConfig: LsConfig = { height: 11, width: 22, title: 'ttl', description: 'desc' };
             const config = service.mapRoot(vegaConfig, lsConfig);
             expect(vegaConfig.height).toEqual(11);
             expect(vegaConfig.width).toEqual(22);
@@ -332,7 +332,7 @@ describe('MappingEngineService', () => {
                     },
                 ],
             };
-            const lsConfig: VConfig = { textSizeMult: 1 };
+            const lsConfig: LsConfig = { textSizeMult: 1 };
             service.mapToArrayObjs(vegaConfig, lsConfig);
             const textLayer = vegaConfig.layer.find(x => (x.mark as Def)?.type === 'text');
             expect(textLayer.mark).not.toBeUndefined();
@@ -342,7 +342,7 @@ describe('MappingEngineService', () => {
 
     describe('mapShape', () => {
         it('should map field', () => {
-            const lsConfig: VConfig = { shape: { field: 'test' } };
+            const lsConfig: LsConfig = { shape: { field: 'test' } };
             const vegaConfig: Coordinate = {};
             service.mapShape(vegaConfig, lsConfig);
             expect(vegaConfig.encoding.shape.field).toEqual('test');
@@ -351,7 +351,7 @@ describe('MappingEngineService', () => {
 
     describe('mapColumn', () => {
         it('should map field', () => {
-            const lsConfig: VConfig = { column: { field: 'test' } };
+            const lsConfig: LsConfig = { column: { field: 'test' } };
             const vegaConfig: Coordinate = {};
             service.mapColumn(vegaConfig, lsConfig);
             expect(vegaConfig.encoding.column.field).toEqual('test');
@@ -360,7 +360,7 @@ describe('MappingEngineService', () => {
 
     describe('mapPoint', () => {
         it('should map field', () => {
-            const lsConfig: VConfig = { point: { fill: 'test', filled: true } };
+            const lsConfig: LsConfig = { point: { fill: 'test', filled: true } };
             const vegaConfig: Coordinate = {};
             service.mapPoint(vegaConfig, lsConfig);
             expect(((vegaConfig.mark as Def).point as OverlayMarkDef).fill).toEqual('test');
@@ -370,7 +370,7 @@ describe('MappingEngineService', () => {
 
     describe('mapCircularPlots', () => {
         it('should map field', () => {
-            const lsConfig: VConfig = { circular: { innerRadius: 2, outerRadius: 3, theta: 'field1' } };
+            const lsConfig: LsConfig = { circular: { innerRadius: 2, outerRadius: 3, theta: 'field1' } };
             const vegaConfig: Coordinate = {};
             service.mapCircularPlots(vegaConfig, lsConfig);
             expect((vegaConfig.mark as Def).innerRadius).toEqual(2);
@@ -381,7 +381,7 @@ describe('MappingEngineService', () => {
 
     describe('mapFill', () => {
         it('should map field', () => {
-            const lsConfig: VConfig = { fill: 'red' };
+            const lsConfig: LsConfig = { fill: 'red' };
             const vegaConfig: Coordinate = {};
             service.mapFill(vegaConfig, lsConfig);
             expect((vegaConfig.mark as Def).fill).toEqual('red');
@@ -390,8 +390,8 @@ describe('MappingEngineService', () => {
 
     describe('mapAxes', () => {
         it('should map field', () => {
-            const lsAxis: VAxis = { field: 'test' };
-            const lsConfig: VConfig = { x: lsAxis, y: lsAxis };
+            const lsAxis: LsAxis = { field: 'test' };
+            const lsConfig: LsConfig = { x: lsAxis, y: lsAxis };
             const vegaConfig: Coordinate = {};
             service.mapAxes(vegaConfig, lsConfig);
             expect(vegaConfig.encoding.x.field).toEqual('test');
@@ -401,7 +401,7 @@ describe('MappingEngineService', () => {
 
     describe('mapLStoVegaConfig', () => {
         it('should map field', () => {
-            const lsConfig: VConfig = SampleCharts.bar;
+            const lsConfig: LsConfig = SampleCharts.bar;
             const vegaConfig = service.mapLStoVegaConfig(lsConfig);
             expect(vegaConfig).not.toBeUndefined();
         });
@@ -421,7 +421,7 @@ describe('MappingEngineService', () => {
 
             spyOn(service, 'mapLStoVegaConfig').and.callThrough();
             spyOn(service, 'mapToArrayObjs').and.callThrough();
-            spyOn(service, 'renderChart');;
+            spyOn(service, 'renderChart');
             service.drawChart(chartParams);
 
             expect(service.mapLStoVegaConfig).toHaveBeenCalled();
@@ -429,24 +429,24 @@ describe('MappingEngineService', () => {
             expect(service.renderChart).toHaveBeenCalled();
         });
         it('should only vega config', () => {
-          const eleRef = new MockElementRef();
-          const chartParams: LsChart = {
-              elementRef: eleRef,
-              config: {},
-              lsConfig: null,
-              theme: null,
-              data: null,
-              chartType: 'simpleBar',
-          };
+            const eleRef = new MockElementRef();
+            const chartParams: LsChart = {
+                elementRef: eleRef,
+                config: {},
+                lsConfig: null,
+                theme: null,
+                data: null,
+                chartType: 'simpleBar',
+            };
 
-          spyOn(service, 'mapLStoVegaConfig').and.callThrough();
-          spyOn(service, 'mapToArrayObjs').and.callThrough();
-          spyOn(service, 'renderChart');
-          service.drawChart(chartParams);
+            spyOn(service, 'mapLStoVegaConfig').and.callThrough();
+            spyOn(service, 'mapToArrayObjs').and.callThrough();
+            spyOn(service, 'renderChart');
+            service.drawChart(chartParams);
 
-          expect(service.mapLStoVegaConfig).not.toHaveBeenCalled();
-          expect(service.mapToArrayObjs).not.toHaveBeenCalled();
-          expect(service.renderChart).toHaveBeenCalled();
-      });
+            expect(service.mapLStoVegaConfig).not.toHaveBeenCalled();
+            expect(service.mapToArrayObjs).not.toHaveBeenCalled();
+            expect(service.renderChart).toHaveBeenCalled();
+        });
     });
 });

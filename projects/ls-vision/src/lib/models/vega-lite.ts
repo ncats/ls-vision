@@ -275,7 +275,7 @@ export interface Coordinate {
 
 export interface RowColLayoutAlign {
     column?: LayoutAlign;
-    row?:    LayoutAlign;
+    row?: LayoutAlign;
 }
 
 /**
@@ -299,9 +299,9 @@ export interface RowColLayoutAlign {
  * __Default value:__ `"all"`.
  */
 export enum LayoutAlign {
-    All = "all",
-    Each = "each",
-    None = "none",
+    All = 'all',
+    Each = 'each',
+    None = 'none',
 }
 
 export interface AutoSizeParams {
@@ -342,8 +342,8 @@ export interface AutoSizeParams {
  * __Default value__: `"content"`
  */
 export enum Contains {
-    Content = "content",
-    Padding = "padding",
+    Content = 'content',
+    Padding = 'padding',
 }
 
 /**
@@ -354,11 +354,11 @@ export enum Contains {
  * __Default value__: `"pad"`
  */
 export enum AutosizeType {
-    Fit = "fit",
-    FitX = "fit-x",
-    FitY = "fit-y",
-    None = "none",
-    Pad = "pad",
+    Fit = 'fit',
+    FitX = 'fit-x',
+    FitY = 'fit-y',
+    None = 'none',
+    Pad = 'pad',
 }
 
 /**
@@ -376,13 +376,13 @@ export enum AutosizeType {
  * The bounds calculation to use for legend orient group layout.
  */
 export enum LayoutBounds {
-    Flush = "flush",
-    Full = "full",
+    Flush = 'flush',
+    Full = 'full',
 }
 
 export interface RowColBoolean {
     column?: boolean;
-    row?:    boolean;
+    row?: boolean;
 }
 
 /**
@@ -731,11 +731,11 @@ export interface DataFormat {
  * If no extension is detected, `"json"` will be used by default.
  */
 export enum DataFormatType {
-    CSV = "csv",
-    Dsv = "dsv",
-    JSON = "json",
-    Topojson = "topojson",
-    Tsv = "tsv",
+    CSV = 'csv',
+    Dsv = 'dsv',
+    JSON = 'json',
+    Topojson = 'topojson',
+    Tsv = 'tsv',
 }
 
 export interface GraticuleParams {
@@ -802,8 +802,7 @@ export interface SequenceParams {
     stop: number;
 }
 
-export interface SphereClass {
-}
+export interface SphereClass {}
 
 /**
  * A key-value mapping between encoding channels and definition of fields.
@@ -1368,27 +1367,27 @@ export interface ArgmDef {
  * __Default value:__ `"sum"` for stacked plots. Otherwise, `"min"`.
  */
 export enum NonArgAggregateOp {
-    Average = "average",
-    Ci0 = "ci0",
-    Ci1 = "ci1",
-    Count = "count",
-    Distinct = "distinct",
-    Max = "max",
-    Mean = "mean",
-    Median = "median",
-    Min = "min",
-    Missing = "missing",
-    Product = "product",
-    Q1 = "q1",
-    Q3 = "q3",
-    Stderr = "stderr",
-    Stdev = "stdev",
-    Stdevp = "stdevp",
-    Sum = "sum",
-    Valid = "valid",
-    Values = "values",
-    Variance = "variance",
-    Variancep = "variancep",
+    Average = 'average',
+    Ci0 = 'ci0',
+    Ci1 = 'ci1',
+    Count = 'count',
+    Distinct = 'distinct',
+    Max = 'max',
+    Mean = 'mean',
+    Median = 'median',
+    Min = 'min',
+    Missing = 'missing',
+    Product = 'product',
+    Q1 = 'q1',
+    Q3 = 'q3',
+    Stderr = 'stderr',
+    Stdev = 'stdev',
+    Stdevp = 'stdevp',
+    Sum = 'sum',
+    Valid = 'valid',
+    Values = 'values',
+    Variance = 'variance',
+    Variancep = 'variancep',
 }
 
 /**
@@ -1480,34 +1479,34 @@ export interface BinExtentClass {
  * over multiple fields or encodings.
  */
 export enum SingleDefUnitChannel {
-    Angle = "angle",
-    Color = "color",
-    Description = "description",
-    Fill = "fill",
-    FillOpacity = "fillOpacity",
-    Href = "href",
-    Key = "key",
-    Latitude = "latitude",
-    Latitude2 = "latitude2",
-    Longitude = "longitude",
-    Longitude2 = "longitude2",
-    Opacity = "opacity",
-    Radius = "radius",
-    Radius2 = "radius2",
-    Shape = "shape",
-    Size = "size",
-    Stroke = "stroke",
-    StrokeDash = "strokeDash",
-    StrokeOpacity = "strokeOpacity",
-    StrokeWidth = "strokeWidth",
-    Text = "text",
-    Theta = "theta",
-    Theta2 = "theta2",
-    URL = "url",
-    X = "x",
-    X2 = "x2",
-    Y = "y",
-    Y2 = "y2",
+    Angle = 'angle',
+    Color = 'color',
+    Description = 'description',
+    Fill = 'fill',
+    FillOpacity = 'fillOpacity',
+    Href = 'href',
+    Key = 'key',
+    Latitude = 'latitude',
+    Latitude2 = 'latitude2',
+    Longitude = 'longitude',
+    Longitude2 = 'longitude2',
+    Opacity = 'opacity',
+    Radius = 'radius',
+    Radius2 = 'radius2',
+    Shape = 'shape',
+    Size = 'size',
+    Stroke = 'stroke',
+    StrokeDash = 'strokeDash',
+    StrokeOpacity = 'strokeOpacity',
+    StrokeWidth = 'strokeWidth',
+    Text = 'text',
+    Theta = 'theta',
+    Theta2 = 'theta2',
+    URL = 'url',
+    X = 'x',
+    X2 = 'x2',
+    Y = 'y',
+    Y2 = 'y2',
 }
 
 export interface ConditionalValueDefNumber {
@@ -1531,13 +1530,13 @@ export interface ConditionalValueDefNumber {
 export interface Selection {
     not?: Selection | string;
     and?: Array<Selection | string>;
-    or?:  Array<Selection | string>;
+    or?: Array<Selection | string>;
 }
 
 export interface Predicate {
     not?: Predicate | string;
     and?: Array<Predicate | string>;
-    or?:  Array<Predicate | string>;
+    or?: Array<Predicate | string>;
     /**
      * The value that the field should be equal to.
      */
@@ -1670,86 +1669,86 @@ export interface TimeUnitParams {
  * Defines how date-time values should be binned.
  */
 export enum TimeUnit {
-    Date = "date",
-    Day = "day",
-    Dayhours = "dayhours",
-    Dayhoursminutes = "dayhoursminutes",
-    Dayhoursminutesseconds = "dayhoursminutesseconds",
-    Dayofyear = "dayofyear",
-    Hours = "hours",
-    Hoursminutes = "hoursminutes",
-    Hoursminutesseconds = "hoursminutesseconds",
-    Milliseconds = "milliseconds",
-    Minutes = "minutes",
-    Minutesseconds = "minutesseconds",
-    Month = "month",
-    Monthdate = "monthdate",
-    Monthdatehours = "monthdatehours",
-    Monthdatehoursminutes = "monthdatehoursminutes",
-    Monthdatehoursminutesseconds = "monthdatehoursminutesseconds",
-    Quarter = "quarter",
-    Quartermonth = "quartermonth",
-    Seconds = "seconds",
-    Secondsmilliseconds = "secondsmilliseconds",
-    Utcdate = "utcdate",
-    Utcday = "utcday",
-    Utcdayhours = "utcdayhours",
-    Utcdayhoursminutes = "utcdayhoursminutes",
-    Utcdayhoursminutesseconds = "utcdayhoursminutesseconds",
-    Utcdayofyear = "utcdayofyear",
-    Utchours = "utchours",
-    Utchoursminutes = "utchoursminutes",
-    Utchoursminutesseconds = "utchoursminutesseconds",
-    Utcmilliseconds = "utcmilliseconds",
-    Utcminutes = "utcminutes",
-    Utcminutesseconds = "utcminutesseconds",
-    Utcmonth = "utcmonth",
-    Utcmonthdate = "utcmonthdate",
-    Utcmonthdatehours = "utcmonthdatehours",
-    Utcmonthdatehoursminutes = "utcmonthdatehoursminutes",
-    Utcmonthdatehoursminutesseconds = "utcmonthdatehoursminutesseconds",
-    Utcquarter = "utcquarter",
-    Utcquartermonth = "utcquartermonth",
-    Utcseconds = "utcseconds",
-    Utcsecondsmilliseconds = "utcsecondsmilliseconds",
-    Utcweek = "utcweek",
-    Utcweekday = "utcweekday",
-    Utcweekdayhoursminutes = "utcweekdayhoursminutes",
-    Utcweekdayhoursminutesseconds = "utcweekdayhoursminutesseconds",
-    Utcweeksdayhours = "utcweeksdayhours",
-    Utcyear = "utcyear",
-    Utcyeardayofyear = "utcyeardayofyear",
-    Utcyearmonth = "utcyearmonth",
-    Utcyearmonthdate = "utcyearmonthdate",
-    Utcyearmonthdatehours = "utcyearmonthdatehours",
-    Utcyearmonthdatehoursminutes = "utcyearmonthdatehoursminutes",
-    Utcyearmonthdatehoursminutesseconds = "utcyearmonthdatehoursminutesseconds",
-    Utcyearquarter = "utcyearquarter",
-    Utcyearquartermonth = "utcyearquartermonth",
-    Utcyearweek = "utcyearweek",
-    Utcyearweekday = "utcyearweekday",
-    Utcyearweekdayhours = "utcyearweekdayhours",
-    Utcyearweekdayhoursminutes = "utcyearweekdayhoursminutes",
-    Utcyearweekdayhoursminutesseconds = "utcyearweekdayhoursminutesseconds",
-    Week = "week",
-    Weekday = "weekday",
-    Weekdayhoursminutes = "weekdayhoursminutes",
-    Weekdayhoursminutesseconds = "weekdayhoursminutesseconds",
-    Weeksdayhours = "weeksdayhours",
-    Year = "year",
-    Yeardayofyear = "yeardayofyear",
-    Yearmonth = "yearmonth",
-    Yearmonthdate = "yearmonthdate",
-    Yearmonthdatehours = "yearmonthdatehours",
-    Yearmonthdatehoursminutes = "yearmonthdatehoursminutes",
-    Yearmonthdatehoursminutesseconds = "yearmonthdatehoursminutesseconds",
-    Yearquarter = "yearquarter",
-    Yearquartermonth = "yearquartermonth",
-    Yearweek = "yearweek",
-    Yearweekday = "yearweekday",
-    Yearweekdayhours = "yearweekdayhours",
-    Yearweekdayhoursminutes = "yearweekdayhoursminutes",
-    Yearweekdayhoursminutesseconds = "yearweekdayhoursminutesseconds",
+    Date = 'date',
+    Day = 'day',
+    Dayhours = 'dayhours',
+    Dayhoursminutes = 'dayhoursminutes',
+    Dayhoursminutesseconds = 'dayhoursminutesseconds',
+    Dayofyear = 'dayofyear',
+    Hours = 'hours',
+    Hoursminutes = 'hoursminutes',
+    Hoursminutesseconds = 'hoursminutesseconds',
+    Milliseconds = 'milliseconds',
+    Minutes = 'minutes',
+    Minutesseconds = 'minutesseconds',
+    Month = 'month',
+    Monthdate = 'monthdate',
+    Monthdatehours = 'monthdatehours',
+    Monthdatehoursminutes = 'monthdatehoursminutes',
+    Monthdatehoursminutesseconds = 'monthdatehoursminutesseconds',
+    Quarter = 'quarter',
+    Quartermonth = 'quartermonth',
+    Seconds = 'seconds',
+    Secondsmilliseconds = 'secondsmilliseconds',
+    Utcdate = 'utcdate',
+    Utcday = 'utcday',
+    Utcdayhours = 'utcdayhours',
+    Utcdayhoursminutes = 'utcdayhoursminutes',
+    Utcdayhoursminutesseconds = 'utcdayhoursminutesseconds',
+    Utcdayofyear = 'utcdayofyear',
+    Utchours = 'utchours',
+    Utchoursminutes = 'utchoursminutes',
+    Utchoursminutesseconds = 'utchoursminutesseconds',
+    Utcmilliseconds = 'utcmilliseconds',
+    Utcminutes = 'utcminutes',
+    Utcminutesseconds = 'utcminutesseconds',
+    Utcmonth = 'utcmonth',
+    Utcmonthdate = 'utcmonthdate',
+    Utcmonthdatehours = 'utcmonthdatehours',
+    Utcmonthdatehoursminutes = 'utcmonthdatehoursminutes',
+    Utcmonthdatehoursminutesseconds = 'utcmonthdatehoursminutesseconds',
+    Utcquarter = 'utcquarter',
+    Utcquartermonth = 'utcquartermonth',
+    Utcseconds = 'utcseconds',
+    Utcsecondsmilliseconds = 'utcsecondsmilliseconds',
+    Utcweek = 'utcweek',
+    Utcweekday = 'utcweekday',
+    Utcweekdayhoursminutes = 'utcweekdayhoursminutes',
+    Utcweekdayhoursminutesseconds = 'utcweekdayhoursminutesseconds',
+    Utcweeksdayhours = 'utcweeksdayhours',
+    Utcyear = 'utcyear',
+    Utcyeardayofyear = 'utcyeardayofyear',
+    Utcyearmonth = 'utcyearmonth',
+    Utcyearmonthdate = 'utcyearmonthdate',
+    Utcyearmonthdatehours = 'utcyearmonthdatehours',
+    Utcyearmonthdatehoursminutes = 'utcyearmonthdatehoursminutes',
+    Utcyearmonthdatehoursminutesseconds = 'utcyearmonthdatehoursminutesseconds',
+    Utcyearquarter = 'utcyearquarter',
+    Utcyearquartermonth = 'utcyearquartermonth',
+    Utcyearweek = 'utcyearweek',
+    Utcyearweekday = 'utcyearweekday',
+    Utcyearweekdayhours = 'utcyearweekdayhours',
+    Utcyearweekdayhoursminutes = 'utcyearweekdayhoursminutes',
+    Utcyearweekdayhoursminutesseconds = 'utcyearweekdayhoursminutesseconds',
+    Week = 'week',
+    Weekday = 'weekday',
+    Weekdayhoursminutes = 'weekdayhoursminutes',
+    Weekdayhoursminutesseconds = 'weekdayhoursminutesseconds',
+    Weeksdayhours = 'weeksdayhours',
+    Year = 'year',
+    Yeardayofyear = 'yeardayofyear',
+    Yearmonth = 'yearmonth',
+    Yearmonthdate = 'yearmonthdate',
+    Yearmonthdatehours = 'yearmonthdatehours',
+    Yearmonthdatehoursminutes = 'yearmonthdatehoursminutes',
+    Yearmonthdatehoursminutesseconds = 'yearmonthdatehoursminutesseconds',
+    Yearquarter = 'yearquarter',
+    Yearquartermonth = 'yearquartermonth',
+    Yearweek = 'yearweek',
+    Yearweekday = 'yearweekday',
+    Yearweekdayhours = 'yearweekdayhours',
+    Yearweekdayhoursminutes = 'yearweekdayhoursminutes',
+    Yearweekdayhoursminutesseconds = 'yearweekdayhoursminutesseconds',
 }
 
 export interface PurpleConditionalValueDefNumber {
@@ -2041,15 +2040,15 @@ export interface RepeatRefClass {
     /**
      * Integer value representing the year.
      */
-    year?:   number;
+    year?: number;
     repeat?: RepeatEnum;
 }
 
 export enum RepeatEnum {
-    Column = "column",
-    Layer = "layer",
-    Repeat = "repeat",
-    Row = "row",
+    Column = 'column',
+    Layer = 'layer',
+    Repeat = 'repeat',
+    Row = 'row',
 }
 
 /**
@@ -2518,8 +2517,8 @@ export interface Legend {
  * specified when the orientation is ambiguous and cannot be automatically determined.
  */
 export enum Orientation {
-    Horizontal = "horizontal",
-    Vertical = "vertical",
+    Horizontal = 'horizontal',
+    Vertical = 'vertical',
 }
 
 /**
@@ -2544,9 +2543,9 @@ export enum Orientation {
  * Horizontal text alignment for title text. One of `"left"`, `"center"`, or `"right"`.
  */
 export enum Align {
-    Center = "center",
-    Left = "left",
-    Right = "right",
+    Center = 'center',
+    Left = 'left',
+    Right = 'right',
 }
 
 /**
@@ -2597,24 +2596,24 @@ export enum Align {
  * relative to the *lineHeight* rather than *fontSize* alone.
  */
 export enum Baseline {
-    Alphabetic = "alphabetic",
-    Bottom = "bottom",
-    LineBottom = "line-bottom",
-    LineTop = "line-top",
-    Middle = "middle",
-    Top = "top",
+    Alphabetic = 'alphabetic',
+    Bottom = 'bottom',
+    LineBottom = 'line-bottom',
+    LineTop = 'line-top',
+    Middle = 'middle',
+    Top = 'top',
 }
 
 export enum FontWeightEnum {
-    Bold = "bold",
-    Bolder = "bolder",
-    Lighter = "lighter",
-    Normal = "normal",
+    Bold = 'bold',
+    Bolder = 'bolder',
+    Lighter = 'lighter',
+    Normal = 'normal',
 }
 
 export enum LabelOverlapEnum {
-    Greedy = "greedy",
-    Parity = "parity",
+    Greedy = 'greedy',
+    Parity = 'parity',
 }
 
 /**
@@ -2625,37 +2624,37 @@ export enum LabelOverlapEnum {
  * __Default value:__ `"right"`
  */
 export enum LegendOrient {
-    Bottom = "bottom",
-    BottomLeft = "bottom-left",
-    BottomRight = "bottom-right",
-    Left = "left",
-    None = "none",
-    Right = "right",
-    Top = "top",
-    TopLeft = "top-left",
-    TopRight = "top-right",
+    Bottom = 'bottom',
+    BottomLeft = 'bottom-left',
+    BottomRight = 'bottom-right',
+    Left = 'left',
+    None = 'none',
+    Right = 'right',
+    Top = 'top',
+    TopLeft = 'top-left',
+    TopRight = 'top-right',
 }
 
 export interface TimeIntervalStep {
     interval: TimeInterval;
-    step:     number;
+    step: number;
 }
 
 export enum TimeInterval {
-    Day = "day",
-    Hour = "hour",
-    Millisecond = "millisecond",
-    Minute = "minute",
-    Month = "month",
-    Second = "second",
-    Week = "week",
-    Year = "year",
+    Day = 'day',
+    Hour = 'hour',
+    Millisecond = 'millisecond',
+    Minute = 'minute',
+    Month = 'month',
+    Second = 'second',
+    Week = 'week',
+    Year = 'year',
 }
 
 export enum TitleAnchor {
-    End = "end",
-    Middle = "middle",
-    Start = "start",
+    End = 'end',
+    Middle = 'middle',
+    Start = 'start',
 }
 
 /**
@@ -2674,10 +2673,10 @@ export enum TitleAnchor {
  * __Default value:__ `"bottom"` for x-axes and `"left"` for y-axes.
  */
 export enum Orient {
-    Bottom = "bottom",
-    Left = "left",
-    Right = "right",
-    Top = "top",
+    Bottom = 'bottom',
+    Left = 'left',
+    Right = 'right',
+    Top = 'top',
 }
 
 /**
@@ -2688,8 +2687,8 @@ export enum Orient {
  * `"symbol"` otherwise.
  */
 export enum LegendType {
-    Gradient = "gradient",
-    Symbol = "symbol",
+    Gradient = 'gradient',
+    Symbol = 'symbol',
 }
 
 export interface Scale {
@@ -3032,29 +3031,29 @@ export interface DomainUnionWith {
 }
 
 export enum Domain {
-    Unaggregated = "unaggregated",
+    Unaggregated = 'unaggregated',
 }
 
 export interface ScaleInterpolateParams {
     gamma?: number;
-    type:   ScaleInterpolateParamsType;
+    type: ScaleInterpolateParamsType;
 }
 
 export enum ScaleInterpolateParamsType {
-    Cubehelix = "cubehelix",
-    CubehelixLong = "cubehelix-long",
-    RGB = "rgb",
+    Cubehelix = 'cubehelix',
+    CubehelixLong = 'cubehelix-long',
+    RGB = 'rgb',
 }
 
 export enum ScaleInterpolateEnum {
-    Cubehelix = "cubehelix",
-    CubehelixLong = "cubehelix-long",
-    HCL = "hcl",
-    HCLLong = "hcl-long",
-    Hsl = "hsl",
-    HslLong = "hsl-long",
-    Lab = "lab",
-    RGB = "rgb",
+    Cubehelix = 'cubehelix',
+    CubehelixLong = 'cubehelix-long',
+    HCL = 'hcl',
+    HCLLong = 'hcl-long',
+    Hsl = 'hsl',
+    HslLong = 'hsl-long',
+    Lab = 'lab',
+    RGB = 'rgb',
 }
 
 export interface RangeClass {
@@ -3062,14 +3061,14 @@ export interface RangeClass {
 }
 
 export enum RangeEnum {
-    Category = "category",
-    Diverging = "diverging",
-    Heatmap = "heatmap",
-    Height = "height",
-    Ordinal = "ordinal",
-    Ramp = "ramp",
-    Symbol = "symbol",
-    Width = "width",
+    Category = 'category',
+    Diverging = 'diverging',
+    Heatmap = 'heatmap',
+    Height = 'height',
+    Ordinal = 'ordinal',
+    Ramp = 'ramp',
+    Symbol = 'symbol',
+    Width = 'width',
 }
 
 export interface SchemeParams {
@@ -3124,22 +3123,22 @@ export interface SchemeParams {
  * table](https://vega.github.io/vega-lite/docs/scale.html#type).
  */
 export enum ScaleType {
-    Band = "band",
-    BinOrdinal = "bin-ordinal",
-    Identity = "identity",
-    Linear = "linear",
-    Log = "log",
-    Ordinal = "ordinal",
-    Point = "point",
-    Pow = "pow",
-    Quantile = "quantile",
-    Quantize = "quantize",
-    Sequential = "sequential",
-    Sqrt = "sqrt",
-    Symlog = "symlog",
-    Threshold = "threshold",
-    Time = "time",
-    UTC = "utc",
+    Band = 'band',
+    BinOrdinal = 'bin-ordinal',
+    Identity = 'identity',
+    Linear = 'linear',
+    Log = 'log',
+    Ordinal = 'ordinal',
+    Point = 'point',
+    Pow = 'pow',
+    Quantile = 'quantile',
+    Quantize = 'quantize',
+    Sequential = 'sequential',
+    Sqrt = 'sqrt',
+    Symlog = 'symlog',
+    Threshold = 'threshold',
+    Time = 'time',
+    UTC = 'utc',
 }
 
 /**
@@ -3182,26 +3181,26 @@ export interface EncodingSortField {
  * sort by (e.g., `"x"`, `"y"`)
  */
 export enum SortByChannel {
-    Color = "color",
-    Fill = "fill",
-    FillOpacity = "fillOpacity",
-    Opacity = "opacity",
-    Shape = "shape",
-    Size = "size",
-    Stroke = "stroke",
-    StrokeOpacity = "strokeOpacity",
-    StrokeWidth = "strokeWidth",
-    Text = "text",
-    X = "x",
-    Y = "y",
+    Color = 'color',
+    Fill = 'fill',
+    FillOpacity = 'fillOpacity',
+    Opacity = 'opacity',
+    Shape = 'shape',
+    Size = 'size',
+    Stroke = 'stroke',
+    StrokeOpacity = 'strokeOpacity',
+    StrokeWidth = 'strokeWidth',
+    Text = 'text',
+    X = 'x',
+    Y = 'y',
 }
 
 /**
  * The sort order. One of `"ascending"` (default) or `"descending"`.
  */
 export enum SortOrder {
-    Ascending = "ascending",
-    Descending = "descending",
+    Ascending = 'ascending',
+    Descending = 'descending',
 }
 
 /**
@@ -3211,32 +3210,32 @@ export enum SortOrder {
  * sort by (e.g., `"x"`, `"y"`)
  */
 export enum Sort {
-    Ascending = "ascending",
-    Color = "color",
-    Descending = "descending",
-    Fill = "fill",
-    FillOpacity = "fillOpacity",
-    Opacity = "opacity",
-    Shape = "shape",
-    Size = "size",
-    SortColor = "-color",
-    SortFill = "-fill",
-    SortFillOpacity = "-fillOpacity",
-    SortOpacity = "-opacity",
-    SortShape = "-shape",
-    SortSize = "-size",
-    SortStroke = "-stroke",
-    SortStrokeOpacity = "-strokeOpacity",
-    SortStrokeWidth = "-strokeWidth",
-    SortText = "-text",
-    SortX = "-x",
-    SortY = "-y",
-    Stroke = "stroke",
-    StrokeOpacity = "strokeOpacity",
-    StrokeWidth = "strokeWidth",
-    Text = "text",
-    X = "x",
-    Y = "y",
+    Ascending = 'ascending',
+    Color = 'color',
+    Descending = 'descending',
+    Fill = 'fill',
+    FillOpacity = 'fillOpacity',
+    Opacity = 'opacity',
+    Shape = 'shape',
+    Size = 'size',
+    SortColor = '-color',
+    SortFill = '-fill',
+    SortFillOpacity = '-fillOpacity',
+    SortOpacity = '-opacity',
+    SortShape = '-shape',
+    SortSize = '-size',
+    SortStroke = '-stroke',
+    SortStrokeOpacity = '-strokeOpacity',
+    SortStrokeWidth = '-strokeWidth',
+    SortText = '-text',
+    SortX = '-x',
+    SortY = '-y',
+    Stroke = 'stroke',
+    StrokeOpacity = 'strokeOpacity',
+    StrokeWidth = 'strokeWidth',
+    Text = 'text',
+    X = 'x',
+    Y = 'y',
 }
 
 /**
@@ -3300,11 +3299,11 @@ export enum Sort {
  * Data type based on level of measurement
  */
 export enum Type {
-    Geojson = "geojson",
-    Nominal = "nominal",
-    Ordinal = "ordinal",
-    Quantitative = "quantitative",
-    Temporal = "temporal",
+    Geojson = 'geojson',
+    Nominal = 'nominal',
+    Ordinal = 'ordinal',
+    Quantitative = 'quantitative',
+    Temporal = 'temporal',
 }
 
 /**
@@ -3607,7 +3606,7 @@ export interface ValueLinearGradient {
      * The type of gradient. Use `"radial"` for a radial gradient.
      */
     gradient: Gradient;
-    id?:      string;
+    id?: string;
     /**
      * An array of gradient stops defining the gradient color sequence.
      */
@@ -3678,8 +3677,8 @@ export interface ValueLinearGradient {
  * The type of gradient. Use `"radial"` for a radial gradient.
  */
 export enum Gradient {
-    Linear = "linear",
-    Radial = "radial",
+    Linear = 'linear',
+    Radial = 'radial',
 }
 
 export interface GradientStop {
@@ -4445,10 +4444,10 @@ export interface SortEncodingSortField {
  * __See also:__ [`type`](https://vega.github.io/vega-lite/docs/type.html) documentation.
  */
 export enum StandardType {
-    Nominal = "nominal",
-    Ordinal = "ordinal",
-    Quantitative = "quantitative",
-    Temporal = "temporal",
+    Nominal = 'nominal',
+    Ordinal = 'ordinal',
+    Quantitative = 'quantitative',
+    Temporal = 'temporal',
 }
 
 /**
@@ -4679,7 +4678,7 @@ export interface DescriptionClass {
 }
 
 export enum BinEnum {
-    Binned = "binned",
+    Binned = 'binned',
 }
 
 export interface PurpleConditionalValueDefString {
@@ -5353,7 +5352,7 @@ export interface FacetEncodingFieldDef {
 
 export interface RowColNumber {
     column?: number;
-    row?:    number;
+    row?: number;
 }
 
 /**
@@ -6660,8 +6659,8 @@ export interface Latitude2Class {
 }
 
 export enum ValueEnum {
-    Height = "height",
-    Width = "width",
+    Height = 'height',
+    Width = 'width',
 }
 
 /**
@@ -7911,9 +7910,9 @@ export interface RadiusClass {
  * __Default value:__ `"zero"`
  */
 export enum StackOffset {
-    Center = "center",
-    Normalize = "normalize",
-    Zero = "zero",
+    Center = 'center',
+    Normalize = 'normalize',
+    Zero = 'zero',
 }
 
 /**
@@ -12383,19 +12382,19 @@ export interface Axis {
      *
      * __Default value:__ `"butt"`
      */
-    gridCap?:        StrokeCap;
-    gridColor?:      ConditionalAxisPropertyColorNull | null | string;
-    gridDash?:       number[] | ConditionalAxisPropertyNumberNull;
+    gridCap?: StrokeCap;
+    gridColor?: ConditionalAxisPropertyColorNull | null | string;
+    gridDash?: number[] | ConditionalAxisPropertyNumberNull;
     gridDashOffset?: ConditionalAxisPropertyNumberNullClass | number;
-    gridOpacity?:    ConditionalAxisPropertyNumberNullClass | number;
-    gridWidth?:      ConditionalAxisPropertyNumberNullClass | number;
-    labelAlign?:     ConditionalAxisPropertyAlignNull | Align;
+    gridOpacity?: ConditionalAxisPropertyNumberNullClass | number;
+    gridWidth?: ConditionalAxisPropertyNumberNullClass | number;
+    labelAlign?: ConditionalAxisPropertyAlignNull | Align;
     /**
      * The rotation angle of the axis labels.
      *
      * __Default value:__ `-90` for nominal and ordinal fields; `0` otherwise.
      */
-    labelAngle?:    number;
+    labelAngle?: number;
     labelBaseline?: ConditionalAxisPropertyTextBaselineNull | Baseline;
     /**
      * Indicates if labels should be hidden if they exceed the axis range. If `false` (the
@@ -12435,10 +12434,10 @@ export interface Axis {
      * __Default value:__ `0`.
      */
     labelFlushOffset?: number;
-    labelFont?:        ConditionalAxisPropertyStringNull | string;
-    labelFontSize?:    ConditionalAxisPropertyNumberNullClass | number;
-    labelFontStyle?:   ConditionalAxisPropertyFontStyleNull | string;
-    labelFontWeight?:  ConditionalAxisPropertyFontWeightNull | number | FontWeightEnum;
+    labelFont?: ConditionalAxisPropertyStringNull | string;
+    labelFontSize?: ConditionalAxisPropertyNumberNullClass | number;
+    labelFontStyle?: ConditionalAxisPropertyFontStyleNull | string;
+    labelFontWeight?: ConditionalAxisPropertyFontWeightNull | number | FontWeightEnum;
     /**
      * Maximum allowed pixel width of axis tick labels.
      *
@@ -12450,8 +12449,8 @@ export interface Axis {
      * `"line-bottom"` baseline.
      */
     labelLineHeight?: number;
-    labelOffset?:     ConditionalAxisPropertyNumberNullClass | number;
-    labelOpacity?:    ConditionalAxisPropertyNumberNullClass | number;
+    labelOffset?: ConditionalAxisPropertyNumberNullClass | number;
+    labelOpacity?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * The strategy to use for resolving overlap of axis labels. If `false` (the default), no
      * overlap reduction is attempted. If set to `true` or `"parity"`, a strategy of removing
@@ -12538,7 +12537,7 @@ export interface Axis {
      *
      * __Default value:__ `"butt"`
      */
-    tickCap?:   StrokeCap;
+    tickCap?: StrokeCap;
     tickColor?: ConditionalAxisPropertyColorNull | null | string;
     /**
      * A desired number of ticks, for axes visualizing quantitative scales. The resulting number
@@ -12555,8 +12554,8 @@ export interface Axis {
      * __Default value__: Determine using a formula `ceil(width/40)` for x and `ceil(height/40)`
      * for y.
      */
-    tickCount?:      TimeIntervalStep | number | TimeInterval;
-    tickDash?:       number[] | ConditionalAxisPropertyNumberNull;
+    tickCount?: TimeIntervalStep | number | TimeInterval;
+    tickDash?: number[] | ConditionalAxisPropertyNumberNull;
     tickDashOffset?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * Boolean flag indicating if an extra axis tick should be added for the initial position of
@@ -12575,7 +12574,7 @@ export interface Axis {
     /**
      * Position offset in pixels to apply to ticks, labels, and gridlines.
      */
-    tickOffset?:  number;
+    tickOffset?: number;
     tickOpacity?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * Boolean flag indicating if pixel position values should be rounded to the nearest
@@ -12589,8 +12588,8 @@ export interface Axis {
      *
      * __Default value:__ `true`
      */
-    ticks?:     boolean;
-    tickSize?:  ConditionalAxisPropertyNumberNullClass | number;
+    ticks?: boolean;
+    tickSize?: ConditionalAxisPropertyNumberNullClass | number;
     tickWidth?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * A title for the field. If `null`, the title will be removed.
@@ -12723,9 +12722,9 @@ export interface Axis {
  * __Default value:__ `"butt"`
  */
 export enum StrokeCap {
-    Butt = "butt",
-    Round = "round",
-    Square = "square",
+    Butt = 'butt',
+    Round = 'round',
+    Square = 'square',
 }
 
 export interface ConditionalAxisPropertyColorNull {
@@ -12917,8 +12916,8 @@ export interface ConditionalPredicateValueDefFontWeightNull {
  * a band (default) or at the band `"extent"`s to indicate intervals
  */
 export enum TickBand {
-    Center = "center",
-    Extent = "extent",
+    Center = 'center',
+    Extent = 'extent',
 }
 
 export interface ImputeParams {
@@ -12983,11 +12982,11 @@ export interface ImputeSequence {
  * __Default value:__  `"value"`
  */
 export enum ImputeParamsMethod {
-    Max = "max",
-    Mean = "mean",
-    Median = "median",
-    Min = "min",
-    Value = "value",
+    Max = 'max',
+    Mean = 'mean',
+    Median = 'median',
+    Min = 'min',
+    Value = 'value',
 }
 
 /**
@@ -14519,7 +14518,7 @@ export interface Step {
 }
 
 export enum HeightEnum {
-    Container = "container",
+    Container = 'container',
 }
 
 /**
@@ -14987,9 +14986,9 @@ export interface Def {
      * For stacked charts, this is always determined by the orientation of the stack;
      * therefore explicitly specified value will be ignored.
      */
-    orient?:   Orientation;
+    orient?: Orientation;
     outliers?: boolean | MarkConfig;
-    rule?:     boolean | MarkConfig;
+    rule?: boolean | MarkConfig;
     /**
      * Size of the box and median tick of a box plot
      *
@@ -15006,7 +15005,7 @@ export interface Def {
      * - `5` for bar marks with continuous dimensions;
      * - `11` for text marks.
      */
-    size?:  number;
+    size?: number;
     ticks?: boolean | MarkConfig;
     /**
      * The mark type. This could a primitive mark type
@@ -15014,8 +15013,8 @@ export interface Def {
      * `"area"`, `"point"`, `"geoshape"`, `"rule"`, and `"text"`)
      * or a composite mark type (`"boxplot"`, `"errorband"`, `"errorbar"`).
      */
-    type:     BoxPlot;
-    band?:    boolean | MarkConfig;
+    type: BoxPlot;
+    band?: boolean | MarkConfig;
     borders?: boolean | MarkConfig;
     /**
      * The line interpolation method for the error band. One of the following:
@@ -16015,21 +16014,21 @@ export interface MarkConfig {
 }
 
 export enum Blend {
-    Color = "color",
-    ColorBurn = "color-burn",
-    ColorDodge = "color-dodge",
-    Darken = "darken",
-    Difference = "difference",
-    Exclusion = "exclusion",
-    HardLight = "hard-light",
-    Hue = "hue",
-    Lighten = "lighten",
-    Luminosity = "luminosity",
-    Multiply = "multiply",
-    Overlay = "overlay",
-    Saturation = "saturation",
-    Screen = "screen",
-    SoftLight = "soft-light",
+    Color = 'color',
+    ColorBurn = 'color-burn',
+    ColorDodge = 'color-dodge',
+    Darken = 'darken',
+    Difference = 'difference',
+    Exclusion = 'exclusion',
+    HardLight = 'hard-light',
+    Hue = 'hue',
+    Lighten = 'lighten',
+    Luminosity = 'luminosity',
+    Multiply = 'multiply',
+    Overlay = 'overlay',
+    Saturation = 'saturation',
+    Screen = 'screen',
+    SoftLight = 'soft-light',
 }
 
 export interface ColorLinearGradient {
@@ -16039,7 +16038,7 @@ export interface ColorLinearGradient {
      * The type of gradient. Use `"radial"` for a radial gradient.
      */
     gradient: Gradient;
-    id?:      string;
+    id?: string;
     /**
      * An array of gradient stops defining the gradient color sequence.
      */
@@ -16115,42 +16114,42 @@ export interface ColorLinearGradient {
  * type](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#Values) can be used.
  */
 export enum Cursor {
-    Alias = "alias",
-    AllScroll = "all-scroll",
-    Auto = "auto",
-    Cell = "cell",
-    ColResize = "col-resize",
-    ContextMenu = "context-menu",
-    Copy = "copy",
-    Crosshair = "crosshair",
-    Default = "default",
-    EResize = "e-resize",
-    EwResize = "ew-resize",
-    Grab = "grab",
-    Grabbing = "grabbing",
-    Help = "help",
-    Move = "move",
-    NResize = "n-resize",
-    NSResize = "ns-resize",
-    NeResize = "ne-resize",
-    NeswResize = "nesw-resize",
-    NoDrop = "no-drop",
-    None = "none",
-    NotAllowed = "not-allowed",
-    NwResize = "nw-resize",
-    NwseResize = "nwse-resize",
-    Pointer = "pointer",
-    Progress = "progress",
-    RowResize = "row-resize",
-    SEResize = "se-resize",
-    SResize = "s-resize",
-    SwResize = "sw-resize",
-    Text = "text",
-    VerticalText = "vertical-text",
-    WResize = "w-resize",
-    Wait = "wait",
-    ZoomIn = "zoom-in",
-    ZoomOut = "zoom-out",
+    Alias = 'alias',
+    AllScroll = 'all-scroll',
+    Auto = 'auto',
+    Cell = 'cell',
+    ColResize = 'col-resize',
+    ContextMenu = 'context-menu',
+    Copy = 'copy',
+    Crosshair = 'crosshair',
+    Default = 'default',
+    EResize = 'e-resize',
+    EwResize = 'ew-resize',
+    Grab = 'grab',
+    Grabbing = 'grabbing',
+    Help = 'help',
+    Move = 'move',
+    NResize = 'n-resize',
+    NSResize = 'ns-resize',
+    NeResize = 'ne-resize',
+    NeswResize = 'nesw-resize',
+    NoDrop = 'no-drop',
+    None = 'none',
+    NotAllowed = 'not-allowed',
+    NwResize = 'nw-resize',
+    NwseResize = 'nwse-resize',
+    Pointer = 'pointer',
+    Progress = 'progress',
+    RowResize = 'row-resize',
+    SEResize = 'se-resize',
+    SResize = 's-resize',
+    SwResize = 'sw-resize',
+    Text = 'text',
+    VerticalText = 'vertical-text',
+    WResize = 'w-resize',
+    Wait = 'wait',
+    ZoomIn = 'zoom-in',
+    ZoomOut = 'zoom-out',
 }
 
 /**
@@ -16160,8 +16159,8 @@ export enum Cursor {
  * __Default value:__ `"ltr"`
  */
 export enum TextDirection {
-    LTR = "ltr",
-    RTL = "rtl",
+    LTR = 'ltr',
+    RTL = 'rtl',
 }
 
 export interface FillLinearGradient {
@@ -16171,7 +16170,7 @@ export interface FillLinearGradient {
      * The type of gradient. Use `"radial"` for a radial gradient.
      */
     gradient: Gradient;
-    id?:      string;
+    id?: string;
     /**
      * An array of gradient stops defining the gradient color sequence.
      */
@@ -16278,25 +16277,25 @@ export interface FillLinearGradient {
  * - `"monotone"`: cubic interpolation that preserves monotonicity in y.
  */
 export enum Interpolate {
-    Basis = "basis",
-    BasisClosed = "basis-closed",
-    BasisOpen = "basis-open",
-    Bundle = "bundle",
-    Cardinal = "cardinal",
-    CardinalClosed = "cardinal-closed",
-    CardinalOpen = "cardinal-open",
-    CatmullROM = "catmull-rom",
-    Linear = "linear",
-    LinearClosed = "linear-closed",
-    Monotone = "monotone",
-    Natural = "natural",
-    Step = "step",
-    StepAfter = "step-after",
-    StepBefore = "step-before",
+    Basis = 'basis',
+    BasisClosed = 'basis-closed',
+    BasisOpen = 'basis-open',
+    Bundle = 'bundle',
+    Cardinal = 'cardinal',
+    CardinalClosed = 'cardinal-closed',
+    CardinalOpen = 'cardinal-open',
+    CatmullROM = 'catmull-rom',
+    Linear = 'linear',
+    LinearClosed = 'linear-closed',
+    Monotone = 'monotone',
+    Natural = 'natural',
+    Step = 'step',
+    StepAfter = 'step-after',
+    StepBefore = 'step-before',
 }
 
 export enum Invalid {
-    Filter = "filter",
+    Filter = 'filter',
 }
 
 /**
@@ -16305,9 +16304,9 @@ export enum Invalid {
  * __Default value:__ `"miter"`
  */
 export enum StrokeJoin {
-    Bevel = "bevel",
-    Miter = "miter",
-    Round = "round",
+    Bevel = 'bevel',
+    Miter = 'miter',
+    Round = 'round',
 }
 
 export interface TooltipContent {
@@ -16315,16 +16314,16 @@ export interface TooltipContent {
 }
 
 export enum Content {
-    Data = "data",
-    Encoding = "encoding",
+    Data = 'data',
+    Encoding = 'encoding',
 }
 
 export enum XEnum {
-    Width = "width",
+    Width = 'width',
 }
 
 export enum YEnum {
-    Height = "height",
+    Height = 'height',
 }
 
 /**
@@ -16349,11 +16348,11 @@ export enum YEnum {
  * __Default value:__ `"stderr"`.
  */
 export enum ExtentExtent {
-    Ci = "ci",
-    Iqr = "iqr",
-    MinMax = "min-max",
-    Stderr = "stderr",
-    Stdev = "stdev",
+    Ci = 'ci',
+    Iqr = 'iqr',
+    MinMax = 'min-max',
+    Stderr = 'stderr',
+    Stdev = 'stdev',
 }
 
 export interface OverlayMarkDef {
@@ -16857,7 +16856,7 @@ export interface OverlayMarkDef {
 }
 
 export enum PointEnum {
-    Transparent = "transparent",
+    Transparent = 'transparent',
 }
 
 /**
@@ -16869,23 +16868,23 @@ export enum PointEnum {
  * All types of primitive marks.
  */
 export enum BoxPlot {
-    Arc = "arc",
-    Area = "area",
-    Bar = "bar",
-    Boxplot = "boxplot",
-    Circle = "circle",
-    Errorband = "errorband",
-    Errorbar = "errorbar",
-    Geoshape = "geoshape",
-    Image = "image",
-    Line = "line",
-    Point = "point",
-    Rect = "rect",
-    Rule = "rule",
-    Square = "square",
-    Text = "text",
-    Tick = "tick",
-    Trail = "trail",
+    Arc = 'arc',
+    Area = 'area',
+    Bar = 'bar',
+    Boxplot = 'boxplot',
+    Circle = 'circle',
+    Errorband = 'errorband',
+    Errorbar = 'errorbar',
+    Geoshape = 'geoshape',
+    Image = 'image',
+    Line = 'line',
+    Point = 'point',
+    Rect = 'rect',
+    Rule = 'rule',
+    Square = 'square',
+    Text = 'text',
+    Tick = 'tick',
+    Trail = 'trail',
 }
 
 /**
@@ -16921,14 +16920,14 @@ export interface Projection {
      * the viewport, `y0` is the top, `x1` is the right and `y1` is the bottom. If `null`, no
      * viewport clipping is performed.
      */
-    clipExtent?:  Array<number[]>;
+    clipExtent?: Array<number[]>;
     coefficient?: number;
-    distance?:    number;
-    extent?:      Array<number[]>;
-    fit?:         any;
-    fraction?:    number;
-    lobes?:       number;
-    parallel?:    number;
+    distance?: number;
+    extent?: Array<number[]>;
+    fit?: any;
+    fraction?: number;
+    lobes?: number;
+    parallel?: number;
     /**
      * For conic projections, the [two standard
      * parallels](https://en.wikipedia.org/wiki/Map_projection#Conic) that define the map
@@ -16953,10 +16952,10 @@ export interface Projection {
      * which defaults to `√0.5 ≅ 0.70710…`.
      */
     precision?: number;
-    radius?:    number;
-    ratio?:     number;
-    reflectX?:  boolean;
-    reflectY?:  boolean;
+    radius?: number;
+    ratio?: number;
+    reflectX?: boolean;
+    reflectY?: boolean;
     /**
      * The projection's three-axis rotation to the specified angles, which must be a two- or
      * three-element array of numbers [`lambda`, `phi`, `gamma`] specifying the rotation angles
@@ -16970,10 +16969,10 @@ export interface Projection {
      * projection-specific. The scale factor corresponds linearly to the distance between
      * projected points; however, scale factor values are not equivalent across projections.
      */
-    scale?:   number;
-    size?:    number[];
+    scale?: number;
+    size?: number[];
     spacing?: number;
-    tilt?:    number;
+    tilt?: number;
     /**
      * The projection’s translation offset as a two-element array `[tx, ty]`.
      */
@@ -16998,22 +16997,22 @@ export interface Projection {
  * __Default value:__ `mercator`
  */
 export enum ProjectionType {
-    Albers = "albers",
-    AlbersUsa = "albersUsa",
-    AzimuthalEqualArea = "azimuthalEqualArea",
-    AzimuthalEquidistant = "azimuthalEquidistant",
-    ConicConformal = "conicConformal",
-    ConicEqualArea = "conicEqualArea",
-    ConicEquidistant = "conicEquidistant",
-    EqualEarth = "equalEarth",
-    Equirectangular = "equirectangular",
-    Gnomonic = "gnomonic",
-    Identity = "identity",
-    Mercator = "mercator",
-    NaturalEarth1 = "naturalEarth1",
-    Orthographic = "orthographic",
-    Stereographic = "stereographic",
-    TransverseMercator = "transverseMercator",
+    Albers = 'albers',
+    AlbersUsa = 'albersUsa',
+    AzimuthalEqualArea = 'azimuthalEqualArea',
+    AzimuthalEquidistant = 'azimuthalEquidistant',
+    ConicConformal = 'conicConformal',
+    ConicEqualArea = 'conicEqualArea',
+    ConicEquidistant = 'conicEquidistant',
+    EqualEarth = 'equalEarth',
+    Equirectangular = 'equirectangular',
+    Gnomonic = 'gnomonic',
+    Identity = 'identity',
+    Mercator = 'mercator',
+    NaturalEarth1 = 'naturalEarth1',
+    Orthographic = 'orthographic',
+    Stereographic = 'stereographic',
+    TransverseMercator = 'transverseMercator',
 }
 
 /**
@@ -17024,9 +17023,9 @@ export enum ProjectionType {
  * Scales and guides can be resolved to be `"independent"` or `"shared"`.
  */
 export interface Resolve {
-    axis?:   AxisResolveMap;
+    axis?: AxisResolveMap;
     legend?: LegendResolveMap;
-    scale?:  ScaleResolveMap;
+    scale?: ScaleResolveMap;
 }
 
 export interface AxisResolveMap {
@@ -17035,40 +17034,40 @@ export interface AxisResolveMap {
 }
 
 export enum ResolveMode {
-    Independent = "independent",
-    Shared = "shared",
+    Independent = 'independent',
+    Shared = 'shared',
 }
 
 export interface LegendResolveMap {
-    angle?:         ResolveMode;
-    color?:         ResolveMode;
-    fill?:          ResolveMode;
-    fillOpacity?:   ResolveMode;
-    opacity?:       ResolveMode;
-    shape?:         ResolveMode;
-    size?:          ResolveMode;
-    stroke?:        ResolveMode;
-    strokeDash?:    ResolveMode;
+    angle?: ResolveMode;
+    color?: ResolveMode;
+    fill?: ResolveMode;
+    fillOpacity?: ResolveMode;
+    opacity?: ResolveMode;
+    shape?: ResolveMode;
+    size?: ResolveMode;
+    stroke?: ResolveMode;
+    strokeDash?: ResolveMode;
     strokeOpacity?: ResolveMode;
-    strokeWidth?:   ResolveMode;
+    strokeWidth?: ResolveMode;
 }
 
 export interface ScaleResolveMap {
-    angle?:         ResolveMode;
-    color?:         ResolveMode;
-    fill?:          ResolveMode;
-    fillOpacity?:   ResolveMode;
-    opacity?:       ResolveMode;
-    radius?:        ResolveMode;
-    shape?:         ResolveMode;
-    size?:          ResolveMode;
-    stroke?:        ResolveMode;
-    strokeDash?:    ResolveMode;
+    angle?: ResolveMode;
+    color?: ResolveMode;
+    fill?: ResolveMode;
+    fillOpacity?: ResolveMode;
+    opacity?: ResolveMode;
+    radius?: ResolveMode;
+    shape?: ResolveMode;
+    size?: ResolveMode;
+    stroke?: ResolveMode;
+    strokeDash?: ResolveMode;
     strokeOpacity?: ResolveMode;
-    strokeWidth?:   ResolveMode;
-    theta?:         ResolveMode;
-    x?:             ResolveMode;
-    y?:             ResolveMode;
+    strokeWidth?: ResolveMode;
+    theta?: ResolveMode;
+    x?: ResolveMode;
+    y?: ResolveMode;
 }
 
 export interface SelectionDef {
@@ -17154,7 +17153,9 @@ export interface SelectionDef {
      *
      * __See also:__ [`init`](https://vega.github.io/vega-lite/docs/init.html) documentation.
      */
-    init?: { [key: string]: boolean | DateTime | number | null | string }[] | { [key: string]: Array<boolean | DateTime | number | string> | boolean | DateTime | number | null | string };
+    init?:
+        | { [key: string]: boolean | DateTime | number | null | string }[]
+        | { [key: string]: Array<boolean | DateTime | number | string> | boolean | DateTime | number | null | string };
     /**
      * When true, an invisible voronoi diagram is computed to accelerate discrete
      * selection. The data value _nearest_ the mouse cursor is added to the selection.
@@ -17247,112 +17248,112 @@ export interface SelectionDef {
  * __See also:__ [`bind`](https://vega.github.io/vega-lite/docs/bind.html) documentation.
  */
 export enum PurpleLegendBinding {
-    Legend = "legend",
-    Scales = "scales",
+    Legend = 'legend',
+    Scales = 'scales',
 }
 
 export interface PurpleBindCheckbox {
-    debounce?:     Binding | number;
-    element?:      Binding | string;
-    input?:        Binding | string;
-    name?:         Binding | string;
-    type?:         Binding | string;
-    labels?:       string[] | Binding;
-    options?:      any[] | Binding;
-    max?:          Binding | number;
-    min?:          Binding | number;
-    step?:         Binding | number;
+    debounce?: Binding | number;
+    element?: Binding | string;
+    input?: Binding | string;
+    name?: Binding | string;
+    type?: Binding | string;
+    labels?: string[] | Binding;
+    options?: any[] | Binding;
+    max?: Binding | number;
+    min?: Binding | number;
+    step?: Binding | number;
     autocomplete?: Binding | string;
-    placeholder?:  Binding | string;
-    legend?:       PurpleBinding | string;
+    placeholder?: Binding | string;
+    legend?: PurpleBinding | string;
 }
 
 export interface Binding {
-    debounce?:     number;
-    element?:      string;
-    input?:        string;
-    name?:         string;
-    type?:         string;
-    labels?:       string[];
-    options?:      any[];
-    max?:          number;
-    min?:          number;
-    step?:         number;
+    debounce?: number;
+    element?: string;
+    input?: string;
+    name?: string;
+    type?: string;
+    labels?: string[];
+    options?: any[];
+    max?: number;
+    min?: number;
+    step?: number;
     autocomplete?: string;
-    placeholder?:  string;
+    placeholder?: string;
 }
 
 export interface PurpleBinding {
-    debounce?:     number;
-    element?:      string;
-    input?:        string;
-    name?:         string;
-    type?:         string;
-    labels?:       string[];
-    options?:      any[];
-    max?:          number;
-    min?:          number;
-    step?:         number;
+    debounce?: number;
+    element?: string;
+    input?: string;
+    name?: string;
+    type?: string;
+    labels?: string[];
+    options?: any[];
+    max?: number;
+    min?: number;
+    step?: number;
     autocomplete?: string;
-    placeholder?:  string;
-    between?:      Stream[];
-    consume?:      boolean;
-    filter?:       string[] | string;
-    markname?:     string;
-    marktype?:     MarkType;
-    source?:       Source;
-    throttle?:     number;
-    stream?:       Stream;
-    merge?:        Stream[];
+    placeholder?: string;
+    between?: Stream[];
+    consume?: boolean;
+    filter?: string[] | string;
+    markname?: string;
+    marktype?: MarkType;
+    source?: Source;
+    throttle?: number;
+    stream?: Stream;
+    merge?: Stream[];
 }
 
 export interface Stream {
-    between?:  Stream[];
-    consume?:  boolean;
+    between?: Stream[];
+    consume?: boolean;
     debounce?: number;
-    filter?:   string[] | string;
+    filter?: string[] | string;
     markname?: string;
     marktype?: MarkType;
-    source?:   Source;
+    source?: Source;
     throttle?: number;
-    type?:     string;
-    stream?:   Stream;
-    merge?:    Stream[];
+    type?: string;
+    stream?: Stream;
+    merge?: Stream[];
 }
 
 export enum MarkType {
-    Arc = "arc",
-    Area = "area",
-    Group = "group",
-    Image = "image",
-    Line = "line",
-    Path = "path",
-    Rect = "rect",
-    Rule = "rule",
-    Shape = "shape",
-    Symbol = "symbol",
-    Text = "text",
-    Trail = "trail",
+    Arc = 'arc',
+    Area = 'area',
+    Group = 'group',
+    Image = 'image',
+    Line = 'line',
+    Path = 'path',
+    Rect = 'rect',
+    Rule = 'rule',
+    Shape = 'shape',
+    Symbol = 'symbol',
+    Text = 'text',
+    Trail = 'trail',
 }
 
 export enum Source {
-    Scope = "scope",
-    View = "view",
-    Window = "window",
+    Scope = 'scope',
+    View = 'view',
+    Window = 'window',
 }
 
 export interface ClearDerivedStream {
-    between?:  Stream[];
-    consume?:  boolean;
+    between?: Stream[];
+    consume?: boolean;
     debounce?: number;
-    filter?:   string[] | string;
+    filter?: string[] | string;
     markname?: string;
     marktype?: MarkType;
-    source?:   Source;
+    source?: Source;
     throttle?: number;
-    type?:     string;
-    stream?:   Stream;
-    merge?:    Stream[];
+    type?: string;
+    stream?: Stream;
+    merge?: Stream[];
 }
 
 /**
@@ -17360,8 +17361,8 @@ export interface ClearDerivedStream {
  * When set to `none`, empty selections contain no data values.
  */
 export enum Empty {
-    All = "all",
-    None = "none",
+    All = 'all',
+    None = 'none',
 }
 
 /**
@@ -17415,17 +17416,17 @@ export interface BrushConfig {
 }
 
 export interface OnDerivedStream {
-    between?:  Stream[];
-    consume?:  boolean;
+    between?: Stream[];
+    consume?: boolean;
     debounce?: number;
-    filter?:   string[] | string;
+    filter?: string[] | string;
     markname?: string;
     marktype?: MarkType;
-    source?:   Source;
+    source?: Source;
     throttle?: number;
-    type?:     string;
-    stream?:   Stream;
-    merge?:    Stream[];
+    type?: string;
+    stream?: Stream;
+    merge?: Stream[];
 }
 
 /**
@@ -17437,9 +17438,9 @@ export interface OnDerivedStream {
  * documentation.
  */
 export enum SelectionResolution {
-    Global = "global",
-    Intersect = "intersect",
-    Union = "union",
+    Global = 'global',
+    Intersect = 'intersect',
+    Union = 'union',
 }
 
 /**
@@ -17452,9 +17453,9 @@ export enum SelectionResolution {
  * - `"interval"` -- to select a continuous range of data values on `drag`.
  */
 export enum SelectionDefType {
-    Interval = "interval",
-    Multi = "multi",
-    Single = "single",
+    Interval = 'interval',
+    Multi = 'multi',
+    Single = 'single',
 }
 
 export interface TitleParams {
@@ -17610,11 +17611,11 @@ export interface TitleParams {
  * Default title orientation (`"top"`, `"bottom"`, `"left"`, or `"right"`)
  */
 export enum TitleOrient {
-    Bottom = "bottom",
-    Left = "left",
-    None = "none",
-    Right = "right",
-    Top = "top",
+    Bottom = 'bottom',
+    Left = 'left',
+    None = 'none',
+    Right = 'right',
+    Top = 'top',
 }
 
 export interface Transform {
@@ -18029,29 +18030,29 @@ export interface AggregatedFieldDef {
  * [here](https://vega.github.io/vega-lite/docs/aggregate.html#ops).
  */
 export enum AggregateOp {
-    Argmax = "argmax",
-    Argmin = "argmin",
-    Average = "average",
-    Ci0 = "ci0",
-    Ci1 = "ci1",
-    Count = "count",
-    Distinct = "distinct",
-    Max = "max",
-    Mean = "mean",
-    Median = "median",
-    Min = "min",
-    Missing = "missing",
-    Product = "product",
-    Q1 = "q1",
-    Q3 = "q3",
-    Stderr = "stderr",
-    Stdev = "stdev",
-    Stdevp = "stdevp",
-    Sum = "sum",
-    Valid = "valid",
-    Values = "values",
-    Variance = "variance",
-    Variancep = "variancep",
+    Argmax = 'argmax',
+    Argmin = 'argmin',
+    Average = 'average',
+    Ci0 = 'ci0',
+    Ci1 = 'ci1',
+    Count = 'count',
+    Distinct = 'distinct',
+    Max = 'max',
+    Mean = 'mean',
+    Median = 'median',
+    Min = 'min',
+    Missing = 'missing',
+    Product = 'product',
+    Q1 = 'q1',
+    Q3 = 'q3',
+    Stderr = 'stderr',
+    Stdev = 'stdev',
+    Stdevp = 'stdevp',
+    Sum = 'sum',
+    Valid = 'valid',
+    Values = 'values',
+    Variance = 'variance',
+    Variancep = 'variancep',
 }
 
 /**
@@ -18145,17 +18146,17 @@ export interface JoinAggregateFieldDef {
  * __Default value:__ `"linear"`
  */
 export enum TransformMethod {
-    Exp = "exp",
-    Linear = "linear",
-    Log = "log",
-    Max = "max",
-    Mean = "mean",
-    Median = "median",
-    Min = "min",
-    Poly = "poly",
-    Pow = "pow",
-    Quad = "quad",
-    Value = "value",
+    Exp = 'exp',
+    Linear = 'linear',
+    Log = 'log',
+    Max = 'max',
+    Mean = 'mean',
+    Median = 'median',
+    Min = 'min',
+    Poly = 'poly',
+    Pow = 'pow',
+    Quad = 'quad',
+    Value = 'value',
 }
 
 /**
@@ -18216,40 +18217,40 @@ export interface WindowFieldDef {
  * [here](https://vega.github.io/vega-lite/docs/aggregate.html#ops).
  */
 export enum Op {
-    Argmax = "argmax",
-    Argmin = "argmin",
-    Average = "average",
-    Ci0 = "ci0",
-    Ci1 = "ci1",
-    Count = "count",
-    CumeDist = "cume_dist",
-    DenseRank = "dense_rank",
-    Distinct = "distinct",
-    FirstValue = "first_value",
-    Lag = "lag",
-    LastValue = "last_value",
-    Lead = "lead",
-    Max = "max",
-    Mean = "mean",
-    Median = "median",
-    Min = "min",
-    Missing = "missing",
-    NthValue = "nth_value",
-    Ntile = "ntile",
-    PercentRank = "percent_rank",
-    Product = "product",
-    Q1 = "q1",
-    Q3 = "q3",
-    Rank = "rank",
-    RowNumber = "row_number",
-    Stderr = "stderr",
-    Stdev = "stdev",
-    Stdevp = "stdevp",
-    Sum = "sum",
-    Valid = "valid",
-    Values = "values",
-    Variance = "variance",
-    Variancep = "variancep",
+    Argmax = 'argmax',
+    Argmin = 'argmin',
+    Average = 'average',
+    Ci0 = 'ci0',
+    Ci1 = 'ci1',
+    Count = 'count',
+    CumeDist = 'cume_dist',
+    DenseRank = 'dense_rank',
+    Distinct = 'distinct',
+    FirstValue = 'first_value',
+    Lag = 'lag',
+    LastValue = 'last_value',
+    Lead = 'lead',
+    Max = 'max',
+    Mean = 'mean',
+    Median = 'median',
+    Min = 'min',
+    Missing = 'missing',
+    NthValue = 'nth_value',
+    Ntile = 'ntile',
+    PercentRank = 'percent_rank',
+    Product = 'product',
+    Q1 = 'q1',
+    Q3 = 'q3',
+    Rank = 'rank',
+    RowNumber = 'row_number',
+    Stderr = 'stderr',
+    Stdev = 'stdev',
+    Stdevp = 'stdevp',
+    Sum = 'sum',
+    Valid = 'valid',
+    Values = 'values',
+    Variance = 'variance',
+    Variancep = 'variancep',
 }
 
 /**
@@ -21015,19 +21016,19 @@ export interface AxisConfig {
      *
      * __Default value:__ `"butt"`
      */
-    gridCap?:        StrokeCap;
-    gridColor?:      ConditionalAxisPropertyColorNull | null | string;
-    gridDash?:       number[] | ConditionalAxisPropertyNumberNull;
+    gridCap?: StrokeCap;
+    gridColor?: ConditionalAxisPropertyColorNull | null | string;
+    gridDash?: number[] | ConditionalAxisPropertyNumberNull;
     gridDashOffset?: ConditionalAxisPropertyNumberNullClass | number;
-    gridOpacity?:    ConditionalAxisPropertyNumberNullClass | number;
-    gridWidth?:      ConditionalAxisPropertyNumberNullClass | number;
-    labelAlign?:     ConditionalAxisPropertyAlignNull | Align;
+    gridOpacity?: ConditionalAxisPropertyNumberNullClass | number;
+    gridWidth?: ConditionalAxisPropertyNumberNullClass | number;
+    labelAlign?: ConditionalAxisPropertyAlignNull | Align;
     /**
      * The rotation angle of the axis labels.
      *
      * __Default value:__ `-90` for nominal and ordinal fields; `0` otherwise.
      */
-    labelAngle?:    number;
+    labelAngle?: number;
     labelBaseline?: ConditionalAxisPropertyTextBaselineNull | Baseline;
     /**
      * Indicates if labels should be hidden if they exceed the axis range. If `false` (the
@@ -21068,10 +21069,10 @@ export interface AxisConfig {
      * __Default value:__ `0`.
      */
     labelFlushOffset?: number;
-    labelFont?:        ConditionalAxisPropertyStringNull | string;
-    labelFontSize?:    ConditionalAxisPropertyNumberNullClass | number;
-    labelFontStyle?:   ConditionalAxisPropertyFontStyleNull | string;
-    labelFontWeight?:  ConditionalAxisPropertyFontWeightNull | number | FontWeightEnum;
+    labelFont?: ConditionalAxisPropertyStringNull | string;
+    labelFontSize?: ConditionalAxisPropertyNumberNullClass | number;
+    labelFontStyle?: ConditionalAxisPropertyFontStyleNull | string;
+    labelFontWeight?: ConditionalAxisPropertyFontWeightNull | number | FontWeightEnum;
     /**
      * Maximum allowed pixel width of axis tick labels.
      *
@@ -21083,8 +21084,8 @@ export interface AxisConfig {
      * `"line-bottom"` baseline.
      */
     labelLineHeight?: number;
-    labelOffset?:     ConditionalAxisPropertyNumberNullClass | number;
-    labelOpacity?:    ConditionalAxisPropertyNumberNullClass | number;
+    labelOffset?: ConditionalAxisPropertyNumberNullClass | number;
+    labelOpacity?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * The strategy to use for resolving overlap of axis labels. If `false` (the default), no
      * overlap reduction is attempted. If set to `true` or `"parity"`, a strategy of removing
@@ -21171,7 +21172,7 @@ export interface AxisConfig {
      *
      * __Default value:__ `"butt"`
      */
-    tickCap?:   StrokeCap;
+    tickCap?: StrokeCap;
     tickColor?: ConditionalAxisPropertyColorNull | null | string;
     /**
      * A desired number of ticks, for axes visualizing quantitative scales. The resulting number
@@ -21188,8 +21189,8 @@ export interface AxisConfig {
      * __Default value__: Determine using a formula `ceil(width/40)` for x and `ceil(height/40)`
      * for y.
      */
-    tickCount?:      TimeIntervalStep | number | TimeInterval;
-    tickDash?:       number[] | ConditionalAxisPropertyNumberNull;
+    tickCount?: TimeIntervalStep | number | TimeInterval;
+    tickDash?: number[] | ConditionalAxisPropertyNumberNull;
     tickDashOffset?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * Boolean flag indicating if an extra axis tick should be added for the initial position of
@@ -21208,7 +21209,7 @@ export interface AxisConfig {
     /**
      * Position offset in pixels to apply to ticks, labels, and gridlines.
      */
-    tickOffset?:  number;
+    tickOffset?: number;
     tickOpacity?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * Boolean flag indicating if pixel position values should be rounded to the nearest
@@ -21222,8 +21223,8 @@ export interface AxisConfig {
      *
      * __Default value:__ `true`
      */
-    ticks?:     boolean;
-    tickSize?:  ConditionalAxisPropertyNumberNullClass | number;
+    ticks?: boolean;
+    tickSize?: ConditionalAxisPropertyNumberNullClass | number;
     tickWidth?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * A title for the field. If `null`, the title will be removed.
@@ -21826,19 +21827,19 @@ export interface BoxPlotConfig {
      *
      * __Default value:__ `1.5`.
      */
-    extent?:   number | ExtentEnum;
-    median?:   boolean | MarkConfig;
+    extent?: number | ExtentEnum;
+    median?: boolean | MarkConfig;
     outliers?: boolean | MarkConfig;
-    rule?:     boolean | MarkConfig;
+    rule?: boolean | MarkConfig;
     /**
      * Size of the box and median tick of a box plot
      */
-    size?:  number;
+    size?: number;
     ticks?: boolean | MarkConfig;
 }
 
 export enum ExtentEnum {
-    MinMax = "min-max",
+    MinMax = 'min-max',
 }
 
 /**
@@ -21878,7 +21879,7 @@ export interface CompositionConfig {
  * ErrorBand Config
  */
 export interface ErrorBandConfig {
-    band?:    boolean | MarkConfig;
+    band?: boolean | MarkConfig;
     borders?: boolean | MarkConfig;
     /**
      * The extent of the band. Available options include:
@@ -21943,10 +21944,10 @@ export interface ErrorBandConfig {
  * __Default value:__ `"stderr"`.
  */
 export enum ErrorbandExtent {
-    Ci = "ci",
-    Iqr = "iqr",
-    Stderr = "stderr",
-    Stdev = "stdev",
+    Ci = 'ci',
+    Iqr = 'iqr',
+    Stderr = 'stderr',
+    Stdev = 'stdev',
 }
 
 /**
@@ -21965,8 +21966,8 @@ export interface ErrorBarConfig {
      * __Default value:__ `"stderr"`.
      */
     extent?: ErrorbandExtent;
-    rule?:   boolean | MarkConfig;
-    ticks?:  boolean | MarkConfig;
+    rule?: boolean | MarkConfig;
+    ticks?: boolean | MarkConfig;
 }
 
 /**
@@ -21979,9 +21980,9 @@ export interface ErrorBarConfig {
  * "field").
  */
 export enum FieldTitle {
-    Functional = "functional",
-    Plain = "plain",
-    Verbal = "verbal",
+    Functional = 'functional',
+    Plain = 'plain',
+    Verbal = 'verbal',
 }
 
 /**
@@ -22632,10 +22633,10 @@ export interface LegendLayout {
     /**
      * The anchor point for legend orient group layout.
      */
-    anchor?:         TitleAnchor | null;
-    bottom?:         BaseLegendLayout;
-    "bottom-left"?:  BaseLegendLayout;
-    "bottom-right"?: BaseLegendLayout;
+    anchor?: TitleAnchor | null;
+    bottom?: BaseLegendLayout;
+    'bottom-left'?: BaseLegendLayout;
+    'bottom-right'?: BaseLegendLayout;
     /**
      * The bounds calculation to use for legend orient group layout.
      */
@@ -22648,7 +22649,7 @@ export interface LegendLayout {
      * The layout direction for legend orient group layout.
      */
     direction?: Orientation;
-    left?:      BaseLegendLayout;
+    left?: BaseLegendLayout;
     /**
      * The pixel margin between legends within a orient group.
      */
@@ -22656,11 +22657,11 @@ export interface LegendLayout {
     /**
      * The pixel offset from the chart body for a legend orient group.
      */
-    offset?:      number;
-    right?:       BaseLegendLayout;
-    top?:         BaseLegendLayout;
-    "top-left"?:  BaseLegendLayout;
-    "top-right"?: BaseLegendLayout;
+    offset?: number;
+    right?: BaseLegendLayout;
+    top?: BaseLegendLayout;
+    'top-left'?: BaseLegendLayout;
+    'top-right'?: BaseLegendLayout;
 }
 
 export interface BaseLegendLayout {
@@ -23162,9 +23163,9 @@ export interface LineConfig {
 
 export interface PaddingClass {
     bottom?: number;
-    left?:   number;
-    right?:  number;
-    top?:    number;
+    left?: number;
+    right?: number;
+    top?: number;
 }
 
 /**
@@ -23205,9 +23206,9 @@ export interface RangeConfig {
 }
 
 export interface CategoryClass {
-    count?:  number;
+    count?: number;
     extent?: number[];
-    scheme:  string[] | string;
+    scheme: string[] | string;
 }
 
 /**
@@ -23517,7 +23518,7 @@ export interface IntervalSelectionConfig {
  * __See also:__ [`bind`](https://vega.github.io/vega-lite/docs/bind.html) documentation.
  */
 export enum Bind {
-    Scales = "scales",
+    Scales = 'scales',
 }
 
 /**
@@ -23623,7 +23624,7 @@ export interface LegendStreamBinding {
 }
 
 export enum LegendBindingEnum {
-    Legend = "legend",
+    Legend = 'legend',
 }
 
 /**
@@ -23719,43 +23720,43 @@ export interface SingleSelectionConfig {
 }
 
 export interface FluffyBindCheckbox {
-    debounce?:     Binding | number;
-    element?:      Binding | string;
-    input?:        Binding | string;
-    name?:         Binding | string;
-    type?:         Binding | string;
-    labels?:       string[] | Binding;
-    options?:      any[] | Binding;
-    max?:          Binding | number;
-    min?:          Binding | number;
-    step?:         Binding | number;
+    debounce?: Binding | number;
+    element?: Binding | string;
+    input?: Binding | string;
+    name?: Binding | string;
+    type?: Binding | string;
+    labels?: string[] | Binding;
+    options?: any[] | Binding;
+    max?: Binding | number;
+    min?: Binding | number;
+    step?: Binding | number;
     autocomplete?: Binding | string;
-    placeholder?:  Binding | string;
-    legend?:       FluffyBinding | string;
+    placeholder?: Binding | string;
+    legend?: FluffyBinding | string;
 }
 
 export interface FluffyBinding {
-    debounce?:     number;
-    element?:      string;
-    input?:        string;
-    name?:         string;
-    type?:         string;
-    labels?:       string[];
-    options?:      any[];
-    max?:          number;
-    min?:          number;
-    step?:         number;
+    debounce?: number;
+    element?: string;
+    input?: string;
+    name?: string;
+    type?: string;
+    labels?: string[];
+    options?: any[];
+    max?: number;
+    min?: number;
+    step?: number;
     autocomplete?: string;
-    placeholder?:  string;
-    between?:      Stream[];
-    consume?:      boolean;
-    filter?:       string[] | string;
-    markname?:     string;
-    marktype?:     MarkType;
-    source?:       Source;
-    throttle?:     number;
-    stream?:       Stream;
-    merge?:        Stream[];
+    placeholder?: string;
+    between?: Stream[];
+    consume?: boolean;
+    filter?: string[] | string;
+    markname?: string;
+    marktype?: MarkType;
+    source?: Source;
+    throttle?: number;
+    stream?: Stream;
+    merge?: Stream[];
 }
 
 /**
@@ -23788,19 +23789,19 @@ export interface StyleConfigIndex {
     /**
      * Default style for chart subtitles
      */
-    "group-subtitle"?: MarkConfig;
+    'group-subtitle'?: MarkConfig;
     /**
      * Default style for chart titles
      */
-    "group-title"?: MarkConfig;
+    'group-title'?: MarkConfig;
     /**
      * Default style for axis, legend, and header labels.
      */
-    "guide-label"?: MarkConfig;
+    'guide-label'?: MarkConfig;
     /**
      * Default style for axis, legend, and header titles.
      */
-    "guide-title"?: MarkConfig;
+    'guide-title'?: MarkConfig;
     /**
      * Image-specific Config
      */
@@ -24978,19 +24979,19 @@ export interface AnyMarkConfig {
      *
      * __Default value:__ `"butt"`
      */
-    gridCap?:        StrokeCap;
-    gridColor?:      ConditionalAxisPropertyColorNull | null | string;
-    gridDash?:       number[] | ConditionalAxisPropertyNumberNull;
+    gridCap?: StrokeCap;
+    gridColor?: ConditionalAxisPropertyColorNull | null | string;
+    gridDash?: number[] | ConditionalAxisPropertyNumberNull;
     gridDashOffset?: ConditionalAxisPropertyNumberNullClass | number;
-    gridOpacity?:    ConditionalAxisPropertyNumberNullClass | number;
-    gridWidth?:      ConditionalAxisPropertyNumberNullClass | number;
-    labelAlign?:     ConditionalAxisPropertyAlignNull | Align;
+    gridOpacity?: ConditionalAxisPropertyNumberNullClass | number;
+    gridWidth?: ConditionalAxisPropertyNumberNullClass | number;
+    labelAlign?: ConditionalAxisPropertyAlignNull | Align;
     /**
      * The rotation angle of the axis labels.
      *
      * __Default value:__ `-90` for nominal and ordinal fields; `0` otherwise.
      */
-    labelAngle?:    number;
+    labelAngle?: number;
     labelBaseline?: ConditionalAxisPropertyTextBaselineNull | Baseline;
     /**
      * Indicates if labels should be hidden if they exceed the axis range. If `false` (the
@@ -25030,10 +25031,10 @@ export interface AnyMarkConfig {
      * __Default value:__ `0`.
      */
     labelFlushOffset?: number;
-    labelFont?:        ConditionalAxisPropertyStringNull | string;
-    labelFontSize?:    ConditionalAxisPropertyNumberNullClass | number;
-    labelFontStyle?:   ConditionalAxisPropertyFontStyleNull | string;
-    labelFontWeight?:  ConditionalAxisPropertyFontWeightNull | number | FontWeightEnum;
+    labelFont?: ConditionalAxisPropertyStringNull | string;
+    labelFontSize?: ConditionalAxisPropertyNumberNullClass | number;
+    labelFontStyle?: ConditionalAxisPropertyFontStyleNull | string;
+    labelFontWeight?: ConditionalAxisPropertyFontWeightNull | number | FontWeightEnum;
     /**
      * Maximum allowed pixel width of axis tick labels.
      *
@@ -25045,8 +25046,8 @@ export interface AnyMarkConfig {
      * `"line-bottom"` baseline.
      */
     labelLineHeight?: number;
-    labelOffset?:     ConditionalAxisPropertyNumberNullClass | number;
-    labelOpacity?:    ConditionalAxisPropertyNumberNullClass | number;
+    labelOffset?: ConditionalAxisPropertyNumberNullClass | number;
+    labelOpacity?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * The strategy to use for resolving overlap of axis labels. If `false` (the default), no
      * overlap reduction is attempted. If set to `true` or `"parity"`, a strategy of removing
@@ -25125,7 +25126,7 @@ export interface AnyMarkConfig {
      *
      * __Default value:__ `"butt"`
      */
-    tickCap?:   StrokeCap;
+    tickCap?: StrokeCap;
     tickColor?: ConditionalAxisPropertyColorNull | null | string;
     /**
      * A desired number of ticks, for axes visualizing quantitative scales. The resulting number
@@ -25142,8 +25143,8 @@ export interface AnyMarkConfig {
      * __Default value__: Determine using a formula `ceil(width/40)` for x and `ceil(height/40)`
      * for y.
      */
-    tickCount?:      TimeIntervalStep | number | TimeInterval;
-    tickDash?:       number[] | ConditionalAxisPropertyNumberNull;
+    tickCount?: TimeIntervalStep | number | TimeInterval;
+    tickDash?: number[] | ConditionalAxisPropertyNumberNull;
     tickDashOffset?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * Boolean flag indicating if an extra axis tick should be added for the initial position of
@@ -25162,7 +25163,7 @@ export interface AnyMarkConfig {
     /**
      * Position offset in pixels to apply to ticks, labels, and gridlines.
      */
-    tickOffset?:  number;
+    tickOffset?: number;
     tickOpacity?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * Boolean flag indicating if pixel position values should be rounded to the nearest
@@ -25176,8 +25177,8 @@ export interface AnyMarkConfig {
      *
      * __Default value:__ `true`
      */
-    ticks?:     boolean;
-    tickSize?:  ConditionalAxisPropertyNumberNullClass | number;
+    ticks?: boolean;
+    tickSize?: ConditionalAxisPropertyNumberNullClass | number;
     tickWidth?: ConditionalAxisPropertyNumberNullClass | number;
     /**
      * A title for the field. If `null`, the title will be removed.
@@ -25339,12 +25340,12 @@ export interface AnyMarkConfig {
  * __Default value:__ `"bottom"` for x-axes and `"left"` for y-axes.
  */
 export enum StyleOrient {
-    Bottom = "bottom",
-    Horizontal = "horizontal",
-    Left = "left",
-    Right = "right",
-    Top = "top",
-    Vertical = "vertical",
+    Bottom = 'bottom',
+    Horizontal = 'horizontal',
+    Left = 'left',
+    Right = 'right',
+    Top = 'top',
+    Vertical = 'vertical',
 }
 
 /**

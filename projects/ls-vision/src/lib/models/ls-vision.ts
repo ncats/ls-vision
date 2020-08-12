@@ -1,15 +1,15 @@
 import { ElementRef } from '@angular/core';
 import { Coordinate } from './vega-lite';
 
-export interface VConfig {
+export interface LsConfig {
     // Y Axis
-    x?: VAxis;
+    x?: LsAxis;
 
     // X Axis
-    y?: VAxis;
+    y?: LsAxis;
 
     // Grouping by color
-    color?: VColor;
+    color?: LsColor;
 
     // Bar chart color
     fill?: string;
@@ -21,7 +21,7 @@ export interface VConfig {
     shape?: Field;
 
     // For grouped columns
-    column?: Column;
+    column?: LsColumn;
 
     // Bubble chart
     size?: Field;
@@ -29,16 +29,16 @@ export interface VConfig {
     // For circular plots
     circular?: CircularPlots;
 
+    // Multiplier for text size
+    textSizeMult?: number;
+
     height?: number;
     width?: number;
     title?: string;
     description?: string;
-
-    // Multiplier for text size
-    textSizeMult?: number;
 }
 
-export interface VAxis {
+export interface LsAxis {
     // Name of the property on the json object data to pull values and plot
     field: string;
 
@@ -61,14 +61,14 @@ export interface VAxis {
     type?: string;
 }
 
-export interface Column {
+export interface LsColumn {
     field: string;
 
     // Space between groups. TODO: implement this
     spacing?: number;
 }
 
-export interface VColor {
+export interface LsColor {
     field: string;
 
     // Ordered list of colors to map
@@ -101,7 +101,7 @@ export interface Point {
 
 export interface LsChart {
     elementRef: ElementRef;
-    lsConfig: VConfig;
+    lsConfig: LsConfig;
     config: Coordinate;
     theme: string;
     data: any;

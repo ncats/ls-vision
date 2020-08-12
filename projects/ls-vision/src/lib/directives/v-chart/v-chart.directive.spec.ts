@@ -36,11 +36,11 @@ describe('VChartDirective', () => {
         expect(service.drawChart).toHaveBeenCalled();
     });
     it('should init', () => {
-      service = new MappingEngineService();
-      const eleRef = new MockElementRef();
-      const directive = new VChartDirective(eleRef, service);
-      spyOn(service, 'drawChart');
-      directive.ngOnInit();
-      expect(service.drawChart).toHaveBeenCalled();
-  });
+        service = new MappingEngineService();
+        const eleRef = new MockElementRef();
+        const directive = new VChartDirective(eleRef, service);
+        spyOn(service, 'drawChart');
+        directive.ngOnInit();
+        expect(service.drawChart).toHaveBeenCalled();
+    });
 });
