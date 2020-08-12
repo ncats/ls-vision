@@ -1,7 +1,17 @@
+import { ElementRef } from '@angular/core';
+import { Coordinate } from './vega-lite';
+
 export interface VConfig {
+    // Y Axis
     x?: VAxis;
+
+    // X Axis
     y?: VAxis;
+
+    // Grouping by color
     color?: VColor;
+
+    // Bar chart color
     fill?: string;
 
     // For line chart points
@@ -11,7 +21,9 @@ export interface VConfig {
     shape?: Field;
 
     // For grouped columns
-    column?: Field;
+    column?: Column;
+
+    // Bubble chart
     size?: Field;
 
     // For circular plots
@@ -26,13 +38,12 @@ export interface VConfig {
     textSizeMult?: number;
 }
 
-export interface VAxis  {
-
+export interface VAxis {
     // Name of the property on the json object data to pull values and plot
     field: string;
 
     // Number of bins, if not provided, skip binning
-    bins?: number | boolean; 
+    bins?: number | boolean;
 
     // If false hide the grid marks on the chart
     grid?: boolean;
@@ -48,7 +59,13 @@ export interface VAxis  {
 
     // If you want to change the type
     type?: string;
+}
 
+export interface Column {
+    field: string;
+
+    // Space between groups. TODO: implement this
+    spacing?: number;
 }
 
 export interface VColor {
@@ -80,4 +97,13 @@ export interface CircularPlots {
 export interface Point {
     filled?: boolean;
     fill?: string;
+}
+
+export interface LsChart {
+    elementRef: ElementRef;
+    lsConfig: VConfig;
+    config: Coordinate;
+    theme: string;
+    data: any;
+    chartType: string;
 }

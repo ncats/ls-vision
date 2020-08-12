@@ -1,17 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 import { MappingEngineService } from './mapping-engine.service';
 import { Coordinate, BinParams, OverlayMarkDef } from '../../models/vega-lite';
-import { VConfig, VAxis } from '../../models/ls-vision';
+import { VConfig, VAxis, LsChart } from '../../models/ls-vision';
 import { Def, XClass, Type, TitleParams } from '../../models/vega-lite';
 import * as SampleCharts from '../../constants/sample-charts';
 import * as FontSizes from '../../constants/chart-defaults';
 import * as Charts from '../../constants/chart-config/lookups';
 import * as _ from 'lodash';
+import { ElementRef } from '@angular/core';
 
 let stackedBar: VConfig;
 let pie: VConfig;
 let samplePieLabels: VConfig;
 let pieLabels = Charts.pieLabels;
+
+export class MockElementRef extends ElementRef {
+    constructor() {
+        super(null);
+    }
+}
+
 describe('MappingEngineService', () => {
     let service: MappingEngineService;
 
@@ -217,7 +225,6 @@ describe('MappingEngineService', () => {
             expect(config.axis.grid).toEqual(false);
             expect(config.axis.format).toBeUndefined();
         });
-
     });
 
     describe('setTextSize', () => {
@@ -398,5 +405,48 @@ describe('MappingEngineService', () => {
             const vegaConfig = service.mapLStoVegaConfig(lsConfig);
             expect(vegaConfig).not.toBeUndefined();
         });
+    });
+
+    describe('drawChart', () => {
+        it('should map ls to vega config', () => {
+            const eleRef = new MockElementRef();
+            const chartParams: LsChart = {
+                elementRef: eleRef,
+                config: null,
+                lsConfig: {},
+                theme: null,
+                data: null,
+                chartType: 'simpleBar',
+            };
+
+            spyOn(service, 'mapLStoVegaConfig').and.callThrough();
+            spyOn(service, 'mapToArrayObjs').and.callThrough();
+            spyOn(service, 'renderChart');;
+            service.drawChart(chartParams);
+
+            expect(service.mapLStoVegaConfig).toHaveBeenCalled();
+            expect(service.mapToArrayObjs).toHaveBeenCalled();
+            expect(service.renderChart).toHaveBeenCalled();
+        });
+        it('should only vega config', () => {
+          const eleRef = new MockElementRef();
+          const chartParams: LsChart = {
+              elementRef: eleRef,
+              config: {},
+              lsConfig: null,
+              theme: null,
+              data: null,
+              chartType: 'simpleBar',
+          };
+
+          spyOn(service, 'mapLStoVegaConfig').and.callThrough();
+          spyOn(service, 'mapToArrayObjs').and.callThrough();
+          spyOn(service, 'renderChart');
+          service.drawChart(chartParams);
+
+          expect(service.mapLStoVegaConfig).not.toHaveBeenCalled();
+          expect(service.mapToArrayObjs).not.toHaveBeenCalled();
+          expect(service.renderChart).toHaveBeenCalled();
+      });
     });
 });

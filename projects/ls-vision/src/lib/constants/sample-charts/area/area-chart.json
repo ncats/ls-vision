@@ -1,10 +1,10 @@
 {
-       "x": {
-         "field": "date", "timeUnit": "yearmonth"
-       },
-       "y": {
-         "field": "count",
-         "title": "total count"
-       }
-   }
+  "x": {
+    "field": "date", "timeUnit": "yearmonth"
+  },
+  "y": {
+    "field": "count",
+    "title": "total count"
+  }
+}
    

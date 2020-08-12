@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
 import { Coordinate } from '../../models/vega-lite';
-import { VConfig } from '../../models/ls-vision';
+import { VConfig, LsChart } from '../../models/ls-vision';
 import { MappingEngineService } from '../../services/mapping-engine/mapping-engine.service';
 declare let vegaEmbed: any;
 
@@ -20,22 +20,16 @@ export class VChartDirective implements OnInit, OnChanges {
         this.drawChart();
     }
     drawChart() {
-        let config: Coordinate = null;
 
-        if (this.lsConfig) {
-            config = this.mapper.mapLStoVegaConfig(this.lsConfig);
-        } else if (this.config) {
-            config = this.config;
-        }
-        config = this.mapper.mergeConfigWithPredefined(config, this.chartType);
-        if (!config) {
-            return;
-        }
-        this.mapper.mapToArrayObjs(config, this.lsConfig);
-        if (this.data) {
-            config.data = this.data;
-        }
-        vegaEmbed(this.elementRef.nativeElement, config, { theme: this.theme });
+      const chartParams: LsChart = {
+        elementRef: this.elementRef,
+        config: this.config,
+        lsConfig: this.lsConfig,
+        theme: this.theme,
+        data: this.data,
+        chartType: this.chartType
+      };
+      this.mapper.drawChart(chartParams);
     }
     ngOnChanges() {
         this.drawChart();

@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ElementRef } from '@angular/core';
+import { Coordinate, Def, XClass, Type, TimeUnit, TitleParams, Axis, Legend } from '../../models/vega-lite';
+import { VConfig, VAxis, LsChart } from '../../models/ls-vision';
 import * as _ from 'lodash';
 import * as Charts from '../../constants/chart-config/lookups';
-import { Coordinate, Def, XClass, Type, TimeUnit, TitleParams, Axis, Legend } from '../../models/vega-lite';
-import { VConfig, VAxis } from '../../models/ls-vision';
 import * as FontSizes from '../../constants/chart-defaults';
+declare let vegaEmbed: any;
 @Injectable({
     providedIn: 'root',
 })
@@ -43,6 +44,32 @@ export class MappingEngineService {
     //     return visionConfig;
     // }
 
+    public drawChart(chartParams: LsChart) {
+        let finalConfig: Coordinate = null;
+
+        if (chartParams.lsConfig) {
+          finalConfig = this.mapLStoVegaConfig(chartParams.lsConfig);
+        } else if (chartParams.config) {
+          finalConfig = chartParams.config;
+        }
+        finalConfig = this.mergeConfigWithPredefined(finalConfig, chartParams.chartType);
+        if (!finalConfig) {
+            return;
+        }
+        if (chartParams.lsConfig) {
+            this.mapToArrayObjs(finalConfig, chartParams.lsConfig);
+        }
+        if (chartParams.data) {
+          finalConfig.data = chartParams.data;
+        }
+
+        this.renderChart(chartParams.elementRef, finalConfig, chartParams.theme);
+    }
+
+    public renderChart(elementRef: ElementRef, config: Coordinate, theme: string){
+      vegaEmbed(elementRef.nativeElement, config, { theme });
+    }
+
     // If there is no predefined chart type return predefined chart
     public mergeConfigWithPredefined(userDefinedConfig: Coordinate, chartType: string): Coordinate {
         let finalConfig = userDefinedConfig;
@@ -78,7 +105,6 @@ export class MappingEngineService {
                 if (vconfig.circular.text) {
                     textLayer.encoding.text.field = vconfig.circular.text;
                 } else if (vconfig.color) {
-                    console.log(vconfig);
                     textLayer.encoding.text.field = vconfig.color.field;
                 }
             }

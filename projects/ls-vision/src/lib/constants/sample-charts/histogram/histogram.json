@@ -1,6 +1,6 @@
 {
-      "x": {
-        "bins": "20",
-        "field": "IMDB_Rating"
-      }
+  "x": {
+    "bins": "20",
+    "field": "IMDB_Rating"
   }
+}
