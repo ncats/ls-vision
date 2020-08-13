@@ -6,7 +6,7 @@
     "build": "ng build @labshare/ls-vision",
     "build:prod": "ng build @labshare/ls-vision --prod",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "coverage": "ng test --codeCoverage=true --watch=false",
+    "coverage": "ng test --codeCoverage=true --watch=false --browsers=ChromeHeadless",
     "coverage:watch": "ng test --codeCoverage=true",
     "e2e": "ng e2e",
     "lint": "npm run prettier:check && ng lint",
