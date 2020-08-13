@@ -802,6 +802,7 @@ export interface SequenceParams {
     stop: number;
 }
 
+// tslint:disable-next-line: no-empty-interface
 export interface SphereClass {}
 
 /**
