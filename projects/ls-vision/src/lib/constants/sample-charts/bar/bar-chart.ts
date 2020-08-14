@@ -6,11 +6,11 @@ export const bar: LsConfig = {
     title: 'My Bar Graph',
     description: 'This is a bar chart',
     x: {
-      field: 'a',
-      title: 'My Property A'
+        field: 'a',
+        title: 'My Property A',
     },
     y: {
-      field: 'c',
-      title: 'My Attribute C'
-    }
-  }
+        field: 'c',
+        title: 'My Attribute C',
+    },
+};

@@ -6,11 +6,11 @@ export const horizontal: LsConfig = {
     title: 'My Bar Graph',
     fill: 'red',
     y: {
-      field: 'a',
-      title: 'My Property A'
+        field: 'a',
+        title: 'My Property A',
     },
     x: {
-      field: 'c',
-      title: 'My Attribute C'
-    }
-  }
+        field: 'c',
+        title: 'My Attribute C',
+    },
+};

@@ -2,21 +2,18 @@ import { LsConfig } from '../../../models/ls-vision';
 
 export const groupedbar: LsConfig = {
     column: {
-      field: 'age'
+        field: 'age',
     },
     y: {
-      field: 'people',
-      title: 'population'
+        field: 'people',
+        title: 'population',
     },
     x: {
-      field: 'sex',
-      title: ''
+        field: 'sex',
+        title: '',
     },
     color: {
-      field: 'sex',
-      range: [
-        '#675193',
-        '#ca8861'
-      ]
-    }
-  }
+        field: 'sex',
+        range: ['#675193', '#ca8861'],
+    },
+};

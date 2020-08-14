@@ -4,14 +4,14 @@ export const stream: LsConfig = {
     width: 300,
     height: 200,
     x: {
-      timeUnit: 'yearmonth',
-      field: 'date',
-      titleFormat: '%Y'
+        timeUnit: 'yearmonth',
+        field: 'date',
+        titleFormat: '%Y',
     },
     y: {
-      field: 'count'
+        field: 'count',
     },
     color: {
-      field: 'series'
-    }
-  }
+        field: 'series',
+    },
+};

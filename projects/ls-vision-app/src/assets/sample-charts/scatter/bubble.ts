@@ -1,6 +1,5 @@
 import { LsConfig } from 'ls-vision/lib/models/ls-vision';
 
-
 export const bubble: LsConfig = {};
 // {
 //     width: 600,

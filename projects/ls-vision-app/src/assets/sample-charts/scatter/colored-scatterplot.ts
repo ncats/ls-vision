@@ -1,18 +1,17 @@
 import { LsConfig } from 'ls-vision/lib/models/ls-vision';
 
-
 export const scatterColor: LsConfig = {
     description: 'A scatterplot showing horsepower and miles per gallons.',
     x: {
-      field: 'Horsepower'
+        field: 'Horsepower',
     },
     y: {
-      field: 'Miles_per_Gallon'
+        field: 'Miles_per_Gallon',
     },
     color: {
-      field: 'Origin'
+        field: 'Origin',
     },
     shape: {
-      field: 'Origin'
-    }
-  }
+        field: 'Origin',
+    },
+};

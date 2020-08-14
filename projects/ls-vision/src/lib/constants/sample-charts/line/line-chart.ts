@@ -2,13 +2,13 @@ import { LsConfig } from '../../../models/ls-vision';
 
 export const line: LsConfig = {
     title: 'test',
-    description: 'Google\'s stock price over time.',
+    description: 'Googles stock price over time.',
     x: {
-      field: 'date',
-      grid: false
+        field: 'date',
+        grid: false,
     },
     y: {
-      field: 'price'
+        field: 'price',
     },
-    textSizeMult: 1.3
-  }
+    textSizeMult: 1.3,
+};

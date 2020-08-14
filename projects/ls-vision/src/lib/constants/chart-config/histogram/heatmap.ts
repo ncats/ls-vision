@@ -3,23 +3,23 @@ import { Coordinate, BoxPlot, Type, NonArgAggregateOp } from '../../../models/ve
 export const heatmap: Coordinate = {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
     mark: {
-      type: 'rect' as BoxPlot
+        type: 'rect' as BoxPlot,
     },
     encoding: {
-      x: {
-        type: 'quantitative' as Type
-      },
-      y: {
-        type: 'quantitative' as Type
-      },
-      color: {
-        aggregate: 'count' as NonArgAggregateOp,
-        type: 'quantitative' as Type
-      }
+        x: {
+            type: 'quantitative' as Type,
+        },
+        y: {
+            type: 'quantitative' as Type,
+        },
+        color: {
+            aggregate: 'count' as NonArgAggregateOp,
+            type: 'quantitative' as Type,
+        },
     },
     config: {
-      view: {
-        stroke: 'transparent'
-      }
-    }
-  }
+        view: {
+            stroke: 'transparent',
+        },
+    },
+};

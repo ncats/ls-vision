@@ -5,14 +5,14 @@ export const areachart: Coordinate = {
     width: 300,
     height: 200,
     mark: {
-      type: 'area' as BoxPlot
+        type: 'area' as BoxPlot,
     },
     encoding: {
-      x: {
-        type: 'temporal' as Type
-      },
-      y: {
-        type: 'quantitative' as Type
-      }
-    }
-  }
+        x: {
+            type: 'temporal' as Type,
+        },
+        y: {
+            type: 'quantitative' as Type,
+        },
+    },
+};
