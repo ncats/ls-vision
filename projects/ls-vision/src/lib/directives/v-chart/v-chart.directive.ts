@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
 import { Coordinate } from '../../models/vega-lite';
 import { LsConfig, LsChart } from '../../models/ls-vision';
 import { LsChartService } from '../../services/ls-chart/ls-chart.service';
-
+declare let vegaEmbed: any;
 @Directive({
     selector: '[visionChart]',
 })
@@ -19,16 +19,31 @@ export class VChartDirective implements OnInit, OnChanges {
         this.drawChart();
     }
     drawChart() {
-        const chartParams: LsChart = {
-            elementRef: this.elementRef,
-            config: this.config,
-            lsConfig: this.lsConfig,
-            theme: this.theme,
-            data: this.data,
-            chartType: this.chartType,
-        };
-        this.mapper.drawChart(chartParams);
+        let finalConfig: Coordinate = null;
+
+        if (this.lsConfig) {
+            finalConfig = this.mapper.mapLStoVegaConfig(this.lsConfig);
+        } else if (this.config) {
+            finalConfig = this.config;
+        }
+        finalConfig = this.mapper.mergeConfigWithPredefined(finalConfig, this.chartType);
+        if (!finalConfig) {
+            return;
+        }
+        if (this.lsConfig) {
+            this.mapper.mapToArrayObjs(finalConfig, this.lsConfig);
+        }
+        if (this.data) {
+            finalConfig.data = this.data;
+        }
+
+        this.renderChart(this.elementRef, finalConfig, this.theme);
     }
+
+    public renderChart(elementRef: ElementRef, config: Coordinate, theme: string) {
+        vegaEmbed(elementRef.nativeElement, config, { theme });
+    }
+
     ngOnChanges() {
         this.drawChart();
     }

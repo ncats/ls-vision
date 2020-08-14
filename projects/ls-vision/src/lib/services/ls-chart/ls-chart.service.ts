@@ -25,33 +25,6 @@ export class LsChartService {
         this.circularLabelSize = FontSizes.circularLabelSize;
     }
 
-    public drawChart(chartParams: LsChart) {
-        let finalConfig: Coordinate = null;
-
-        if (chartParams.lsConfig) {
-            finalConfig = this.mapLStoVegaConfig(chartParams.lsConfig);
-        } else if (chartParams.config) {
-            finalConfig = chartParams.config;
-        }
-        finalConfig = this.mergeConfigWithPredefined(finalConfig, chartParams.chartType);
-        if (!finalConfig) {
-            return;
-        }
-        if (chartParams.lsConfig) {
-            this.mapToArrayObjs(finalConfig, chartParams.lsConfig);
-        }
-        if (chartParams.data) {
-            finalConfig.data = chartParams.data;
-        }
-
-        this.renderChart(chartParams.elementRef, finalConfig, chartParams.theme);
-    }
-
-    public renderChart(elementRef: ElementRef, config: Coordinate, theme: string) {
-        vegaEmbed(elementRef.nativeElement, config, { theme });
-    }
-
-    // If there is no predefined chart type return predefined chart
     public mergeConfigWithPredefined(userDefinedConfig: Coordinate, chartType: string): Coordinate {
         let finalConfig = userDefinedConfig;
         if (chartType && Charts[chartType]) {
