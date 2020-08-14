@@ -111,7 +111,7 @@
         }
       }
     },
-    "ls-vision": {
+    "@labshare/ls-vision": {
       "projectType": "library",
       "root": "projects/ls-vision",
       "sourceRoot": "projects/ls-vision/src",
@@ -151,5 +151,5 @@
         }
       }
     }},
-  "defaultProject": "ls-vision"
+  "defaultProject": "@labshare/ls-vision"
 }
