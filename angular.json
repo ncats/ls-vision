@@ -1,0 +1,155 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ls-vision-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ls-vision-app",
+      "sourceRoot": "projects/ls-vision-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ls-vision-app",
+            "index": "projects/ls-vision-app/src/index.html",
+            "main": "projects/ls-vision-app/src/main.ts",
+            "polyfills": "projects/ls-vision-app/src/polyfills.ts",
+            "tsConfig": "projects/ls-vision-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ls-vision-app/src/favicon.ico",
+              "projects/ls-vision-app/src/assets"
+            ],
+            "styles": [
+              "projects/ls-vision-app/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/vega/build/vega.min.js",
+              "./node_modules/vega-lite/build/vega-lite.min.js",
+              "./node_modules/vega-embed/build/vega-embed.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ls-vision-app/src/environments/environment.ts",
+                  "with": "projects/ls-vision-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ls-vision-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ls-vision-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ls-vision-app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ls-vision-app/tsconfig.app.json",
+              "projects/ls-vision-app/tsconfig.spec.json",
+              "projects/ls-vision-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ls-vision-app/e2e/protractor.conf.js",
+            "devServerTarget": "ls-vision-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ls-vision-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "@labshare/ls-vision": {
+      "projectType": "library",
+      "root": "projects/ls-vision",
+      "sourceRoot": "projects/ls-vision/src",
+      "prefix": "vision",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ls-vision/tsconfig.lib.json",
+            "project": "projects/ls-vision/ng-package.json"
+          },          
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ls-vision/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ls-vision/src/test.ts",
+            "tsConfig": "projects/ls-vision/tsconfig.spec.json",
+            "karmaConfig": "projects/ls-vision/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ls-vision/tsconfig.lib.json",
+              "projects/ls-vision/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "@labshare/ls-vision"
+}
