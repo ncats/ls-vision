@@ -5,7 +5,7 @@ import { LsConfig, LsAxis, LsChart } from '../../models/ls-vision';
 import { Def, XClass, Type, TitleParams } from '../../models/vega-lite';
 import * as SampleCharts from '../../constants/sample-charts';
 import * as FontSizes from '../../constants/chart-defaults';
-import * as Charts from '../../constants/chart-config/lookups';
+import * as Charts from '../../constants/chart-config';
 import * as _ from 'lodash';
 import { ElementRef } from '@angular/core';
 

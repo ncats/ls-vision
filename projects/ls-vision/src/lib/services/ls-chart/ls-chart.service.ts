@@ -2,7 +2,7 @@ import { Injectable, ElementRef } from '@angular/core';
 import { Coordinate, Def, XClass, Type, TimeUnit, TitleParams, Axis, Legend } from '../../models/vega-lite';
 import { LsConfig, LsAxis, LsChart } from '../../models/ls-vision';
 import * as _ from 'lodash';
-import * as Charts from '../../constants/chart-config/lookups';
+import * as Charts from '../../constants/chart-config';
 import * as FontSizes from '../../constants/chart-defaults';
 declare let vegaEmbed: any;
 @Injectable({

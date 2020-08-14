@@ -115,7 +115,7 @@
       "projectType": "library",
       "root": "projects/ls-vision",
       "sourceRoot": "projects/ls-vision/src",
-      "prefix": "lib",
+      "prefix": "vision",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -151,5 +151,5 @@
         }
       }
     }},
-  "defaultProject": "ls-vision-app"
+  "defaultProject": "ls-vision"
 }

@@ -10,5 +10,17 @@
   },
   "publishConfig": {
     "access": "restricted"
-  }
+  },
+
+  "main": "bundles/labshare-ls-vision.umd.js",
+  "module": "fesm5/labshare-ls-vision.js",
+  "es2015": "fesm2015/labshare-ls-vision.js",
+  "esm5": "esm5/labshare-ls-vision.js",
+  "esm2015": "esm2015/labshare-ls-vision.js",
+  "fesm5": "fesm5/labshare-ls-vision.js",
+  "fesm2015": "fesm2015/labshare-ls-vision.js",
+  "typings": "labshare-ls-vision.d.ts",
+  "metadata": "labshare-ls-vision.metadata.json",
+  "sideEffects": false
+
 }
