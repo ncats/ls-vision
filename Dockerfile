@@ -18,7 +18,7 @@ RUN apk update && apk upgrade && \
     npm install -g @angular/cli && \
     npm i --quiet --cache=./npm-cache
 
-RUN ng build && \
+RUN ng build ls-vision-app && \
     rm -f .npmrc
     
 FROM labshare/docker-base-web
