@@ -1,6 +1,6 @@
 {
   "name": "@labshare/ls-vision",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "build": "ng build @labshare/ls-vision",
