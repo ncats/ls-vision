@@ -87,13 +87,13 @@
       [
         "@semantic-release/npm",
         {
-          "pkgRoot": "dist"
+          "pkgRoot": "dist/ls-vision"
         }
       ],
       [
         "@semantic-release/exec",
         {
-          "prepareCmd": "cp ./dist/package.json ./projects/ls-vision/package.json"
+          "prepareCmd": "cp ./dist/ls-vision/package.json ./projects/ls-vision/package.json"
         }
       ],
       "@semantic-release/github",
