@@ -1,27 +1,79 @@
-# LsVision
+# Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+This repository is an Angular library for data visualizations containing reusable chart directives. Once it's cloned and the dependencies are installed, you can run a demo application that contains sample charts.
 
-## Development server
+LS-Vision depends on Vega Lite. [Documentation](https://github.com/LabShare/ls-vision/docs/LsVision-UserGuide.docx) contains examples of the available charts.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Installation
 
-## Code scaffolding
+First install LS-Vision vega-lite, vega-embed, and vega
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install @labshare/ls-vision vega-lite vega-embed vega
+```
 
-## Build
+Add the Vega javascript vega related script files to angular.json file
+```
+"architect": {
+    "build": {
+        ...
+        "options": {
+            ...
+        "scripts": [
+            "./node_modules/vega/build/vega.min.js",
+            "./node_modules/vega-lite/build/vega-lite.min.js",
+            "./node_modules/vega-embed/build/vega-embed.min.js"
+        ]
+        }
+    }
+}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Import the main module
+```
+import { LsVisionModule } from '@labshare/ls-vision';
 
-## Running unit tests
+@NgModule({
+  ...
+  imports: [
+    LsVisionModule
+  ],
+  ...
+})
+export class AppModule { }
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Usage
+Example Bar Chart
 
-## Running end-to-end tests
+Directive Usage
+```
+<div visionChart [lsConfig]="bar" [data]="barData" [chartType]="'simpleBar'"></div>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Configuration object 
+```
+const bar = {
+    "height": "200",
+    "width": "200",
+    "title": "My Bar Graph",
+    "description": "This is a bar chart",
+    "x": {"field": "a", "title": "My Property A"},
+    "y": {"field": "c", "title": "My Attribute C"}
+  }
+```
+Data object
+```
+ const barData = {
+    "values": [
+      {"a": "A", "c": 28}, {"a": "B", "c": 55}, {"a": "C", "c": 43},
+      {"a": "D", "c": 91}, {"a": "E", "c": 81}, {"a": "F", "c": 53},
+      {"a": "G", "c": 19}, {"a": "H", "c": 87}, {"a": "I", "c": 52}
+    ]
+  }
+```
 
-## Further help
+# Angular CLI
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This repo is a standard Angular CLI library. For more information go to [https://cli.angular.io/](https://cli.angular.io/)
+
