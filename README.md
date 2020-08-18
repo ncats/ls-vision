@@ -50,9 +50,9 @@ Directive Usage
 <div visionChart [lsConfig]="bar" [data]="barData" [chartType]="'simpleBar'"></div>
 ```
 
-Configuration object “bar”
+Configuration object 
 ```
-{
+const bar = {
     "height": "200",
     "width": "200",
     "title": "My Bar Graph",
@@ -61,9 +61,9 @@ Configuration object “bar”
     "y": {"field": "c", "title": "My Attribute C"}
   }
 ```
-Data object barData
+Data object
 ```
- {
+ const barData = {
     "values": [
       {"a": "A", "c": 28}, {"a": "B", "c": 55}, {"a": "C", "c": 43},
       {"a": "D", "c": 91}, {"a": "E", "c": 81}, {"a": "F", "c": 53},
@@ -72,7 +72,7 @@ Data object barData
   }
 ```
 
-See [Documentation](http://test) for more
+See [Documentation](https://github.com/LabShare/ls-vision/docs/LsVision-UserGuide.docx) for more
 
 
 # Angular CLI
