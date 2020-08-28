@@ -4,6 +4,10 @@ This repository is an Angular library for data visualizations containing reusabl
 
 LS-Vision depends on Vega Lite. [Documentation](https://github.com/LabShare/ls-vision/docs/LsVision-UserGuide.docx) contains examples of the available charts.
 
+# Demo Project
+
+To install and run the demo project, download or clone the repository, run ```npm install``` and build the application with ```ng build```. Then run the application with ```ng serve```. To auto build the library while developing in order to automatically see changes made in the library reflected in the browser, run ```ng build --watch=true```.
+
 # Installation
 
 First install LS-Vision vega-lite, vega-embed, and vega
