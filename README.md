@@ -6,8 +6,7 @@ LS-Vision depends on Vega Lite. [Documentation](https://github.com/LabShare/ls-v
 
 # Demo Project
 
-To install and run the demo project, download or clone the repository, run ```npm install``` and run
-```ng build```. Then run with ```ng serve```.
+To install and run the demo project, download or clone the repository, run ```npm install``` and build the application with ```ng build```. Then run the application with ```ng serve```. To auto build the library while developing in order to automatically see changes made in the library reflected in the browser, run ```ng build --watch=true```.
 
 # Installation
 
