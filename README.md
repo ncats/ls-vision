@@ -1,39 +1,55 @@
 # Overview
 
-This repository is an Angular library for data visualizations containing reusable chart directives. Once it's cloned and the dependencies are installed, you can run a demo application that contains sample charts.
+[LS-Vision](https://github.com/LabShare/ls-vision) is an Angular library for data visualizations, containing reusable chart directives that can be installed in
+your own applications.
 
-LS-Vision depends on Vega Lite. [Documentation](https://github.com/LabShare/ls-vision/docs/LsVision-UserGuide.docx) contains examples of the available charts.
+Once this repository is cloned and installed on your local server, you can run a demo application that contains a few sample charts.
+
+The [LS-Vision documentation](https://github.com/LabShare/ls-vision/blob/master/docs/LsVision-UserGuide.docx) contains many examples of the charts available to
+you.
 
 # Demo Project
 
-To install and run the demo project, download or clone the repository, run ```npm install``` and build the application with ```ng build```. Then run the application with ```ng serve```. To auto build the library while developing in order to automatically see changes made in the library reflected in the browser, run ```ng build --watch=true```.
+To install and run the demo project
 
-# Installation
+1. download or clone this repository.
+2. run `npm install` to intall it.
+3. run `ng build` to build it.<br /><br /><b>Tip:</b> To auto-build the application during development - to see any code edits you make refreshed in your
+   browser automatically - run `ng build --watch=true`
 
-First install LS-Vision vega-lite, vega-embed, and vega
+4. run `ng serve` to serve it.
+
+# Install LS-Vision in your applications
+
+[LS-Vision](https://github.com/LabShare/ls-vision) depends on [Vega-Lite](https://vega.github.io/vega-lite/), so in addition to installing
+[LS-Vision](https://github.com/LabShare/ls-vision) in your applications, you must also install the Vega package dependencies, as follows.
+
+First, install `@labshare/ls-vision`, `vega-lite`, `vega-embed`, and `vega` in your application package.
 
 ```bash
 npm install @labshare/ls-vision vega-lite vega-embed vega
 ```
 
-Add the Vega javascript vega related script files to angular.json file
+Then, add the Vega-related script files to the `angular.json` file.
+
 ```
 "architect": {
     "build": {
         ...
         "options": {
             ...
-        "scripts": [
-            "./node_modules/vega/build/vega.min.js",
-            "./node_modules/vega-lite/build/vega-lite.min.js",
-            "./node_modules/vega-embed/build/vega-embed.min.js"
-        ]
+            "scripts": [
+                "./node_modules/vega/build/vega.min.js",
+                "./node_modules/vega-lite/build/vega-lite.min.js",
+                "./node_modules/vega-embed/build/vega-embed.min.js"
+            ]
         }
     }
 }
 ```
 
-Import the main module
+Import `LsVisionModule` into the application's main module.
+
 ```
 import { LsVisionModule } from '@labshare/ls-vision';
 
@@ -48,14 +64,17 @@ export class AppModule { }
 ```
 
 # Usage
-Example Bar Chart
 
-Directive Usage
+## Example Bar Chart
+
+### Directive Usage
+
 ```
 <div visionChart [lsConfig]="bar" [data]="barData" [chartType]="'simpleBar'"></div>
 ```
 
-Configuration object 
+### Configuration object
+
 ```
 const bar = {
     "height": "200",
@@ -66,7 +85,9 @@ const bar = {
     "y": {"field": "c", "title": "My Attribute C"}
   }
 ```
-Data object
+
+### Data object
+
 ```
  const barData = {
     "values": [
@@ -79,5 +100,6 @@ Data object
 
 # Angular CLI
 
-This repo is a standard Angular CLI library. For more information go to [https://cli.angular.io/](https://cli.angular.io/)
+This repo is a standard Angular CLI library.
 
+For more information go to [https://cli.angular.io/](https://cli.angular.io/)
