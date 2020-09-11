@@ -14,8 +14,8 @@ To install and run the demo project
 
 1. download or clone this repository.
 2. run `npm install` to intall it.
-3. run `ng build` to build it.<br /><br /><b>Tip:</b> To auto-build the application during development -- to see any code edits you make refreshed in your
-   browser automatically -- run `ng build --watch=true`
+3. run `ng build` to build it.<br /><br /><b>Tip:</b> To auto-build the application during development - to see any code edits you make refreshed in your
+   browser automatically - run `ng build --watch=true`
 
 4. run `ng serve` to serve it.
 
