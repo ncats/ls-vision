@@ -16,7 +16,7 @@ To install and run the demo project
 3. build the application with `ng build`.<br /><br />To auto build the library while developing in order to automatically see changes made in the library
    reflected in the browser, run `ng build --watch=true`
 
-4. run the application with `ng serve`.
+4. run the application with `ng serve`
 
 # Install LS-Vision in your applications
 
@@ -26,7 +26,7 @@ First, install `@labshare/ls-vision`, `vega-lite`, `vega-embed`, and `vega` in y
 npm install @labshare/ls-vision vega-lite vega-embed vega
 ```
 
-Then, add the Vega-related script files to the angular.json file.
+Then, add the Vega-related script files to the `angular.json` file.
 
 ```
 "architect": {
@@ -44,7 +44,7 @@ Then, add the Vega-related script files to the angular.json file.
 }
 ```
 
-Import the main module.
+Import `LsVisionModule` into the application's main module.
 
 ```
 import { LsVisionModule } from '@labshare/ls-vision';
@@ -61,15 +61,15 @@ export class AppModule { }
 
 # Usage
 
-Example Bar Chart
+## Example Bar Chart
 
-Directive Usage
+### Directive Usage
 
 ```
 <div visionChart [lsConfig]="bar" [data]="barData" [chartType]="'simpleBar'"></div>
 ```
 
-Configuration object
+### Configuration object
 
 ```
 const bar = {
@@ -82,7 +82,7 @@ const bar = {
   }
 ```
 
-Data object
+### Data object
 
 ```
  const barData = {
