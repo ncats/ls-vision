@@ -100,4 +100,6 @@ const bar = {
 
 # Angular CLI
 
-This repo is a standard Angular CLI library. For more information go to [https://cli.angular.io/](https://cli.angular.io/)
+This repo is a standard Angular CLI library.
+
+For more information go to [https://cli.angular.io/](https://cli.angular.io/)
