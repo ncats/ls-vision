@@ -19,7 +19,8 @@ To install and run the demo project
 
 # Install LS-Vision in your applications
 
-LS-Vision depends on Vega Lite, so in addition to installing LS-Vision in your application, you must also install the Vega package dependencies, as follows.
+LS-Vision depends on [Vega-Lite](https://vega.github.io/vega-lite/), so in addition to installing LS-Vision in your application, you must also install the Vega
+package dependencies, as follows.
 
 First, install `@labshare/ls-vision`, `vega-lite`, `vega-embed`, and `vega` in your application package.
 
