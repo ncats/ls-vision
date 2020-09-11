@@ -1,10 +1,12 @@
 # Overview
 
-This repository is an Angular library for data visualizations, containing reusable chart directives that can be installed in your own applications.
+[LS-Vision](https://github.com/LabShare/ls-vision) is an Angular library for data visualizations, containing reusable chart directives that can be installed in
+your own applications.
 
-Once it's cloned and installed on your local server, you can run a demo application that contains a few sample charts.
+Once this repository is cloned and installed on your local server, you can run a demo application that contains a few sample charts.
 
-The [LS-Vision documentation](https://github.com/LabShare/ls-vision/blob/master/docs/LsVision-UserGuide.docx) contains examples of the charts available to you.
+The [LS-Vision documentation](https://github.com/LabShare/ls-vision/blob/master/docs/LsVision-UserGuide.docx) contains many examples of the charts available to
+you.
 
 # Demo Project
 
@@ -19,8 +21,8 @@ To install and run the demo project
 
 # Install LS-Vision in your applications
 
-LS-Vision depends on [Vega-Lite](https://vega.github.io/vega-lite/), so in addition to installing LS-Vision in your application, you must also install the Vega
-package dependencies, as follows.
+[LS-Vision](https://github.com/LabShare/ls-vision) depends on [Vega-Lite](https://vega.github.io/vega-lite/), so in addition to installing
+[LS-Vision](https://github.com/LabShare/ls-vision) in your application, you must also install the Vega package dependencies, as follows.
 
 First, install `@labshare/ls-vision`, `vega-lite`, `vega-embed`, and `vega` in your application package.
 
