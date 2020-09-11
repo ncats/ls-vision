@@ -2,7 +2,7 @@
 
 This repository is an Angular library for data visualizations, containing reusable chart directives that can be installed in your own applications.
 
-Once it's cloned and the dependencies are installed, you can run a demo application that contains a few sample charts.
+Once it's cloned and installed on your local server, you can run a demo application that contains a few sample charts.
 
 LS-Vision depends on Vega Lite. The [LS-Vision documentation](https://github.com/LabShare/ls-vision/docs/LsVision-UserGuide.docx) contains examples of the
 charts available to you.
