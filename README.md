@@ -4,7 +4,7 @@ This repository is an Angular library for data visualizations, containing reusab
 
 Once it's cloned and installed on your local server, you can run a demo application that contains a few sample charts.
 
-The [LS-Vision documentation](https://github.com/LabShare/ls-vision/docs/LsVision-UserGuide.docx) contains examples of the charts available to you.
+The [LS-Vision documentation](https://github.com/LabShare/ls-vision/blob/master/docs/LsVision-UserGuide.docx) contains examples of the charts available to you.
 
 # Demo Project
 
