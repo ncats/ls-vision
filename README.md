@@ -12,12 +12,12 @@ you.
 
 To install and run the demo project
 
-1. download or clone this repository
-2. run `npm install`
-3. build the application with `ng build`.<br /><br />To auto-build the application during development (to see any code edits you make refreshed in your browser
-   automatically), run `ng build --watch=true`
+1. download or clone this repository.
+2. run `npm install` to intall it.
+3. run `ng build` to build it.<br /><br /><b>Tip:</b> To auto-build the application during development -- to see any code edits you make refreshed in your
+   browser automatically -- run `ng build --watch=true`
 
-4. run the application with `ng serve`
+4. run `ng serve` to serve it.
 
 # Install LS-Vision in your applications
 
