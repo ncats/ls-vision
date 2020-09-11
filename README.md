@@ -38,11 +38,11 @@ Then, add the Vega-related script files to the `angular.json` file.
         ...
         "options": {
             ...
-        "scripts": [
-            "./node_modules/vega/build/vega.min.js",
-            "./node_modules/vega-lite/build/vega-lite.min.js",
-            "./node_modules/vega-embed/build/vega-embed.min.js"
-        ]
+            "scripts": [
+                "./node_modules/vega/build/vega.min.js",
+                "./node_modules/vega-lite/build/vega-lite.min.js",
+                "./node_modules/vega-embed/build/vega-embed.min.js"
+            ]
         }
     }
 }
