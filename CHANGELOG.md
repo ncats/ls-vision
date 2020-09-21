@@ -1,3 +1,13 @@
+## [1.0.4](https://github.com/LabShare/ls-vision/compare/v1.0.3...v1.0.4) (2020-09-21)
+
+
+### Bug Fixes
+
+* added vega samples and fixed no chart type bug ([9b197ec](https://github.com/LabShare/ls-vision/commit/9b197ec53c7dfafeebe580e21753b59677def9e7))
+* linting ([452d9c0](https://github.com/LabShare/ls-vision/commit/452d9c05f31dc64f250e4899f87d8a487cf387f0))
+* linting ([4e92715](https://github.com/LabShare/ls-vision/commit/4e92715f2d30f590728e06c9544f18cfb05eae4b))
+* unit test ([8bd2a91](https://github.com/LabShare/ls-vision/commit/8bd2a91a760466a0a05556b6e57edfe26d208691))
+
 ## [1.0.3](https://github.com/LabShare/ls-vision/compare/v1.0.2...v1.0.3) (2020-08-28)
 
 
