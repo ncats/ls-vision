@@ -15,14 +15,6 @@ describe('VChartDirective', () => {
         const directive = new VChartDirective(eleRef, service);
         expect(directive).toBeTruthy();
     });
-    // it('should draw chart', () => {
-    //     service = new LsChartService();
-    //     const eleRef = new MockElementRef();
-    //     const directive = new VChartDirective(eleRef, service);
-    //     spyOn(service, 'drawChart');
-    //     directive.drawChart();
-    //     expect(service.drawChart).toHaveBeenCalled();
-    // });
     it('should update changes', () => {
         service = new LsChartService();
         const eleRef = new MockElementRef();
@@ -73,11 +65,33 @@ describe('drawChart', () => {
 
         spyOn(service, 'mapLStoVegaConfig').and.callThrough();
         spyOn(service, 'mapToArrayObjs').and.callThrough();
+        spyOn(service, 'mergeConfigWithPredefined').and.callThrough();
         spyOn(directive, 'renderChart');
         directive.drawChart();
 
         expect(service.mapLStoVegaConfig).not.toHaveBeenCalled();
         expect(service.mapToArrayObjs).not.toHaveBeenCalled();
+        expect(service.mergeConfigWithPredefined).toHaveBeenCalled();
+        expect(directive.renderChart).toHaveBeenCalled();
+    });
+    it('should not map merge vega config with default', () => {
+        service = new LsChartService();
+        const eleRef = new MockElementRef();
+        const directive = new VChartDirective(eleRef, service);
+        directive.config = {};
+        directive.lsConfig = null;
+        directive.theme = null;
+        directive.data = null;
+
+        spyOn(service, 'mapLStoVegaConfig').and.callThrough();
+        spyOn(service, 'mapToArrayObjs').and.callThrough();
+        spyOn(service, 'mergeConfigWithPredefined').and.callThrough();
+        spyOn(directive, 'renderChart');
+        directive.drawChart();
+
+        expect(service.mapLStoVegaConfig).not.toHaveBeenCalled();
+        expect(service.mapToArrayObjs).not.toHaveBeenCalled();
+        expect(service.mergeConfigWithPredefined).not.toHaveBeenCalled();
         expect(directive.renderChart).toHaveBeenCalled();
     });
 });
