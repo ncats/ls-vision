@@ -1,14 +1,17 @@
 # LS Vision User Guide
 
 # Overview
-LS Vision was built on top of the Vega-Lite grammar / syntax. It uses an Angular directive as an interface with Vega-Lite and chart creation. It simplifies the Vega-Lite grammar. Below shows the input parameters of this directive.
+
+LS Vision was built on top of the Vega-Lite grammar / syntax. It uses an Angular directive as an interface with Vega-Lite and chart creation. It simplifies the
+Vega-Lite grammar. Below shows the input parameters of this directive.
+
 ```javascript
-    // Vega-Lite configuration of chart. 
+    // Vega-Lite configuration of chart.
     // Either this or lsConfig need to be used
     @Input() config: Coordinate;
 
-    // Configuration with LS-Chart syntax. 
-    // Either this or @config need to be used 
+    // Configuration with LS-Chart syntax.
+    // Either this or @config need to be used
     @Input() lsConfig: LsConfig;
 
     // Vega defined theme
@@ -21,22 +24,19 @@ LS Vision was built on top of the Vega-Lite grammar / syntax. It uses an Angular
     @Input() chartType: string;
 ```
 
-Example usage of the directive
-```<div visionChart [lsConfig]="bar" [data]="barData" [chartType]="'simpleBar'"></div>```
+Example usage of the directive `<div visionChart [lsConfig]="bar" [data]="barData" [chartType]="'simpleBar'"></div>`
 
-To render your chart, you define your chart configuration (for plain Vega-Lite configurations use config parameter, for LS-Vision simplified grammar use lsConfig), define your chart type, and define your data. Default Vega-Lite chart types work out of the box with minimal configruation and can be specified with the chartType property. The possible chart types:
-| stackedBar | simpleBar | horizontalBar |
-| groupedBar | Areachart | Donut |
-| Pie | pieLabels | lineChart |
-| multiseriesLine |	Scatterplot | scatterplotColored |
-| Histogram | Heatmap | Stream |
-| box |		
+To render your chart, you define your chart configuration (for plain Vega-Lite configurations use config parameter, for LS-Vision simplified grammar use
+lsConfig), define your chart type, and define your data. Default Vega-Lite chart types work out of the box with minimal configruation and can be specified with
+the chartType property. The possible chart types: | stackedBar | simpleBar | horizontalBar | | groupedBar | Areachart | Donut | | Pie | pieLabels | lineChart |
+| multiseriesLine | Scatterplot | scatterplotColored | | Histogram | Heatmap | Stream | | box |
 
-Examples of each of these charts appear later in the document. 
+Examples of each of these charts appear later in the document.
 
 # Configuration mapping
 
 Below is an example of a Vega Lite configuration for a grouped bar chart.
+
 ```javascript
 export const oldGroupedBar = {
   $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
@@ -82,9 +82,9 @@ export const oldGroupedBar = {
         ]
 ```
 
-
 Below is the configuration of an LS-Vision chart configuration
-```javascript 
+
+```javascript
 export const groupedbar: LsConfig = {
     column: {
         field: 'age',
@@ -104,9 +104,8 @@ export const groupedbar: LsConfig = {
 };
 ```
 
-In the LS-Vision configuration the x and y axes map to the Vega-Lite encoding object and allow customization title and property on the json object. In addition the color object maps to the encoding objects’ color, scale and range object. (As a note, the transform object in LS-Vision is not allowed as all data transformations must be performed on the data outside the directive.) 
+In the LS-Vision configuration the x and y axes map to the Vega-Lite encoding object and allow customization title and property on the json object. In addition
+the color object maps to the encoding objects’ color, scale and range object. (As a note, the transform object in LS-Vision is not allowed as all data
+transformations must be performed on the data outside the directive.)
 
 # Examples of charts
-
-
-
