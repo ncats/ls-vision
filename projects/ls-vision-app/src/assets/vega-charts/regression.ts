@@ -49,7 +49,7 @@ export const regression: Coordinate = {
                     params: true,
                 },
                 {
-                    calculate: "'R²: '+format(datum.rSquared, '.2f')",
+                    calculate: `'R²: '+format(datum.rSquared, '.2f')`,
                     as: 'R2',
                 },
             ],
