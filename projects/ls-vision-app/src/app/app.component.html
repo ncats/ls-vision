@@ -18,6 +18,8 @@
 <div visionChart [lsConfig]="heatmap" [data]="histogramData" [chartType]="'heatmap'"></div>
 <div visionChart [lsConfig]="stream" [data]="areaData" [chartType]="'stream'"></div>
 <div visionChart [lsConfig]="box" [data]="groupedData" [chartType]="'box'"></div>
-<div visionChart [lsConfig]="bubble" [data]="scatterData" [chartType]="'bubble'"></div>
+<div visionChart [config]="regression" [data]="histogramData"></div>
+<div visionChart [config]="brush" [data]="scatterData"></div>
+<div visionChart [config]="composite" [data]="stackedData"></div>
 
 

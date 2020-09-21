@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as SampleCharts from '../assets/sample-charts';
+import * as VegaCharts from '../assets/vega-charts';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -29,6 +30,9 @@ export class AppComponent implements OnInit {
     stacked = SampleCharts.stacked;
     box = SampleCharts.box;
     bubble = SampleCharts.bubble;
+    regression = VegaCharts.regression;
+    brush = VegaCharts.brush;
+    composite = VegaCharts.composite;
 
     barData;
     stackedData;

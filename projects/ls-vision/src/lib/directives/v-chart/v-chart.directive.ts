@@ -26,7 +26,9 @@ export class VChartDirective implements OnInit, OnChanges {
         } else if (this.config) {
             finalConfig = this.config;
         }
-        finalConfig = this.mapper.mergeConfigWithPredefined(finalConfig, this.chartType);
+        if (this.chartType) {
+            finalConfig = this.mapper.mergeConfigWithPredefined(finalConfig, this.chartType);
+        }
         if (!finalConfig) {
             return;
         }
