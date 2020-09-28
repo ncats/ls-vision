@@ -17,13 +17,11 @@ export const pieLabels: Coordinate = {
         {
             mark: {
                 type: 'arc' as BoxPlot,
-                outerRadius: 80,
             },
         },
         {
             mark: {
                 type: 'text' as BoxPlot,
-                radius: 90,
             },
             encoding: {
                 text: {

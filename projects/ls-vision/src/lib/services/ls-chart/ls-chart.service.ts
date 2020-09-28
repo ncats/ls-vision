@@ -53,6 +53,12 @@ export class LsChartService {
     }
     public mapPieLabels(config: Coordinate, lsConfig: LsConfig) {
         if (lsConfig?.circular?.textRadius && config.layer) {
+            const pieLayer = config.layer.find(x => (x.mark as Def)?.type === 'arc');
+            if (pieLayer) {
+                (pieLayer.mark as Def).outerRadius = lsConfig.circular.outerRadius;
+                (pieLayer.mark as Def).innerRadius = lsConfig.circular.innerRadius;
+            }
+
             const textLayer = config.layer.find(x => (x.mark as Def)?.type === 'text');
             if (textLayer?.encoding?.text) {
                 (textLayer.mark as Def).radius = lsConfig.circular.textRadius;
@@ -181,18 +187,30 @@ export class LsChartService {
     }
     public mapCircularPlots(config: Coordinate, lsConfig: LsConfig) {
         if (lsConfig.circular) {
-            const tempConfig: Coordinate = {
-                mark: {
-                    innerRadius: lsConfig.circular.innerRadius as number,
-                    outerRadius: lsConfig.circular.outerRadius as number,
-                    type: undefined,
-                },
-                encoding: {
-                    theta: {
-                        field: lsConfig.circular.theta,
+            let tempConfig: Coordinate;
+
+            if (!lsConfig.circular.textRadius) {
+                tempConfig = {
+                    mark: {
+                        innerRadius: lsConfig.circular.innerRadius as number,
+                        outerRadius: lsConfig.circular.outerRadius as number,
+                        type: undefined,
                     },
-                },
-            };
+                    encoding: {
+                        theta: {
+                            field: lsConfig.circular.theta,
+                        },
+                    },
+                };
+            } else {
+                tempConfig = {
+                    encoding: {
+                        theta: {
+                            field: lsConfig.circular.theta,
+                        },
+                    },
+                };
+            }
             _.merge(config, tempConfig);
         }
     }
