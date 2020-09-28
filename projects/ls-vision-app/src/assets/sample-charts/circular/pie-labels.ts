@@ -1,7 +1,6 @@
 import { LsConfig } from 'ls-vision/lib/models/ls-vision';
 
 export const pieLabels: LsConfig = {
-    title: 'Bonk!',
     description: 'A simple pie chart with labels.',
     circular: {
         outerRadius: 110,
