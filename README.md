@@ -66,12 +66,12 @@ Configuration object
 
 ```
 const bar = {
-    "height": "200",
-    "width": "200",
-    "title": "My Bar Graph",
-    "description": "This is a bar chart",
-    "x": {"field": "a", "title": "My Property A"},
-    "y": {"field": "c", "title": "My Attribute C"}
+    height: 200,
+    width: 200,
+    title: "My Bar Graph",
+    description: "This is a bar chart",
+    x: {field: "a", title: "My Property A"},
+    y: {field: "c", title: "My Attribute C"}
   }
 ```
 
@@ -80,9 +80,9 @@ Data object
 ```
  const barData = {
     "values": [
-      {"a": "A", "c": 28}, {"a": "B", "c": 55}, {"a": "C", "c": 43},
-      {"a": "D", "c": 91}, {"a": "E", "c": 81}, {"a": "F", "c": 53},
-      {"a": "G", "c": 19}, {"a": "H", "c": 87}, {"a": "I", "c": 52}
+      {a: "A", c: 28}, {a: "B", c: 55}, {a: "C", c: 43},
+      {a: "D", c: 91}, {a: "E", c: 81}, {a: "F", c: 53},
+      {a: "G", c: 19}, {a: "H", c: 87}, {a: "I", c: 52}
     ]
   }
 ```
