@@ -1,3 +1,11 @@
+## [1.0.5](https://github.com/LabShare/ls-vision/compare/v1.0.4...v1.0.5) (2020-10-01)
+
+
+### Bug Fixes
+
+* readme ([ddfa776](https://github.com/LabShare/ls-vision/commit/ddfa776b3409317390962ef3df90631f0dcb1ced))
+* readme ([21d2f3f](https://github.com/LabShare/ls-vision/commit/21d2f3f53afbe61243b07a0aab20afab9e9ce703))
+
 ## [1.0.4](https://github.com/LabShare/ls-vision/compare/v1.0.3...v1.0.4) (2020-09-21)
 
 
