@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/LabShare/ls-vision/compare/v1.0.5...v1.0.6) (2021-03-16)
+
+
+### Bug Fixes
+
+* update peerDependencies for angular ([0574703](https://github.com/LabShare/ls-vision/commit/05747034a49b9f3f8079afa829dcd5ac9d8bde6c))
+
 ## [1.0.5](https://github.com/LabShare/ls-vision/compare/v1.0.4...v1.0.5) (2020-10-01)
 
 
