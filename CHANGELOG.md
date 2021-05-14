@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/LabShare/ls-vision/compare/v1.0.6...v1.1.0) (2021-05-14)
+
+
+### Features
+
+* update_jenkinsfile_with_jiraintegration ([c0288bf](https://github.com/LabShare/ls-vision/commit/c0288bfb2d1d3a2557d9fd6d5a8f01b37fb4a244))
+
 ## [1.0.6](https://github.com/LabShare/ls-vision/compare/v1.0.5...v1.0.6) (2021-03-16)
 
 
