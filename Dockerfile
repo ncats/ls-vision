@@ -23,4 +23,4 @@ RUN ng build && \
     
 FROM labshare/docker-base-web
 
-COPY --from=build /var/www/app/dist/ls-vision-app /var/www/app
+COPY --from=build /var/www/app/dist/ls-vision /var/www/app
