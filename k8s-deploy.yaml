@@ -19,5 +19,5 @@ spec:
         image: 684150170045.dkr.ecr.us-east-1.amazonaws.com/ls-vision:BUILD_VERSION
         imagePullPolicy: IfNotPresent
         ports:
-          - containerPort: 8000
+          - containerPort: 4200
       restartPolicy: Always

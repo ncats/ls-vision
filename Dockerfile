@@ -21,6 +21,10 @@ RUN apk update && apk upgrade && \
 RUN ng build && \
     rm -f .npmrc
     
-FROM labshare/docker-base-web
 
-COPY --from=build /var/www/app/dist/ls-vision /var/www/app
+CMD [ "ng", "serve" ]
+
+EXPOSE 4200
+# FROM labshare/docker-base-web
+
+# COPY --from=build /var/www/app/dist/ls-vision /var/www/app
