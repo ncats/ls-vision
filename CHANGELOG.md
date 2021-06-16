@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/LabShare/ls-vision/compare/v1.1.1...v1.1.2) (2021-06-16)
+
+
+### Bug Fixes
+
+* updated api version for deployment ([2ea9ab4](https://github.com/LabShare/ls-vision/commit/2ea9ab4e147a7b089b2b37996435e6f5e4050dfe))
+
 ## [1.1.1](https://github.com/LabShare/ls-vision/compare/v1.1.0...v1.1.1) (2021-06-16)
 
 
