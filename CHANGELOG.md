@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/LabShare/ls-vision/compare/v1.1.0...v1.1.1) (2021-06-16)
+
+
+### Bug Fixes
+
+* Updated K8s Cluster to Polus-CI ([1ac4af7](https://github.com/LabShare/ls-vision/commit/1ac4af7280639296d3b13d0a086c4ea999549346))
+
 # [1.1.0](https://github.com/LabShare/ls-vision/compare/v1.0.6...v1.1.0) (2021-05-14)
 
 
