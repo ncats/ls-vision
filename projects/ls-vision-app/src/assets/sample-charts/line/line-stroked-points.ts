@@ -1,4 +1,4 @@
-import { LsConfig } from 'ls-vision/lib/models/ls-vision';
+import { LsConfig } from '@labshare/ls-vision';
 
 export const linePoints: LsConfig = {
     description: 'Stock prices of 5 Tech Companies over Time.',

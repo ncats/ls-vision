@@ -1,4 +1,4 @@
-import { LsConfig } from 'ls-vision/lib/models/ls-vision';
+import { LsConfig } from '@labshare/ls-vision';
 
 export const donut: LsConfig = {
     description: 'A simple donut chart with embedded data.',

@@ -1,4 +1,4 @@
-import { LsConfig } from 'ls-vision/lib/models/ls-vision';
+import { LsConfig } from '@labshare/ls-vision';
 
 export const pieLabels: LsConfig = {
     description: 'A simple pie chart with labels.',

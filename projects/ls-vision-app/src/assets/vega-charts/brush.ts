@@ -1,4 +1,4 @@
-import { Coordinate, TimeUnit, BoxPlot, ArgmDef, Type, Align, XEnum, SelectionDefType } from 'ls-vision/lib/models/vega-lite';
+import { Coordinate, TimeUnit, BoxPlot, ArgmDef, Type, Align, XEnum, SelectionDefType } from '@labshare/ls-vision';
 
 export const brush: Coordinate = {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
