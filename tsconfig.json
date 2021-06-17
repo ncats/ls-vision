@@ -19,10 +19,10 @@
       "dom"
     ],
     "paths": {
-      "ls-vision": [
+      "@labshare/ls-vision": [
         "dist/ls-vision"
       ],
-      "ls-vision/*": [
+      "@labshare/ls-vision/*": [
         "dist/ls-vision/*"
       ]
     }

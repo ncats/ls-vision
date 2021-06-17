@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LsVisionModule } from 'projects/ls-vision/src/public-api';
+import { LsVisionModule } from '@labshare/ls-vision';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [AppComponent],

@@ -1,4 +1,4 @@
-import { LsConfig } from 'ls-vision/lib/models/ls-vision';
+import { LsConfig } from '@labshare/ls-vision';
 
 export const multiseries: LsConfig = {
     description: 'Stock prices of 5 Tech Companies over Time.',
