@@ -71,7 +71,7 @@ pipeline {
         withAWS(credentials:'aws-jenkins-eks') {
            sh "sed -i 's/BUILD_VERSION/${BUILD_VERSION}/g' k8s-deploy.yaml" 
            sh '''
-           aws --region us-east-1 eks update-kubeconfig --name kube-eks-ci
+           aws --region us-east-1 eks update-kubeconfig --name kube-eks-ci-compute
            kubectl apply -f k8s-deploy.yaml
            kubectl apply -f k8s-service.yaml
            kubectl apply -f k8s-ingress.yaml
@@ -79,5 +79,13 @@ pipeline {
                     }
             }
         }
+    }
+    post {
+        success {
+                jiraSendDeploymentInfo environmentId: 'dev', environmentName: 'dev', environmentType: 'development', site: 'labshare.atlassian.net', state: 'successful'
+        }
+        failure {
+                jiraSendDeploymentInfo environmentId: 'dev', environmentName: 'dev', environmentType: 'development', site: 'labshare.atlassian.net', state: 'failed'
+        } 
     }
 }

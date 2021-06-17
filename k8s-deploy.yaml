@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -15,9 +15,9 @@ spec:
         app: ls-vision-pod-ui
     spec:
       containers:
-        - name: ls-vision
-          image: 684150170045.dkr.ecr.us-east-1.amazonaws.com/ls-vision:BUILD_VERSION
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8000
+      - name: ls-vision
+        image: 684150170045.dkr.ecr.us-east-1.amazonaws.com/ls-vision:BUILD_VERSION
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8000
       restartPolicy: Always
