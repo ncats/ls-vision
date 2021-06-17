@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build @labshare/ls-vision",
-    "build:prod": "ng build @labshare/ls-vision --prod",
+    "build:prod": "ng build @labshare/ls-vision --prod && ng build --prod --project=ls-vision-app",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "coverage": "ng test --codeCoverage=true --watch=false",
     "coverage:watch": "ng test --codeCoverage=true",
