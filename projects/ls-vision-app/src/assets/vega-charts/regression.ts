@@ -1,4 +1,4 @@
-import { Coordinate, TimeUnit, BoxPlot, ArgmDef, Type, Align, XEnum } from 'ls-vision/lib/models/vega-lite';
+import { Coordinate, TimeUnit, BoxPlot, ArgmDef, Type, Align, XEnum } from '@labshare/ls-vision';
 
 export const regression: Coordinate = {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',

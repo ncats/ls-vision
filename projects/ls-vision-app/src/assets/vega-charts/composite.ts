@@ -1,4 +1,4 @@
-import { Coordinate, TimeUnit, BoxPlot, ArgmDef, Type, SelectionDefType, SingleDefUnitChannel } from 'ls-vision/lib/models/vega-lite';
+import { Coordinate, TimeUnit, BoxPlot, ArgmDef, Type, SelectionDefType, SingleDefUnitChannel } from '@labshare/ls-vision';
 
 export const composite: Coordinate = {
     $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
