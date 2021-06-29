@@ -1,3 +1,18 @@
+## [1.1.3](https://github.com/LabShare/ls-vision/compare/v1.1.2...v1.1.3) (2021-06-29)
+
+
+### Bug Fixes
+
+* added build:prod command, removed duplicate exports ([e14d4a7](https://github.com/LabShare/ls-vision/commit/e14d4a7d028f9504fef72c51d61dbb09cf386ca7))
+* build version env ([25ff407](https://github.com/LabShare/ls-vision/commit/25ff40767bcec81041ab4e73fadf72a40a483037))
+* Change port where angular is running ([30de28d](https://github.com/LabShare/ls-vision/commit/30de28dca8f9ed0ea689576a4d7504af4b150449))
+* changed rel paths to library references ([b297ce3](https://github.com/LabShare/ls-vision/commit/b297ce37d0d43fe5708354162a1309590d144e09))
+* Changing Port for service to 8000 ([9b35bc9](https://github.com/LabShare/ls-vision/commit/9b35bc945130ce1699828a6db287617efebc611b))
+* exported directive in public api ([a0b3f86](https://github.com/LabShare/ls-vision/commit/a0b3f86a1b521361776c37875a2e369b6ff8e7b4))
+* jenkinsfile build_version variable in k8s deploy step ([912ec07](https://github.com/LabShare/ls-vision/commit/912ec071e5c5b0e98592cbaa2ecb2800f9372966))
+* linting ([35a5f93](https://github.com/LabShare/ls-vision/commit/35a5f937f4e3843c860495169ed2dcc1ee63d6e5))
+* Port changed to 4200 ([c755243](https://github.com/LabShare/ls-vision/commit/c755243cfb8e791284fc4c5c7e47a17511e6ee7e))
+
 ## [1.1.2](https://github.com/LabShare/ls-vision/compare/v1.1.1...v1.1.2) (2021-06-16)
 
 
