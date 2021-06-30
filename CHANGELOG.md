@@ -1,3 +1,11 @@
+## [1.1.4](https://github.com/LabShare/ls-vision/compare/v1.1.3...v1.1.4) (2021-06-30)
+
+
+### Bug Fixes
+
+* disabled ivy ([728d955](https://github.com/LabShare/ls-vision/commit/728d955adc22a001b61a86c65621cfd22491d714))
+* trigger build ([a39a229](https://github.com/LabShare/ls-vision/commit/a39a229ff4bd56f8e03fd5582d0b7d406bd2d50f))
+
 ## [1.1.3](https://github.com/LabShare/ls-vision/compare/v1.1.2...v1.1.3) (2021-06-29)
 
 
